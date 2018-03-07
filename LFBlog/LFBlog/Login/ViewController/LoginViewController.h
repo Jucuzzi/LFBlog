@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger , LFBlogType) {
+    LFBlogTypeLogin,
+    LFBlogTypeRegister,
+    LFBlogTypeForget,
+};
+
 @interface LoginViewController : UIViewController
+
+@property (nonatomic,assign) LFBlogType type;
 
 @end

@@ -2,4 +2,117 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LFBlog/mine/Service/MeMainService.m"
+            timestampString = "542079931.7911"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "-uploadUserIconWithUserId:userIconData:success:failed:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MeMainService uploadUserIconWithUserId:userIconData:success:failed:]"
+                  moduleName = "LFBlog"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jucuzzi/%E6%A0%B8%E5%BC%B9%E8%AF%95%E9%AA%8C%E5%8C%BA/LFBlog/LFBlog/LFBlog/mine/Service/MeMainService.m"
+                  timestampString = "542019240.886354"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "392">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__70-[MeMainService uploadUserIconWithUserId:userIconData:success:failed:]_block_invoke"
+                  moduleName = "LFBlog"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jucuzzi/%E6%A0%B8%E5%BC%B9%E8%AF%95%E9%AA%8C%E5%8C%BA/LFBlog/LFBlog/LFBlog/mine/Service/MeMainService.m"
+                  timestampString = "542019240.888972"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LFBlog/utils/HttpUtil.m"
+            timestampString = "542079931.7911839"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "-AFNRequestPostWithParameter:url:success:failed:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HttpUtil AFNRequestPostWithParameter:url:success:failed:]"
+                  moduleName = "LFBlog"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jucuzzi/%E6%A0%B8%E5%BC%B9%E8%AF%95%E9%AA%8C%E5%8C%BA/LFBlog/LFBlog/LFBlog/utils/HttpUtil.m"
+                  timestampString = "542019880.800355"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "472">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__59-[HttpUtil AFNRequestPostWithParameter:url:success:failed:]_block_invoke"
+                  moduleName = "LFBlog"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jucuzzi/%E6%A0%B8%E5%BC%B9%E8%AF%95%E9%AA%8C%E5%8C%BA/LFBlog/LFBlog/LFBlog/utils/HttpUtil.m"
+                  timestampString = "542019880.803007"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__59-[HttpUtil AFNRequestPostWithParameter:url:success:failed:]_block_invoke_2"
+                  moduleName = "LFBlog"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jucuzzi/%E6%A0%B8%E5%BC%B9%E8%AF%95%E9%AA%8C%E5%8C%BA/LFBlog/LFBlog/LFBlog/utils/HttpUtil.m"
+                  timestampString = "542019880.805639"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

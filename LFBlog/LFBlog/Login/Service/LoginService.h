@@ -11,11 +11,15 @@
 
 @interface LoginService : LFBaseService
 
-// 查询所有的资讯界面
-- (void)queryInformationWithPageNumber:(NSString *)pageNumber
-                             condition:(NSString *)condition
-                         startedBlock :(ASIBasicBlock)startedBlock
-                               completion:(ASIDataBlock)completionBlock
-                                   failed:(ASIBasicBlock)failedBlock;
+// 正常登录接口
+- (void)normalLoginWithUsername:(NSString *)username
+                            password:(NSString *)password
+                             success:(successBlock)successBlock
+                              failed:(faildBlock)failedBlock;
+
+// 查询用户的所有信息
+- (void)queryUserInfoWithUserId:(NSString *)userId
+                        success:(successBlock)successBlock
+                         failed:(faildBlock)failedBlock;
 
 @end

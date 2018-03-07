@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		2806CFFC204D31BB00A7390B /* LFUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2806CFFB204D31BB00A7390B /* LFUser.m */; };
+		281AA461204E546300A4B657 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AA45C204E546300A4B657 /* UIImage+Extension.m */; };
+		281AA462204E546300A4B657 /* UIImage+GaussianBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AA45D204E546300A4B657 /* UIImage+GaussianBlur.m */; };
+		281AA463204E546300A4B657 /* UIView+HZAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AA45E204E546300A4B657 /* UIView+HZAnimation.m */; };
+		281AA466204E61E400A4B657 /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AA465204E61E400A4B657 /* Singleton.m */; };
+		281AA46E204E7C0E00A4B657 /* MeMainService.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AA46D204E7C0E00A4B657 /* MeMainService.m */; };
+		281AA471204E7CF400A4B657 /* MeMainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AA470204E7CF400A4B657 /* MeMainViewModel.m */; };
+		281AA475204E7FF300A4B657 /* LFHeadImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AA473204E7FF200A4B657 /* LFHeadImageUtil.m */; };
+		281AA478204EA73600A4B657 /* MeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AA477204EA73600A4B657 /* MeInfoViewController.m */; };
+		281AA47B204EAB8800A4B657 /* UserIconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AA47A204EAB8800A4B657 /* UserIconViewController.m */; };
 		283546AA20479ABD00338B40 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 283546A920479ABD00338B40 /* AppDelegate.m */; };
 		283546AD20479ABD00338B40 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 283546AC20479ABD00338B40 /* ViewController.m */; };
 		283546B020479ABD00338B40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283546AE20479ABD00338B40 /* Main.storyboard */; };
@@ -60,6 +69,24 @@
 /* Begin PBXFileReference section */
 		2806CFFA204D31BB00A7390B /* LFUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFUser.h; sourceTree = "<group>"; };
 		2806CFFB204D31BB00A7390B /* LFUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFUser.m; sourceTree = "<group>"; };
+		281AA45B204E546300A4B657 /* UIView+HZAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HZAnimation.h"; sourceTree = "<group>"; };
+		281AA45C204E546300A4B657 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		281AA45D204E546300A4B657 /* UIImage+GaussianBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GaussianBlur.m"; sourceTree = "<group>"; };
+		281AA45E204E546300A4B657 /* UIView+HZAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HZAnimation.m"; sourceTree = "<group>"; };
+		281AA45F204E546300A4B657 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
+		281AA460204E546300A4B657 /* UIImage+GaussianBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GaussianBlur.h"; sourceTree = "<group>"; };
+		281AA464204E61E400A4B657 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		281AA465204E61E400A4B657 /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
+		281AA46C204E7C0E00A4B657 /* MeMainService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeMainService.h; sourceTree = "<group>"; };
+		281AA46D204E7C0E00A4B657 /* MeMainService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeMainService.m; sourceTree = "<group>"; };
+		281AA46F204E7CF400A4B657 /* MeMainViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeMainViewModel.h; sourceTree = "<group>"; };
+		281AA470204E7CF400A4B657 /* MeMainViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeMainViewModel.m; sourceTree = "<group>"; };
+		281AA473204E7FF200A4B657 /* LFHeadImageUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFHeadImageUtil.m; sourceTree = "<group>"; };
+		281AA474204E7FF200A4B657 /* LFHeadImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFHeadImageUtil.h; sourceTree = "<group>"; };
+		281AA476204EA73600A4B657 /* MeInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeInfoViewController.h; sourceTree = "<group>"; };
+		281AA477204EA73600A4B657 /* MeInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeInfoViewController.m; sourceTree = "<group>"; };
+		281AA479204EAB8800A4B657 /* UserIconViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserIconViewController.h; sourceTree = "<group>"; };
+		281AA47A204EAB8800A4B657 /* UserIconViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserIconViewController.m; sourceTree = "<group>"; };
 		283546A520479ABD00338B40 /* LFBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LFBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		283546A820479ABD00338B40 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		283546A920479ABD00338B40 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -218,10 +245,65 @@
 		2806CFF9204D31A400A7390B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				281AA464204E61E400A4B657 /* Singleton.h */,
+				281AA465204E61E400A4B657 /* Singleton.m */,
 				2806CFFA204D31BB00A7390B /* LFUser.h */,
 				2806CFFB204D31BB00A7390B /* LFUser.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		281AA45A204E546300A4B657 /* UIImage+ */ = {
+			isa = PBXGroup;
+			children = (
+				281AA45B204E546300A4B657 /* UIView+HZAnimation.h */,
+				281AA45C204E546300A4B657 /* UIImage+Extension.m */,
+				281AA45D204E546300A4B657 /* UIImage+GaussianBlur.m */,
+				281AA45E204E546300A4B657 /* UIView+HZAnimation.m */,
+				281AA45F204E546300A4B657 /* UIImage+Extension.h */,
+				281AA460204E546300A4B657 /* UIImage+GaussianBlur.h */,
+			);
+			path = "UIImage+";
+			sourceTree = "<group>";
+		};
+		281AA467204E7B8200A4B657 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				28AAD2952049109E00BBA9EC /* MeMainViewController.h */,
+				28AAD2962049109E00BBA9EC /* MeMainViewController.m */,
+				281AA476204EA73600A4B657 /* MeInfoViewController.h */,
+				281AA477204EA73600A4B657 /* MeInfoViewController.m */,
+				281AA479204EAB8800A4B657 /* UserIconViewController.h */,
+				281AA47A204EAB8800A4B657 /* UserIconViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		281AA468204E7B9200A4B657 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				281AA46F204E7CF400A4B657 /* MeMainViewModel.h */,
+				281AA470204E7CF400A4B657 /* MeMainViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		281AA469204E7BA200A4B657 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				281AA46C204E7C0E00A4B657 /* MeMainService.h */,
+				281AA46D204E7C0E00A4B657 /* MeMainService.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		281AA472204E7FB400A4B657 /* ImageChange */ = {
+			isa = PBXGroup;
+			children = (
+				281AA474204E7FF200A4B657 /* LFHeadImageUtil.h */,
+				281AA473204E7FF200A4B657 /* LFHeadImageUtil.m */,
+			);
+			path = ImageChange;
 			sourceTree = "<group>";
 		};
 		2835469C20479ABD00338B40 = {
@@ -300,6 +382,8 @@
 		283546E52047BFCB00338B40 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				281AA472204E7FB400A4B657 /* ImageChange */,
+				281AA45A204E546300A4B657 /* UIImage+ */,
 				28AAD27E2048E86A00BBA9EC /* SGPagingView */,
 				283546E62047BFEA00338B40 /* HttpUtil.h */,
 				283546E72047BFEA00338B40 /* HttpUtil.m */,
@@ -397,8 +481,9 @@
 		28AAD2942049106300BBA9EC /* mine */ = {
 			isa = PBXGroup;
 			children = (
-				28AAD2952049109E00BBA9EC /* MeMainViewController.h */,
-				28AAD2962049109E00BBA9EC /* MeMainViewController.m */,
+				281AA469204E7BA200A4B657 /* Service */,
+				281AA468204E7B9200A4B657 /* ViewModel */,
+				281AA467204E7B8200A4B657 /* ViewController */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -577,24 +662,20 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LFBlog/Pods-LFBlog-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
-				"${BUILT_PRODUCTS_DIR}/ASIHTTPRequest/ASIHTTPRequest.framework",
 				"${BUILT_PRODUCTS_DIR}/Aspects/Aspects.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONKit/JSONKit.framework",
 				"${BUILT_PRODUCTS_DIR}/KafkaRefresh/KafkaRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
-				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ASIHTTPRequest.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Aspects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KafkaRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
@@ -628,6 +709,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				281AA478204EA73600A4B657 /* MeInfoViewController.m in Sources */,
 				28AAD29D20492D2500BBA9EC /* InformationDetailViewController.m in Sources */,
 				28AAD2902048E86A00BBA9EC /* SGPageContentScrollView.m in Sources */,
 				283546F82047FBBD00338B40 /* InformationViewModel.m in Sources */,
@@ -637,16 +719,24 @@
 				28AAD27D2048E82D00BBA9EC /* InformationMainViewController.m in Sources */,
 				283546ED2047CBA700338B40 /* LFBaseService.m in Sources */,
 				2806CFFC204D31BB00A7390B /* LFUser.m in Sources */,
+				281AA475204E7FF300A4B657 /* LFHeadImageUtil.m in Sources */,
 				28AAD2792048E80200BBA9EC /* PersonalCenterChildBaseVC.m in Sources */,
+				281AA46E204E7C0E00A4B657 /* MeMainService.m in Sources */,
 				28AAD2912048E86A00BBA9EC /* SGPageContentView.m in Sources */,
 				283546E82047BFEA00338B40 /* HttpUtil.m in Sources */,
+				281AA471204E7CF400A4B657 /* MeMainViewModel.m in Sources */,
 				283546DD2047A1EE00338B40 /* LoginViewController.m in Sources */,
 				283546E42047BFB100338B40 /* LoginService.m in Sources */,
+				281AA462204E546300A4B657 /* UIImage+GaussianBlur.m in Sources */,
+				281AA466204E61E400A4B657 /* Singleton.m in Sources */,
 				283546AD20479ABD00338B40 /* ViewController.m in Sources */,
+				281AA461204E546300A4B657 /* UIImage+Extension.m in Sources */,
 				283546FB2047FC9800338B40 /* InformationService.m in Sources */,
 				283546B820479ABD00338B40 /* main.m in Sources */,
 				28AAD27A2048E80200BBA9EC /* PersonalCenterTableView.m in Sources */,
 				28AAD2922048E86A00BBA9EC /* SGPageTitleView.m in Sources */,
+				281AA47B204EAB8800A4B657 /* UserIconViewController.m in Sources */,
+				281AA463204E546300A4B657 /* UIView+HZAnimation.m in Sources */,
 				283546F12047CF9000338B40 /* LFBaseViewModel.m in Sources */,
 				283546E02047A20100338B40 /* LoginViewModel.m in Sources */,
 				283546F52047FB9B00338B40 /* InformationViewController.m in Sources */,

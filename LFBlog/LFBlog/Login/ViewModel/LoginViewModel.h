@@ -10,13 +10,15 @@
 
 @interface LoginViewModel : LFBaseViewModel
 
-@property (nonatomic, strong) NSString *pageNumber;
-@property (nonatomic, strong) NSString *condition;
+@property (nonatomic, strong) NSString *userId;
+@property (nonatomic, strong) NSString *userName;
+@property (nonatomic, strong) NSString *password;
 
-@property (nonatomic, strong) NSMutableArray *infoList;
 
 /***************************** 云端命令 ******************************/
 /** 获得所有的资讯内容 */
-@property (nonatomic, strong) RACCommand *queryInformationCommand;
+@property (nonatomic, strong) RACCommand *normalLoginCommand;
+/** 查询用户所有信息 */
+@property (nonatomic, strong) RACCommand *queryUserInfoCommand;
 
 @end

@@ -43,7 +43,6 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     self.tabBarController.tabBar.hidden = YES;
-    [self queryInformationById];
 }
 
 - (void)didReceiveMemoryWarning {

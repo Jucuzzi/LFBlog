@@ -14,19 +14,6 @@ PODS:
   - AFNetworking/Serialization (3.2.0)
   - AFNetworking/UIKit (3.2.0):
     - AFNetworking/NSURLSession
-  - ASIHTTPRequest (1.8.2):
-    - ASIHTTPRequest/ASIWebPageRequest (= 1.8.2)
-    - ASIHTTPRequest/CloudFiles (= 1.8.2)
-    - ASIHTTPRequest/Core (= 1.8.2)
-    - ASIHTTPRequest/S3 (= 1.8.2)
-  - ASIHTTPRequest/ASIWebPageRequest (1.8.2):
-    - ASIHTTPRequest/Core
-  - ASIHTTPRequest/CloudFiles (1.8.2):
-    - ASIHTTPRequest/Core
-  - ASIHTTPRequest/Core (1.8.2):
-    - Reachability
-  - ASIHTTPRequest/S3 (1.8.2):
-    - ASIHTTPRequest/Core
   - Aspects (1.4.1)
   - JSONKit (1.4)
   - KafkaRefresh (1.0.0):
@@ -65,7 +52,6 @@ PODS:
     - KafkaRefresh/Category
     - KafkaRefresh/Default
   - Masonry (1.1.0)
-  - Reachability (3.2)
   - ReactiveObjC (3.0.0)
   - SDWebImage (4.1.2):
     - SDWebImage/Core (= 4.1.2)
@@ -73,7 +59,6 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
-  - ASIHTTPRequest
   - Aspects
   - JSONKit
   - KafkaRefresh
@@ -83,15 +68,13 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
-  ASIHTTPRequest: ec013992946676b7978dcbde6396d57312d21db4
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   JSONKit: 5b69e804ea54d99293eed0fd2ce596c5703fefb0
   KafkaRefresh: 18f3f90d7fd26a58257cc7ba03f6cf7cd0270108
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   ReactiveObjC: ce79989e8684b9086b5f8d0c74bc7b81a8729c9e
   SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
 
-PODFILE CHECKSUM: 89dd729188ccd96d7fb25c1f82b44d93364b671e
+PODFILE CHECKSUM: 88f1d79fcdf41c68ea46862d809edecf5fc5bcf1
 
 COCOAPODS: 1.4.0

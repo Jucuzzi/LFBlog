@@ -166,7 +166,6 @@
             @strongify(self);
             [self.mainTable.headRefreshControl endRefreshing];
             self.isRequesting = NO;
-            NSLog(@"%@",returnData);
             [self.mainTable reloadData];
         }];
     }
@@ -180,7 +179,6 @@
             @strongify(self);
             [self.mainTable.headRefreshControl endRefreshing];
             self.isRequesting = NO;
-            NSLog(@"%@",returnData);
             [self.mainTable reloadData];
         }];
     }

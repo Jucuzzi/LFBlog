@@ -59,7 +59,7 @@ static CGFloat const PersonalCenterVCNavHeight = NAV_TITLE_HEIGHT;
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
--(void)viewWillAppear:(BOOL)animated {
+-(void)viewDidAppear:(BOOL)animated {
     self.tabBarController.tabBar.hidden = NO;
 }
 

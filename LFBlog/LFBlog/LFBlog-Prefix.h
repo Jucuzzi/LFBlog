@@ -23,4 +23,5 @@
 
 /************************************  服务器  ************************************/
 #define LFBlogHttpService @"http://www.jucuzzi.net:8080/HemsCommunity/"
+#define LFBlogUserIconPath @"http://www.jucuzzi.net:8080/HemsCommunity/dist/InformationImage_test/"
 #endif /* LFBlog_Prefix_h */

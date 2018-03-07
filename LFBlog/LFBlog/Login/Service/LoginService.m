@@ -10,21 +10,30 @@
 
 @implementation LoginService
 
-- (void)queryInformationWithPageNumber:(NSString *)pageNumber
-                             condition:(NSString *)condition
-                         startedBlock :(ASIBasicBlock)startedBlock
-                               completion:(ASIDataBlock)completionBlock
-                                   failed:(ASIBasicBlock)failedBlock {
-//    NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithCapacity:1];
-//    [parameter setObject:pageNumber forKey:@"pageNumber"];
-//    [parameter setObject:condition forKey:@"condition"];
-//    [self.httpUtil RequestPostWithParameter:parameter url:@"queryinformation" start:^{
-//        startedBlock();
-//    } completion:^(NSData *data){
-//        completionBlock(data);
-//    } failed:^{
-//        failedBlock();
-//    }];
+- (void)normalLoginWithUsername:(NSString *)username
+                             password:(NSString *)password
+                               success:(successBlock)successBlock
+                                failed:(faildBlock)failedBlock {
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithCapacity:1];
+    [parameter setObject:username forKey:@"username"];
+    [parameter setObject:password forKey:@"password"];
+    [self.httpUtil AFNRequestPostWithParameter:parameter url:@"frontStageUserlogin" success:^(id responseObject) {
+        successBlock(responseObject);
+    } failed:^(NSError * _Nonnull error) {
+        failedBlock(error);
+    }];
+}
+
+- (void)queryUserInfoWithUserId:(NSString *)userId
+                        success:(successBlock)successBlock
+                         failed:(faildBlock)failedBlock {
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithCapacity:1];
+    [parameter setObject:userId forKey:@"userId"];
+    [self.httpUtil AFNRequestPostWithParameter:parameter url:@"queryUserInfo" success:^(id responseObject) {
+        successBlock(responseObject);
+    } failed:^(NSError * _Nonnull error) {
+        failedBlock(error);
+    }];
 }
 
 @end
