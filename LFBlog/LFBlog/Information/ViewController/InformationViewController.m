@@ -48,6 +48,7 @@
     self.mainTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, DEFAULT_HEIGHT -44) style:UITableViewStylePlain];
     _mainTable.delegate = self;
     _mainTable.dataSource = self;
+    _mainTable.backgroundColor = DEFAULT_BACKGROUND_COLOR;
     _mainTable.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_mainTable];
     [self.mainTable bindRefreshStyle:KafkaRefreshStyleReplicatorWoody
@@ -96,13 +97,14 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
     cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.backgroundColor = DEFAULT_BACKGROUND_COLOR;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     if ([self.viewModel.infoList count] == 0) {
-//        _imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Information_main_noData"]];
-//        _imageView.frame = CGRectMake(SCREEN_WIDTH/2-50, 50, 100, 100);
-//        [cell.contentView addSubview:_imageView];
+        UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Information_main_noData"]];
+        imageView.frame = CGRectMake(SCREEN_WIDTH/2-50, 50, 100, 100);
+        [cell.contentView addSubview:imageView];
     } else {
         cell.textLabel.font = [UIFont systemFontOfSize:18];
-        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         UIView *cardView = [[UIView alloc]initWithFrame:CGRectMake(10, 10, SCREEN_WIDTH-20, 90)];
         cardView.layer.cornerRadius = 5;

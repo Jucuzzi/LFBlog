@@ -9,7 +9,7 @@
 #ifndef LFBlog_Prefix_h
 #define LFBlog_Prefix_h
 /************************************  颜色定义  ************************************/
-#define DEFAULT_BACKGROUND_COLOR  [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1]
+#define DEFAULT_BACKGROUND_COLOR  [UIColor colorWithRed:241/255.0 green:243/255.0 blue:245/255.0 alpha:1]
 #define DEFAULT_NAVIGATION_COLOR [UIColor colorWithRed:0 green:171/255.0 blue:253/255.0 alpha:1]
 #define DEFAULT_BLUE_COLOR  [UIColor colorWithRed:0/255.0 green:171/255.0 blue:253/255.0 alpha:1]
 

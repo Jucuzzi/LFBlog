@@ -17,6 +17,9 @@
 		281AA475204E7FF300A4B657 /* LFHeadImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AA473204E7FF200A4B657 /* LFHeadImageUtil.m */; };
 		281AA478204EA73600A4B657 /* MeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AA477204EA73600A4B657 /* MeInfoViewController.m */; };
 		281AA47B204EAB8800A4B657 /* UserIconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AA47A204EAB8800A4B657 /* UserIconViewController.m */; };
+		281AA47F204F8ABB00A4B657 /* DynamicMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AA47E204F8ABB00A4B657 /* DynamicMainViewController.m */; };
+		281AA490204FB24900A4B657 /* CommentDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AA48C204FB24900A4B657 /* CommentDetailTableViewCell.m */; };
+		281AA491204FB24900A4B657 /* CommentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AA48F204FB24900A4B657 /* CommentDetailViewController.m */; };
 		283546AA20479ABD00338B40 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 283546A920479ABD00338B40 /* AppDelegate.m */; };
 		283546AD20479ABD00338B40 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 283546AC20479ABD00338B40 /* ViewController.m */; };
 		283546B020479ABD00338B40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283546AE20479ABD00338B40 /* Main.storyboard */; };
@@ -87,6 +90,12 @@
 		281AA477204EA73600A4B657 /* MeInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeInfoViewController.m; sourceTree = "<group>"; };
 		281AA479204EAB8800A4B657 /* UserIconViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserIconViewController.h; sourceTree = "<group>"; };
 		281AA47A204EAB8800A4B657 /* UserIconViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserIconViewController.m; sourceTree = "<group>"; };
+		281AA47D204F8ABB00A4B657 /* DynamicMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicMainViewController.h; sourceTree = "<group>"; };
+		281AA47E204F8ABB00A4B657 /* DynamicMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicMainViewController.m; sourceTree = "<group>"; };
+		281AA48C204FB24900A4B657 /* CommentDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentDetailTableViewCell.m; sourceTree = "<group>"; };
+		281AA48D204FB24900A4B657 /* CommentDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentDetailTableViewCell.h; sourceTree = "<group>"; };
+		281AA48E204FB24900A4B657 /* CommentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentDetailViewController.h; sourceTree = "<group>"; };
+		281AA48F204FB24900A4B657 /* CommentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentDetailViewController.m; sourceTree = "<group>"; };
 		283546A520479ABD00338B40 /* LFBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LFBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		283546A820479ABD00338B40 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		283546A920479ABD00338B40 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -193,6 +202,10 @@
 				28AAD2752048E80200BBA9EC /* PersonalCenterTopView.h */,
 				28AAD26E2048E80100BBA9EC /* PersonalCenterTopView.m */,
 				28AAD2722048E80200BBA9EC /* PersonalCenterTopView.xib */,
+				281AA48D204FB24900A4B657 /* CommentDetailTableViewCell.h */,
+				281AA48C204FB24900A4B657 /* CommentDetailTableViewCell.m */,
+				281AA48E204FB24900A4B657 /* CommentDetailViewController.h */,
+				281AA48F204FB24900A4B657 /* CommentDetailViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -306,6 +319,15 @@
 			path = ImageChange;
 			sourceTree = "<group>";
 		};
+		281AA47C204F8A5500A4B657 /* dynamic */ = {
+			isa = PBXGroup;
+			children = (
+				281AA47D204F8ABB00A4B657 /* DynamicMainViewController.h */,
+				281AA47E204F8ABB00A4B657 /* DynamicMainViewController.m */,
+			);
+			path = dynamic;
+			sourceTree = "<group>";
+		};
 		2835469C20479ABD00338B40 = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +362,7 @@
 				283546DA2047A1C600338B40 /* Login */,
 				283546F22047FACE00338B40 /* Information */,
 				28AAD2942049106300BBA9EC /* mine */,
+				281AA47C204F8A5500A4B657 /* dynamic */,
 				283546AE20479ABD00338B40 /* Main.storyboard */,
 				283546B120479ABD00338B40 /* Assets.xcassets */,
 				283546B320479ABD00338B40 /* LaunchScreen.storyboard */,
@@ -461,10 +484,10 @@
 		28AAD2842048E86A00BBA9EC /* SGPageContent */ = {
 			isa = PBXGroup;
 			children = (
-				28AAD2852048E86A00BBA9EC /* SGPageContentScrollView.m */,
-				28AAD2862048E86A00BBA9EC /* SGPageContentView.m */,
 				28AAD2872048E86A00BBA9EC /* SGPageContentScrollView.h */,
+				28AAD2852048E86A00BBA9EC /* SGPageContentScrollView.m */,
 				28AAD2882048E86A00BBA9EC /* SGPageContentView.h */,
+				28AAD2862048E86A00BBA9EC /* SGPageContentView.m */,
 			);
 			path = SGPageContent;
 			sourceTree = "<group>";
@@ -472,8 +495,8 @@
 		28AAD2892048E86A00BBA9EC /* SGPageTitle */ = {
 			isa = PBXGroup;
 			children = (
-				28AAD28A2048E86A00BBA9EC /* SGPageTitleView.m */,
 				28AAD28B2048E86A00BBA9EC /* SGPageTitleView.h */,
+				28AAD28A2048E86A00BBA9EC /* SGPageTitleView.m */,
 			);
 			path = SGPageTitle;
 			sourceTree = "<group>";
@@ -715,6 +738,7 @@
 				283546F82047FBBD00338B40 /* InformationViewModel.m in Sources */,
 				28AAD2772048E80200BBA9EC /* PersonalCenterTopView.m in Sources */,
 				28AAD2972049109E00BBA9EC /* MeMainViewController.m in Sources */,
+				281AA491204FB24900A4B657 /* CommentDetailViewController.m in Sources */,
 				28AAD28F2048E86A00BBA9EC /* UIView+SGFrame.m in Sources */,
 				28AAD27D2048E82D00BBA9EC /* InformationMainViewController.m in Sources */,
 				283546ED2047CBA700338B40 /* LFBaseService.m in Sources */,
@@ -727,7 +751,9 @@
 				281AA471204E7CF400A4B657 /* MeMainViewModel.m in Sources */,
 				283546DD2047A1EE00338B40 /* LoginViewController.m in Sources */,
 				283546E42047BFB100338B40 /* LoginService.m in Sources */,
+				281AA490204FB24900A4B657 /* CommentDetailTableViewCell.m in Sources */,
 				281AA462204E546300A4B657 /* UIImage+GaussianBlur.m in Sources */,
+				281AA47F204F8ABB00A4B657 /* DynamicMainViewController.m in Sources */,
 				281AA466204E61E400A4B657 /* Singleton.m in Sources */,
 				283546AD20479ABD00338B40 /* ViewController.m in Sources */,
 				281AA461204E546300A4B657 /* UIImage+Extension.m in Sources */,

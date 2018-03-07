@@ -9,7 +9,7 @@
 #import "LFBaseService.h"
 
 @interface InformationService : LFBaseService
-
+/************************************  资讯主界面  ************************************/
 // 查询所有的资讯界面
 - (void)queryInformationWithPageNumber:(NSInteger)pageNumber
                              condition:(NSString *)condition
@@ -30,6 +30,7 @@
                               success:(successBlock)successBlock
                                failed:(faildBlock)failedBlock;
 
+/************************************  资讯详情界面  ************************************/
 // 查询资讯详情
 - (void)queryInformationById:(NSString *)informationId
                      success:(successBlock)successBlock
@@ -50,4 +51,33 @@
                      success:(successBlock)successBlock
                       failed:(faildBlock)failedBlock;
 
+/************************************  评论界面  ************************************/
+// 查询该条资讯下的所有评论
+- (void)getCommentByInformationId:(NSString *)informationId
+                          pageNum:(NSString *)pageNum
+                          success:(successBlock)successBlock
+                           failed:(faildBlock)failedBlock;
+
+// 发表评论
+- (void)addCommentById:(NSString *)informationId
+         commentDetail:(NSString *)commentDetail
+               success:(successBlock)successBlock
+                failed:(faildBlock)failedBlock;
+
+//删除评论
+- (void)deleteCommentById:(NSString *)commentId
+                  success:(successBlock)successBlock
+                   failed:(faildBlock)failedBlock;
+
+// 举报评论
+- (void)reportCommentById:(NSString *)commentId
+                 reportId:(NSString *)reportId
+                  success:(successBlock)successBlock
+                   failed:(faildBlock)failedBlock;
+
+// 给评论点赞/取消赞
+- (void)thumbWithThumbState:(BOOL)thumbState
+                  commentId:(NSString *)commentId
+                    success:(successBlock)successBlock
+                     failed:(faildBlock)failedBlock;
 @end

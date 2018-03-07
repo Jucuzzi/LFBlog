@@ -47,6 +47,7 @@ static CGFloat const PersonalCenterVCNavHeight = NAV_TITLE_HEIGHT;
     [super viewDidLoad];
     [self initData];
     [self initTitle];
+    [self initView];
     [self initNotification];
     self.view.backgroundColor = [UIColor whiteColor];
 //    self.automaticallyAdjustsScrollViewInsets = NO;
@@ -71,6 +72,10 @@ static CGFloat const PersonalCenterVCNavHeight = NAV_TITLE_HEIGHT;
     self.title = @"资讯";
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonSystemItemCancel target:self action:@selector(closeSelf)];
 //    self.navigationController.navigationBarHidden = NO;
+}
+
+- (void)initView {
+    self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR;
 }
 
 - (void)initNotification {
@@ -271,11 +276,11 @@ static CGFloat const PersonalCenterVCNavHeight = NAV_TITLE_HEIGHT;
         NSArray *titleArr = @[@"官方", @"精品", @"教程", @"娱乐" , @"收藏"];
         /// pageTitleView
         _pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake(0, 0, self.view.frame.size.width, PersonalCenterVCPageTitleViewHeight) delegate:self titleNames:titleArr];
-        _pageTitleView.backgroundColor = DEFAULT_BLUE_COLOR;
-        _pageTitleView.titleColorStateNormal = [UIColor whiteColor];
-        _pageTitleView.titleColorStateSelected = [UIColor whiteColor];
-//        _pageTitleView.title
-         _pageTitleView.titleTextScaling = 1.5f;
+        _pageTitleView.backgroundColor = [UIColor whiteColor];
+        _pageTitleView.titleColorStateNormal = DEFAULT_BLUE_COLOR;
+        _pageTitleView.titleColorStateSelected = DEFAULT_BLUE_COLOR;
+        _pageTitleView.indicatorColor = DEFAULT_BLUE_COLOR;
+        _pageTitleView.titleTextScaling = 1.5f;
         _pageTitleView.indicatorLengthStyle = SGIndicatorLengthStyleEqual;
     }
     return _pageTitleView;

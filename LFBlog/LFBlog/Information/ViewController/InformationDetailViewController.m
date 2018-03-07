@@ -8,7 +8,7 @@
 
 #import "InformationDetailViewController.h"
 #import "InformationViewModel.h"
-//#import "CommentDetailViewController.h"
+#import "CommentDetailViewController.h"
 //#import "MBProgressHUD.h"
 
 @interface InformationDetailViewController ()
@@ -186,9 +186,9 @@
 }
 
 - (void)gotoComment {
-//    CommentDetailViewController *commentVC = [[CommentDetailViewController alloc]init];
-//    commentVC.informationId = self.informationId;
-//    [self.navigationController pushViewController:commentVC animated:YES];
+    CommentDetailViewController *commentVC = [[CommentDetailViewController alloc]init];
+    commentVC.informationId = self.informationId;
+    [self.navigationController pushViewController:commentVC animated:YES];
 }
 
 

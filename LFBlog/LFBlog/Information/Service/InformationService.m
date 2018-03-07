@@ -72,7 +72,6 @@
                                      failed:(faildBlock)failedBlock {
     NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithCapacity:1];
     [parameter setObject:informationId forKey:@"informationId"];
-    [parameter setObject:informationId forKey:@"informationId"];
     [self.httpUtil AFNRequestPostWithParameter:parameter url:@"queryCollectionsInfo" success:^(id responseObject) {
         successBlock(responseObject);
     } failed:^(NSError * _Nonnull error) {
@@ -84,7 +83,6 @@
                                     success:(successBlock)successBlock
                                      failed:(faildBlock)failedBlock{
     NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithCapacity:1];
-    [parameter setObject:informationId forKey:@"informationId"];
     [parameter setObject:informationId forKey:@"informationId"];
     [self.httpUtil AFNRequestPostWithParameter:parameter url:@"addCollections" success:^(id responseObject) {
         successBlock(responseObject);
@@ -98,8 +96,80 @@
                                      failed:(faildBlock)failedBlock {
     NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithCapacity:1];
     [parameter setObject:informationId forKey:@"informationId"];
-    [parameter setObject:informationId forKey:@"informationId"];
     [self.httpUtil AFNRequestPostWithParameter:parameter url:@"collectionDelete" success:^(id responseObject) {
+        successBlock(responseObject);
+    } failed:^(NSError * _Nonnull error) {
+        failedBlock(error);
+    }];
+}
+
+- (void)getCommentByInformationId:(NSString *)informationId
+                          pageNum:(NSString *)pageNum
+                     success:(successBlock)successBlock
+                      failed:(faildBlock)failedBlock {
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithCapacity:1];
+    [parameter setObject:informationId forKey:@"informationId"];
+    [parameter setObject:pageNum forKey:@"pageNum"];
+    [self.httpUtil AFNRequestPostWithParameter:parameter url:@"comment/getComments" success:^(id responseObject) {
+        successBlock(responseObject);
+    } failed:^(NSError * _Nonnull error) {
+        failedBlock(error);
+    }];
+}
+
+- (void)addCommentById:(NSString *)informationId
+         commentDetail:(NSString *)commentDetail
+               success:(successBlock)successBlock
+                failed:(faildBlock)failedBlock {
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithCapacity:1];
+    [parameter setObject:informationId forKey:@"informationId"];
+    [parameter setObject:commentDetail forKey:@"commentDetail"];
+    [self.httpUtil AFNRequestPostWithParameter:parameter url:@"comment/addComment" success:^(id responseObject) {
+        successBlock(responseObject);
+    } failed:^(NSError * _Nonnull error) {
+        failedBlock(error);
+    }];
+}
+
+- (void)deleteCommentById:(NSString *)commentId
+               success:(successBlock)successBlock
+                failed:(faildBlock)failedBlock {
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithCapacity:1];
+    [parameter setObject:commentId forKey:@"commentId"];
+    [self.httpUtil AFNRequestPostWithParameter:parameter url:@"comment/deleteComment" success:^(id responseObject) {
+        successBlock(responseObject);
+    } failed:^(NSError * _Nonnull error) {
+        failedBlock(error);
+    }];
+}
+
+- (void)reportCommentById:(NSString *)commentId
+                 reportId:(NSString *)reportId
+                  success:(successBlock)successBlock
+                   failed:(faildBlock)failedBlock {
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithCapacity:1];
+    [parameter setObject:commentId forKey:@"commentId"];
+    [parameter setObject:reportId forKey:@"reportType"];
+    [self.httpUtil AFNRequestPostWithParameter:parameter url:@"comment/reported" success:^(id responseObject) {
+        successBlock(responseObject);
+    } failed:^(NSError * _Nonnull error) {
+        failedBlock(error);
+    }];
+}
+
+- (void)thumbWithThumbState:(BOOL)thumbState
+                  commentId:(NSString *)commentId
+               success:(successBlock)successBlock
+                failed:(faildBlock)failedBlock {
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithCapacity:1];
+    [parameter setObject:commentId forKey:@"commentId"];
+    NSString *url = @"";
+    if (thumbState) {
+        url = @"comment/cancelThumbsUp";
+    } else {
+        url = @"comment/thumbsUp";
+    }
+    [self.httpUtil AFNRequestPostWithParameter:parameter url:url success:^(id responseObject) {
         successBlock(responseObject);
     } failed:^(NSError * _Nonnull error) {
         failedBlock(error);

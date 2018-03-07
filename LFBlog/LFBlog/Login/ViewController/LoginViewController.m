@@ -334,8 +334,8 @@
 
 
 - (void)normalLoginRequestStart {
-    self.viewModel.userName = @"wlf";
-    self.viewModel.password = @"dtc";
+    self.viewModel.userName = @"123456";
+    self.viewModel.password = @"123456";
     @weakify(self);
     [[self.viewModel.normalLoginCommand execute:nil] subscribeNext:^(NSDictionary *returnData) {
         @strongify(self)

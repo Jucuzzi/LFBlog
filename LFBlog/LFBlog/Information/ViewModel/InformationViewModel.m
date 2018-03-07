@@ -188,6 +188,109 @@
         }];
     }];
     _deleteFromCollectionCommand.allowsConcurrentExecution = YES;
+    
+    _queryCommentCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            @strongify(self);
+            /******************************** 网络请求 *********************************/
+            @weakify(self);
+            [self.service getCommentByInformationId:self.selectedInformationId pageNum:self.commentPageNumber success:^(id responseObject) {
+                @strongify(self);
+                NSDictionary *returnDic = responseObject;
+                [subscriber sendNext:returnDic];
+                [subscriber sendCompleted];
+            } failed:^(NSError *error) {
+                @strongify(self);
+                [self.requestFailedSubject sendNext:nil];
+            }];
+            return nil;
+        }];
+    }];
+    _queryCommentCommand.allowsConcurrentExecution = YES;
+    
+    _addCommentCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            @strongify(self);
+            /******************************** 网络请求 *********************************/
+            @weakify(self);
+            [self.service addCommentById:self.selectedInformationId commentDetail:self.commentDetail success:^(id responseObject) {
+                @strongify(self);
+                NSDictionary *returnDic = responseObject;
+                [subscriber sendNext:returnDic];
+                [subscriber sendCompleted];
+            } failed:^(NSError *error) {
+                @strongify(self);
+                [self.requestFailedSubject sendNext:nil];
+            }];
+            return nil;
+        }];
+    }];
+    _addCommentCommand.allowsConcurrentExecution = YES;
+    
+    _deleteCommentCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            @strongify(self);
+            /******************************** 网络请求 *********************************/
+            @weakify(self);
+            [self.service deleteCommentById:self.commentId success:^(id responseObject) {
+                @strongify(self);
+                NSDictionary *returnDic = responseObject;
+                [subscriber sendNext:returnDic];
+                [subscriber sendCompleted];
+            } failed:^(NSError *error) {
+                @strongify(self);
+                [self.requestFailedSubject sendNext:nil];
+            }];
+            return nil;
+        }];
+    }];
+    _deleteCommentCommand.allowsConcurrentExecution = YES;
+    
+    _reportCommentCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            @strongify(self);
+            /******************************** 网络请求 *********************************/
+            @weakify(self);
+            [self.service reportCommentById:self.commentId reportId:self.reportType success:^(id responseObject) {
+                @strongify(self);
+                NSDictionary *returnDic = responseObject;
+                self.collectNum = [NSString stringWithFormat:@"%d",self.collectNum.intValue -1];
+                self.isCollect = @"0";
+                [subscriber sendNext:returnDic];
+                [subscriber sendCompleted];
+            } failed:^(NSError *error) {
+                @strongify(self);
+                [self.requestFailedSubject sendNext:nil];
+            }];
+            return nil;
+        }];
+    }];
+    _reportCommentCommand.allowsConcurrentExecution = YES;
+    
+    _thumbOrNotCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            @strongify(self);
+//            BOOL thumb = NO;
+//            if ([thumbState isEqualToString:@"1"]) {
+//                thumb = YES;
+//            } else {
+//                thumb = NO;
+//            }
+            /******************************** 网络请求 *********************************/
+            @weakify(self);
+            [self.service thumbWithThumbState:self.thumbState commentId:self.commentId success:^(id responseObject) {
+                @strongify(self);
+                NSDictionary *returnDic = responseObject;
+                [subscriber sendNext:returnDic];
+                [subscriber sendCompleted];
+            } failed:^(NSError *error) {
+                @strongify(self);
+                [self.requestFailedSubject sendNext:nil];
+            }];
+            return nil;
+        }];
+    }];
+    _thumbOrNotCommand.allowsConcurrentExecution = YES;
 }
 
 

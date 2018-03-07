@@ -36,7 +36,7 @@
 - (void)initData {
     self.service = [LoginService service];
 //    self.userId = [Singleton sharedSingleton].userId;
-    self.userId = @"8a8a8bbf5e9e781f015e9e7861260008";
+//    self.userId = @"8a8a8bbf5e9e781f015e9e7861260008";
 }
 
 - (void)initNotification {
@@ -54,7 +54,7 @@
                 @strongify(self);
                 NSDictionary *returnDic = responseObject;
                 if ([returnDic[@"login"] isEqualToString:@"successed"]) {
-                    [Singleton sharedSingleton].userId = returnDic[@"id"];
+                    [Singleton sharedSingleton].userId = returnDic[@"userId"];
                 } else {
                     
                 }
@@ -73,12 +73,11 @@
             @strongify(self);
             /******************************** 网络请求 *********************************/
             @weakify(self);
-            [self.service queryUserInfoWithUserId:self.userId success:^(id responseObject) {
+            [self.service queryUserInfoWithUserId:[Singleton sharedSingleton].userId success:^(id responseObject) {
                 @strongify(self);
                 NSDictionary *returnDic = responseObject;
-                // 模拟数据
-                [Singleton sharedSingleton].userId = @"8a8a8bbf5e9e781f015e9e7861260008";
-                
+//                // 模拟数据
+//                [Singleton sharedSingleton].userId = @"8a8a8bbf5e9e781f015e9e7861260008";
                 [Singleton sharedSingleton].username = returnDic[@"userName"];
                 [Singleton sharedSingleton].nickName = returnDic[@"nickName"];
                 [Singleton sharedSingleton].pictureId = returnDic[@"pictureId"];
