@@ -29,10 +29,6 @@
     [self initView];
 }
 
--(void)viewWillAppear:(BOOL)animated {
-    self.tabBarController.tabBar.hidden = YES;
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

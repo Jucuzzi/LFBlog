@@ -8,6 +8,14 @@
 
 #ifndef LFBlog_Prefix_h
 #define LFBlog_Prefix_h
+
+#define NLSystemVersionGreaterOrEqualThan(version) ([[[UIDevice currentDevice] systemVersion] floatValue] >= version)
+#define IOS7_OR_LATER NLSystemVersionGreaterOrEqualThan(7.0)
+#define IOS8_OR_LATER NLSystemVersionGreaterOrEqualThan(8.0)
+#define IOS9_OR_LATER NLSystemVersionGreaterOrEqualThan(9.0)
+#define IOS10_OR_LATER NLSystemVersionGreaterOrEqualThan(10.0)
+
+
 /************************************  颜色定义  ************************************/
 #define DEFAULT_BACKGROUND_COLOR  [UIColor colorWithRed:241/255.0 green:243/255.0 blue:245/255.0 alpha:1]
 #define DEFAULT_NAVIGATION_COLOR [UIColor colorWithRed:0 green:171/255.0 blue:253/255.0 alpha:1]

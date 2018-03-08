@@ -77,14 +77,14 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     //放入中间的展示评论的列表
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, STATUSBAR_HEIGHT + NAV_TITLE_HEIGHT, SCREEN_WIDTH, DEFAULT_HEIGHT-50) style:UITableViewStyleGrouped];
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, DEFAULT_HEIGHT-50) style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tableView];
     //放入底部进行评论的文本输入框
-    buttomView = [[UIView alloc]initWithFrame:CGRectMake(0, DEFAULT_HEIGHT + STATUSBAR_HEIGHT + NAV_TITLE_HEIGHT - 50, SCREEN_WIDTH, 50)];
+    buttomView = [[UIView alloc]initWithFrame:CGRectMake(0, DEFAULT_HEIGHT - 50, SCREEN_WIDTH, 50)];
     buttomView.backgroundColor = [UIColor whiteColor];
     UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.5)];
     lineView.backgroundColor = [UIColor lightGrayColor];
@@ -128,7 +128,7 @@
 - (void)keyboardWillHide:(NSNotification *)notification {
     //恢复到默认y为0的状态，有时候要考虑导航栏要+64
     CGRect frame = buttomView.frame;
-    frame.origin.y =  DEFAULT_HEIGHT + STATUSBAR_HEIGHT + NAV_TITLE_HEIGHT - 50;
+    frame.origin.y =  DEFAULT_HEIGHT - 50;
     buttomView.frame = frame;
     _isKeyboardUped = NO;
 }
@@ -230,7 +230,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[NSString stringWithFormat:@"%ld-%ld",indexPath.section,indexPath.row]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         UIImageView *noInfoTip = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
-        noInfoTip.image = [UIImage imageNamed:@"history_empty"];
+        noInfoTip.image = [UIImage imageNamed:@"Information_main_noData"];
         noInfoTip.center = CGPointMake(SCREEN_WIDTH / 2, 60);
         [cell.contentView addSubview:noInfoTip];
         UILabel *noDataLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 110, SCREEN_WIDTH, 30)];
@@ -247,56 +247,59 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([[NSString stringWithFormat:@"%@",_commentArr[indexPath.row][@"isSelf"]] isEqualToString:@"1"]) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"请选择" message:@"" preferredStyle:(UIAlertControllerStyleActionSheet)];
-        __weak __typeof__(self) weakSelf = self;
-        UIAlertAction *replyAction = [UIAlertAction actionWithTitle:@"回复" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-            if (nil == _commentArr[indexPath.row][@"name"]) {
-                commentView.placeholder = @"@NULL:";
-            } else {
-                commentView.placeholder = [NSString stringWithFormat:@"@%@:",[[NSString alloc] initWithCString:[_commentArr[indexPath.row][@"name"] cStringUsingEncoding:NSISOLatin1StringEncoding]encoding:NSUTF8StringEncoding]];
-            }
-            weakSelf.isReply = YES;
-        }];
-        UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [weakSelf deleteCommentByCommentId:_commentArr[indexPath.row][@"commentId"]];
-        }];
-        [alert addAction:replyAction];
-        [alert addAction:deleteAction];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [alert dismissViewControllerAnimated:YES completion:nil];
-        }];
-        [alert addAction:cancelAction];
-        [self presentViewController:alert animated:YES completion:nil];
-    } else {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"请选择" message:@"" preferredStyle:(UIAlertControllerStyleActionSheet)];
-        __weak __typeof__(self) weakSelf = self;
-        UIAlertAction *replyAction = [UIAlertAction actionWithTitle:@"回复" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-            if (nil == _commentArr[indexPath.row][@"name"]) {
-                commentView.placeholder = @"@NULL:";
-            } else {
-                commentView.placeholder = [NSString stringWithFormat:@"@%@:",[[NSString alloc] initWithCString:[_commentArr[indexPath.row][@"name"] cStringUsingEncoding:NSISOLatin1StringEncoding]encoding:NSUTF8StringEncoding]];
-            }
-            weakSelf.isReply = YES;
-        }];
-        UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            UIAlertController *reportActionController = [UIAlertController alertControllerWithTitle:@"请选择举报类型" message:@"" preferredStyle:(UIAlertControllerStyleAlert)];
-            [_reportTypeArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                NSString *reportType = [[NSString alloc]initWithCString:[obj[@"reportValue"] cStringUsingEncoding:NSISOLatin1StringEncoding] encoding:NSUTF8StringEncoding];
-                UIAlertAction *reportAction = [UIAlertAction actionWithTitle:reportType style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-                    [weakSelf reportCommentByCommentId:_commentArr[indexPath.row][@"commentId"] reportId:_reportTypeArr[idx][@"reportId"]];
-                }];
-                [reportActionController addAction:reportAction];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if ([_commentArr count] != 0) {
+        if ([[NSString stringWithFormat:@"%@",_commentArr[indexPath.row][@"isSelf"]] isEqualToString:@"1"]) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"请选择" message:@"" preferredStyle:(UIAlertControllerStyleActionSheet)];
+            __weak __typeof__(self) weakSelf = self;
+            UIAlertAction *replyAction = [UIAlertAction actionWithTitle:@"回复" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+                if (nil == _commentArr[indexPath.row][@"name"]) {
+                    commentView.placeholder = @"@NULL:";
+                } else {
+                    commentView.placeholder = [NSString stringWithFormat:@"@%@:",[[NSString alloc] initWithCString:[_commentArr[indexPath.row][@"name"] cStringUsingEncoding:NSISOLatin1StringEncoding]encoding:NSUTF8StringEncoding]];
+                }
+                weakSelf.isReply = YES;
             }];
-            [self presentViewController:reportActionController animated:YES completion:nil];
-        }];
-        [alert addAction:replyAction];
-        [alert addAction:deleteAction];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [alert dismissViewControllerAnimated:YES completion:nil];
-        }];
-        [alert addAction:cancelAction];
-        [self presentViewController:alert animated:YES completion:nil];
+            UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [weakSelf deleteCommentByCommentId:_commentArr[indexPath.row][@"commentId"]];
+            }];
+            [alert addAction:replyAction];
+            [alert addAction:deleteAction];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [alert dismissViewControllerAnimated:YES completion:nil];
+            }];
+            [alert addAction:cancelAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        } else {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"请选择" message:@"" preferredStyle:(UIAlertControllerStyleActionSheet)];
+            __weak __typeof__(self) weakSelf = self;
+            UIAlertAction *replyAction = [UIAlertAction actionWithTitle:@"回复" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+                if (nil == _commentArr[indexPath.row][@"name"]) {
+                    commentView.placeholder = @"@NULL:";
+                } else {
+                    commentView.placeholder = [NSString stringWithFormat:@"@%@:",[[NSString alloc] initWithCString:[_commentArr[indexPath.row][@"name"] cStringUsingEncoding:NSISOLatin1StringEncoding]encoding:NSUTF8StringEncoding]];
+                }
+                weakSelf.isReply = YES;
+            }];
+            UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                UIAlertController *reportActionController = [UIAlertController alertControllerWithTitle:@"请选择举报类型" message:@"" preferredStyle:(UIAlertControllerStyleAlert)];
+                [_reportTypeArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    NSString *reportType = obj[@"reportValue"];
+                    UIAlertAction *reportAction = [UIAlertAction actionWithTitle:reportType style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+                        [weakSelf reportCommentByCommentId:_commentArr[indexPath.row][@"commentId"] reportId:_reportTypeArr[idx][@"reportId"]];
+                    }];
+                    [reportActionController addAction:reportAction];
+                }];
+                [self presentViewController:reportActionController animated:YES completion:nil];
+            }];
+            [alert addAction:replyAction];
+            [alert addAction:deleteAction];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [alert dismissViewControllerAnimated:YES completion:nil];
+            }];
+            [alert addAction:cancelAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
     }
 }
 

@@ -38,10 +38,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    self.tabBarController.tabBar.hidden = NO;
-}
-
 #pragma mark - 初始化方法
 
 - (void)initData {
@@ -56,10 +52,11 @@
 
 - (void)initView {
     self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR;
-    UITableView *accountTable = [[UITableView alloc]initWithFrame:CGRectMake(0, STATUSBAR_HEIGHT + NAV_TITLE_HEIGHT, SCREEN_WIDTH, DEFAULT_HEIGHT) style:UITableViewStyleGrouped];
+    UITableView *accountTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, DEFAULT_HEIGHT) style:UITableViewStyleGrouped];
     [self.view addSubview:accountTable];
     
     accountTable.backgroundColor = DEFAULT_BACKGROUND_COLOR;
+    accountTable.separatorStyle = NO;
     accountTable.delegate = self;
     accountTable.dataSource = self;
 }

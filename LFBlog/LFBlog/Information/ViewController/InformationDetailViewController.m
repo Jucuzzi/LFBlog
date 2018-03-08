@@ -28,7 +28,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-//        self.hidesBottomBarWhenPushed = YES;
+        self.hidesBottomBarWhenPushed = YES;
     }
     return self;
 }
@@ -39,10 +39,6 @@
     [self initData];
     [self initTitle];
     
-}
-
--(void)viewWillAppear:(BOOL)animated {
-    self.tabBarController.tabBar.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,7 +62,7 @@
 - (void)initView {
     self.view.backgroundColor = [UIColor whiteColor];
     /************************************  标题label  ************************************/
-    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 20 + NAV_TITLE_HEIGHT + STATUSBAR_HEIGHT, SCREEN_WIDTH - 40, 50)];
+    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 20 , SCREEN_WIDTH - 40, 50)];
     titleLabel.font = [UIFont boldSystemFontOfSize:20.f];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.numberOfLines = 0;
@@ -74,21 +70,21 @@
     titleLabel.text = self.viewModel.infoDetailData[@"title"];
     [self.view addSubview:titleLabel];
     /************************************  来源label  ************************************/
-    UILabel *authorLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 80+ NAV_TITLE_HEIGHT + STATUSBAR_HEIGHT, 120, 20)];
+    UILabel *authorLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 80, 120, 20)];
     authorLabel.font = [UIFont systemFontOfSize:13.f];
     authorLabel.textAlignment = NSTextAlignmentLeft;
     authorLabel.text = [NSString stringWithFormat:@"作者:%@",self.viewModel.infoDetailData[@"author"]];
     authorLabel.textColor = [UIColor lightGrayColor];
     [self.view addSubview:authorLabel];
     
-    UILabel *sourceLabel = [[UILabel alloc]initWithFrame:CGRectMake(145,80+ NAV_TITLE_HEIGHT + STATUSBAR_HEIGHT, 120, 20)];
+    UILabel *sourceLabel = [[UILabel alloc]initWithFrame:CGRectMake(145,80, 120, 20)];
     sourceLabel.font = [UIFont systemFontOfSize:13.f];
     sourceLabel.textAlignment = NSTextAlignmentLeft;
     sourceLabel.text = [NSString stringWithFormat:@"来源:%@",self.viewModel.infoDetailData[@"source"]];
     sourceLabel.textColor = [UIColor lightGrayColor];
     [self.view addSubview:sourceLabel];
     /************************************  时间label  ************************************/
-    UILabel *timeLabel = [[UILabel alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-100, 80+ NAV_TITLE_HEIGHT + STATUSBAR_HEIGHT, 80, 20)];
+    UILabel *timeLabel = [[UILabel alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-100, 80, 80, 20)];
     timeLabel.font = [UIFont systemFontOfSize:13.f];
     timeLabel.textAlignment = NSTextAlignmentRight;
     timeLabel.text = [NSString stringWithFormat:@"%@-%@ %@:%@",[self.viewModel.infoDetailData[@"releaseTime"] substringWithRange:NSMakeRange(4, 2)],[self.viewModel.infoDetailData[@"releaseTime"]substringWithRange:NSMakeRange(6, 2)],[self.viewModel.infoDetailData[@"releaseTime"]substringWithRange:NSMakeRange(8, 2)],[self.viewModel.infoDetailData[@"releaseTime"]substringWithRange:NSMakeRange(10, 2)]] ;
@@ -99,7 +95,7 @@
     
     strHTML = [strHTML stringByReplacingOccurrencesOfString:@"<img" withString:@"<br><img width='80%' style='padding-left:10%;padding-top:10px;padding-bottom:10px;'"];
     
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 110+ NAV_TITLE_HEIGHT + STATUSBAR_HEIGHT, SCREEN_WIDTH, DEFAULT_HEIGHT - 170)];
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 110, SCREEN_WIDTH, DEFAULT_HEIGHT - 170)];
     webView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:webView];
     
@@ -124,7 +120,7 @@
 //    [htmlLabel sizeToFit];
 //    [htmlLabel setContentMode:UIViewContentModeTop];
     /************************************  底部的操作栏  ************************************/
-    UIView *buttomView = [[UIView alloc]initWithFrame:CGRectMake(0, DEFAULT_HEIGHT-60 + NAV_TITLE_HEIGHT + STATUSBAR_HEIGHT, SCREEN_WIDTH, 130)];
+    UIView *buttomView = [[UIView alloc]initWithFrame:CGRectMake(0, DEFAULT_HEIGHT-60, SCREEN_WIDTH, 130)];
     buttomView.backgroundColor = [UIColor colorWithRed:250/255.f green:250/255.f blue:250/255.f alpha:1];
     //左边的喜欢按钮
     _likeBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, 20, 20, 20)];

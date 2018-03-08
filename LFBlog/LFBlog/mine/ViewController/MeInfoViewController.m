@@ -23,15 +23,19 @@
 
 @implementation MeInfoViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initData];
     [self initTitle];
     [self initView];
-}
-
--(void)viewWillAppear:(BOOL)animated {
-    self.tabBarController.tabBar.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,7 +56,8 @@
 
 - (void)initView {
     self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR;
-    mainTable = [[UITableView alloc]initWithFrame:CGRectMake(0, STATUSBAR_HEIGHT+NAV_TITLE_HEIGHT, SCREEN_WIDTH, DEFAULT_HEIGHT) style:UITableViewStyleGrouped];
+    mainTable = [[UITableView alloc]initWithFrame:CGRectMake(0,0, SCREEN_WIDTH, DEFAULT_HEIGHT) style:UITableViewStyleGrouped];
+    mainTable.separatorStyle = NO;
     mainTable.dataSource = self;
     mainTable.delegate = self;
     mainTable.backgroundColor = DEFAULT_BACKGROUND_COLOR;

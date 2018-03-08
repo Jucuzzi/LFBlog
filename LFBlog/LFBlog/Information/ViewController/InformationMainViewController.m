@@ -12,6 +12,7 @@
 #import "PersonalCenterTopView.h"
 #import "PersonalCenterTableView.h"
 #import "UIView+SGFrame.h"
+#import "PYSearch.h"
 //#import "ImageBtn.h"
 //#import "HttpUtil.h"
 //#import "Singleton.h"
@@ -19,9 +20,9 @@
 //#import "ValleyEnergyMainViewController.h"
 //#import "SURefreshHeader.h"
 
-#define PersonalCenterVCTopViewHeight [[UIScreen mainScreen]bounds].size.width/2
+#define PersonalCenterVCTopViewHeight [[UIScreen mainScreen]bounds].size.width/2 - 30
 
-@interface InformationMainViewController ()  <UITableViewDelegate, UITableViewDataSource, SGPageTitleViewDelegate, SGPageContentViewDelegate, PersonalCenterChildBaseVCDelegate>
+@interface InformationMainViewController ()  <UITableViewDelegate, UITableViewDataSource, SGPageTitleViewDelegate, SGPageContentViewDelegate, PersonalCenterChildBaseVCDelegate,UISearchBarDelegate>
 @property (nonatomic, strong) SGPageTitleView *pageTitleView;
 @property (nonatomic, strong) SGPageContentView *pageContentView;
 @property (nonatomic, strong) PersonalCenterTableView *tableView;
@@ -60,18 +61,33 @@ static CGFloat const PersonalCenterVCNavHeight = NAV_TITLE_HEIGHT;
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    self.tabBarController.tabBar.hidden = NO;
-}
-
 - (void)initData {
     self.canScroll = YES;
 }
 
 - (void)initTitle {
-    self.title = @"资讯";
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonSystemItemCancel target:self action:@selector(closeSelf)];
-//    self.navigationController.navigationBarHidden = NO;
+//    self.title = @"资讯";
+    
+    CGRect mainViewBounds = self.navigationController.view.bounds;
+    UISearchBar *customSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(20, CGRectGetMinY(mainViewBounds)+STATUSBAR_HEIGHT +2, SCREEN_WIDTH - 40, 40)];
+    customSearchBar.delegate = self;
+    customSearchBar.showsCancelButton = NO;
+    customSearchBar.searchBarStyle = UISearchBarStyleMinimal;
+    [self.navigationController.view addSubview: customSearchBar];
+    
+    
+    // 1. Create hotSearches array
+//    NSArray *hotSeaches = @[@"Java", @"Python", @"Objective-C", @"Swift", @"C", @"C++", @"PHP", @"C#", @"Perl", @"Go", @"JavaScript", @"R", @"Ruby", @"MATLAB"];
+//    // 2. Create searchViewController
+//    PYSearchViewController *searchViewController = [PYSearchViewController searchViewControllerWithHotSearches:hotSeaches searchBarPlaceholder:@"Search programming language" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
+//        // Call this Block when completion search automatically
+//        // Such as: Push to a view controller
+//        [searchViewController.navigationController pushViewController:[[UIViewController alloc] init] animated:YES];
+//        
+//    }];
+//    // 3. present the searchViewController
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:searchViewController];
+//    [self presentViewController:nav  animated:NO completion:nil];
 }
 
 - (void)initView {
@@ -127,7 +143,7 @@ static CGFloat const PersonalCenterVCNavHeight = NAV_TITLE_HEIGHT;
 
 - (void)foundTableView {
     CGFloat tableViewX = 0;
-    CGFloat tableViewY = NAV_TITLE_HEIGHT +STATUSBAR_HEIGHT;
+    CGFloat tableViewY = 0;
     CGFloat tableViewW = self.view.frame.size.width;
     CGFloat tableViewH = DEFAULT_HEIGHT;
     self.tableView = [[PersonalCenterTableView alloc] initWithFrame:CGRectMake(tableViewX, tableViewY, tableViewW, tableViewH) style:(UITableViewStylePlain)];
@@ -239,9 +255,10 @@ static CGFloat const PersonalCenterVCNavHeight = NAV_TITLE_HEIGHT;
 
 - (PersonalCenterTopView *)topView {
     if (!_topView) {
-        _topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, PersonalCenterVCTopViewHeight)];
-        _backGroundImage = [[UIImageView alloc]initWithFrame:_topView.frame];
-        _backGroundImage.image = [UIImage imageNamed:@"Information_main_background"];
+        _topView = [[PersonalCenterTopView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, PersonalCenterVCTopViewHeight)];
+//        _backGroundImage = [[UIImageView alloc]initWithFrame:_topView.frame];
+//        _backGroundImage.image = [UIImage imageNamed:@"Information_main_background"];
+        _topView.backgroundColor = [UIColor whiteColor];
         [_topView addSubview:_backGroundImage];
 //        ImageBtn *gotoEnergy = [[ImageBtn alloc] initWithFrame:CGRectMake((SCREEN_WIDTH/2-ButtonWidth)/2, PersonalCenterVCTopViewHeight-20-Buttonheight, ButtonWidth, Buttonheight)];
 //        [gotoEnergy resetdata:@"绿色谷电" :[UIImage imageNamed:@"Information_main_energy"] :VI_GREEN_COLOR];

@@ -20,6 +20,10 @@
 		281AA47F204F8ABB00A4B657 /* DynamicMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AA47E204F8ABB00A4B657 /* DynamicMainViewController.m */; };
 		281AA490204FB24900A4B657 /* CommentDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AA48C204FB24900A4B657 /* CommentDetailTableViewCell.m */; };
 		281AA491204FB24900A4B657 /* CommentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AA48F204FB24900A4B657 /* CommentDetailViewController.m */; };
+		281AA4A72050D21100A4B657 /* libPods-无限轮播图.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 281AA4A62050D21000A4B657 /* libPods-无限轮播图.a */; };
+		281AA4A82050D25100A4B657 /* HW3DBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AA4952050CBA700A4B657 /* HW3DBannerView.m */; };
+		281AA4A92050D25100A4B657 /* UIView+Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AA4962050CBA700A4B657 /* UIView+Banner.m */; };
+		281AA4AD2050F36A00A4B657 /* AddDynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AA4AC2050F36A00A4B657 /* AddDynamicViewController.m */; };
 		283546AA20479ABD00338B40 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 283546A920479ABD00338B40 /* AppDelegate.m */; };
 		283546AD20479ABD00338B40 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 283546AC20479ABD00338B40 /* ViewController.m */; };
 		283546B020479ABD00338B40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283546AE20479ABD00338B40 /* Main.storyboard */; };
@@ -49,6 +53,7 @@
 		28AAD2932048E86A00BBA9EC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 28AAD28D2048E86A00BBA9EC /* README.md */; };
 		28AAD2972049109E00BBA9EC /* MeMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AAD2962049109E00BBA9EC /* MeMainViewController.m */; };
 		28AAD29D20492D2500BBA9EC /* InformationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AAD29C20492D2400BBA9EC /* InformationDetailViewController.m */; };
+		28C4DD2F205152DB00E4EF2F /* UINavigationController+CommonTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD2E205152DB00E4EF2F /* UINavigationController+CommonTitle.m */; };
 		47BA93FB027B213FD20980D7 /* Pods_LFBlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F06CB98B198C02B4B08DED /* Pods_LFBlog.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +101,13 @@
 		281AA48D204FB24900A4B657 /* CommentDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentDetailTableViewCell.h; sourceTree = "<group>"; };
 		281AA48E204FB24900A4B657 /* CommentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentDetailViewController.h; sourceTree = "<group>"; };
 		281AA48F204FB24900A4B657 /* CommentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentDetailViewController.m; sourceTree = "<group>"; };
+		281AA4942050CBA700A4B657 /* UIView+Banner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Banner.h"; sourceTree = "<group>"; };
+		281AA4952050CBA700A4B657 /* HW3DBannerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HW3DBannerView.m; sourceTree = "<group>"; };
+		281AA4962050CBA700A4B657 /* UIView+Banner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Banner.m"; sourceTree = "<group>"; };
+		281AA4972050CBA700A4B657 /* HW3DBannerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HW3DBannerView.h; sourceTree = "<group>"; };
+		281AA4A62050D21000A4B657 /* libPods-无限轮播图.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPods-无限轮播图.a"; sourceTree = "<group>"; };
+		281AA4AB2050F36A00A4B657 /* AddDynamicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddDynamicViewController.h; sourceTree = "<group>"; };
+		281AA4AC2050F36A00A4B657 /* AddDynamicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddDynamicViewController.m; sourceTree = "<group>"; };
 		283546A520479ABD00338B40 /* LFBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LFBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		283546A820479ABD00338B40 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		283546A920479ABD00338B40 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -155,6 +167,8 @@
 		28AAD2962049109E00BBA9EC /* MeMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeMainViewController.m; sourceTree = "<group>"; };
 		28AAD29B20492D2400BBA9EC /* InformationDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InformationDetailViewController.h; sourceTree = "<group>"; };
 		28AAD29C20492D2400BBA9EC /* InformationDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InformationDetailViewController.m; sourceTree = "<group>"; };
+		28C4DD2D205152DB00E4EF2F /* UINavigationController+CommonTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+CommonTitle.h"; sourceTree = "<group>"; };
+		28C4DD2E205152DB00E4EF2F /* UINavigationController+CommonTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+CommonTitle.m"; sourceTree = "<group>"; };
 		4E5C8F92F2434978ACF89CD4 /* Pods-LFBlog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFBlog.release.xcconfig"; path = "Pods/Target Support Files/Pods-LFBlog/Pods-LFBlog.release.xcconfig"; sourceTree = "<group>"; };
 		614AE38BA1A8945B85AE9C37 /* Pods-LFBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFBlog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LFBlog/Pods-LFBlog.debug.xcconfig"; sourceTree = "<group>"; };
 		A5F06CB98B198C02B4B08DED /* Pods_LFBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LFBlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47BA93FB027B213FD20980D7 /* Pods_LFBlog.framework in Frameworks */,
+				281AA4A72050D21100A4B657 /* libPods-无限轮播图.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,10 +337,31 @@
 		281AA47C204F8A5500A4B657 /* dynamic */ = {
 			isa = PBXGroup;
 			children = (
-				281AA47D204F8ABB00A4B657 /* DynamicMainViewController.h */,
-				281AA47E204F8ABB00A4B657 /* DynamicMainViewController.m */,
+				281AA4AA2050F02900A4B657 /* ViewController */,
 			);
 			path = dynamic;
+			sourceTree = "<group>";
+		};
+		281AA4932050CBA700A4B657 /* HW3DBannerView */ = {
+			isa = PBXGroup;
+			children = (
+				281AA4942050CBA700A4B657 /* UIView+Banner.h */,
+				281AA4952050CBA700A4B657 /* HW3DBannerView.m */,
+				281AA4962050CBA700A4B657 /* UIView+Banner.m */,
+				281AA4972050CBA700A4B657 /* HW3DBannerView.h */,
+			);
+			path = HW3DBannerView;
+			sourceTree = "<group>";
+		};
+		281AA4AA2050F02900A4B657 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				281AA47D204F8ABB00A4B657 /* DynamicMainViewController.h */,
+				281AA47E204F8ABB00A4B657 /* DynamicMainViewController.m */,
+				281AA4AB2050F36A00A4B657 /* AddDynamicViewController.h */,
+				281AA4AC2050F36A00A4B657 /* AddDynamicViewController.m */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		2835469C20479ABD00338B40 = {
@@ -405,6 +441,7 @@
 		283546E52047BFCB00338B40 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				281AA4932050CBA700A4B657 /* HW3DBannerView */,
 				281AA472204E7FB400A4B657 /* ImageChange */,
 				281AA45A204E546300A4B657 /* UIImage+ */,
 				28AAD27E2048E86A00BBA9EC /* SGPagingView */,
@@ -417,6 +454,8 @@
 		283546E92047CB8900338B40 /* commom */ = {
 			isa = PBXGroup;
 			children = (
+				28C4DD2D205152DB00E4EF2F /* UINavigationController+CommonTitle.h */,
+				28C4DD2E205152DB00E4EF2F /* UINavigationController+CommonTitle.m */,
 				283546EE2047CF7E00338B40 /* ViewModel */,
 				283546EA2047CB9100338B40 /* Service */,
 			);
@@ -523,6 +562,7 @@
 		F2B0DA54EE8862A73296A6EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				281AA4A62050D21000A4B657 /* libPods-无限轮播图.a */,
 				A5F06CB98B198C02B4B08DED /* Pods_LFBlog.framework */,
 			);
 			name = Frameworks;
@@ -598,6 +638,7 @@
 				TargetAttributes = {
 					283546A420479ABD00338B40 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					283546BC20479ABD00338B40 = {
@@ -689,6 +730,7 @@
 				"${BUILT_PRODUCTS_DIR}/JSONKit/JSONKit.framework",
 				"${BUILT_PRODUCTS_DIR}/KafkaRefresh/KafkaRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/PYSearch/PYSearch.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
@@ -699,6 +741,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KafkaRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PYSearch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
@@ -732,8 +775,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				281AA4A82050D25100A4B657 /* HW3DBannerView.m in Sources */,
+				281AA4A92050D25100A4B657 /* UIView+Banner.m in Sources */,
 				281AA478204EA73600A4B657 /* MeInfoViewController.m in Sources */,
 				28AAD29D20492D2500BBA9EC /* InformationDetailViewController.m in Sources */,
+				281AA4AD2050F36A00A4B657 /* AddDynamicViewController.m in Sources */,
 				28AAD2902048E86A00BBA9EC /* SGPageContentScrollView.m in Sources */,
 				283546F82047FBBD00338B40 /* InformationViewModel.m in Sources */,
 				28AAD2772048E80200BBA9EC /* PersonalCenterTopView.m in Sources */,
@@ -755,6 +801,7 @@
 				281AA462204E546300A4B657 /* UIImage+GaussianBlur.m in Sources */,
 				281AA47F204F8ABB00A4B657 /* DynamicMainViewController.m in Sources */,
 				281AA466204E61E400A4B657 /* Singleton.m in Sources */,
+				28C4DD2F205152DB00E4EF2F /* UINavigationController+CommonTitle.m in Sources */,
 				283546AD20479ABD00338B40 /* ViewController.m in Sources */,
 				281AA461204E546300A4B657 /* UIImage+Extension.m in Sources */,
 				283546FB2047FC9800338B40 /* InformationService.m in Sources */,
@@ -930,13 +977,22 @@
 			baseConfigurationReference = 614AE38BA1A8945B85AE9C37 /* Pods-LFBlog.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2USDXC5L3D;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LFBlog/LFBlog-Prefix.h";
 				INFOPLIST_FILE = LFBlog/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.telek.HemsCommunity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LFBlog/dynamic/ViewController/LFBlog-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
@@ -947,13 +1003,21 @@
 			baseConfigurationReference = 4E5C8F92F2434978ACF89CD4 /* Pods-LFBlog.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2USDXC5L3D;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LFBlog/LFBlog-Prefix.h";
 				INFOPLIST_FILE = LFBlog/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.telek.HemsCommunity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LFBlog/dynamic/ViewController/LFBlog-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
