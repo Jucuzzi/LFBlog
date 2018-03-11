@@ -22,7 +22,9 @@
 
 #define PersonalCenterVCTopViewHeight [[UIScreen mainScreen]bounds].size.width/2 - 30
 
-@interface InformationMainViewController ()  <UITableViewDelegate, UITableViewDataSource, SGPageTitleViewDelegate, SGPageContentViewDelegate, PersonalCenterChildBaseVCDelegate,UISearchBarDelegate>
+@interface InformationMainViewController ()  <UITableViewDelegate, UITableViewDataSource, SGPageTitleViewDelegate, SGPageContentViewDelegate, PersonalCenterChildBaseVCDelegate,UISearchBarDelegate> {
+    UISearchBar *customSearchBar;
+}
 @property (nonatomic, strong) SGPageTitleView *pageTitleView;
 @property (nonatomic, strong) SGPageContentView *pageContentView;
 @property (nonatomic, strong) PersonalCenterTableView *tableView;
@@ -57,6 +59,14 @@ static CGFloat const PersonalCenterVCNavHeight = NAV_TITLE_HEIGHT;
     [self foundTableView];
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [self.navigationController.view addSubview: customSearchBar];
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [customSearchBar removeFromSuperview];
+}
+
 -(void)dealloc {
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
@@ -69,7 +79,7 @@ static CGFloat const PersonalCenterVCNavHeight = NAV_TITLE_HEIGHT;
 //    self.title = @"资讯";
     
     CGRect mainViewBounds = self.navigationController.view.bounds;
-    UISearchBar *customSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(20, CGRectGetMinY(mainViewBounds)+STATUSBAR_HEIGHT +2, SCREEN_WIDTH - 40, 40)];
+    customSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(20, CGRectGetMinY(mainViewBounds)+STATUSBAR_HEIGHT +2, SCREEN_WIDTH - 40, 40)];
     customSearchBar.delegate = self;
     customSearchBar.showsCancelButton = NO;
     customSearchBar.searchBarStyle = UISearchBarStyleMinimal;
@@ -294,7 +304,7 @@ static CGFloat const PersonalCenterVCNavHeight = NAV_TITLE_HEIGHT;
         /// pageTitleView
         _pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake(0, 0, self.view.frame.size.width, PersonalCenterVCPageTitleViewHeight) delegate:self titleNames:titleArr];
         _pageTitleView.backgroundColor = [UIColor whiteColor];
-        _pageTitleView.titleColorStateNormal = DEFAULT_BLUE_COLOR;
+        _pageTitleView.titleColorStateNormal = [UIColor blackColor];
         _pageTitleView.titleColorStateSelected = DEFAULT_BLUE_COLOR;
         _pageTitleView.indicatorColor = DEFAULT_BLUE_COLOR;
         _pageTitleView.titleTextScaling = 1.5f;

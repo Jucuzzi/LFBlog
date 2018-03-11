@@ -116,7 +116,7 @@
             if (indexPath.row == 0) {
                 cell.textLabel.text = @"修改头像";
                 UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - 100, 10, 60, 60)];
-                [imageView sd_setImageWithURL:[NSURL URLWithString:[Singleton sharedSingleton].userIconPath] placeholderImage:nil options:SDWebImageProgressiveDownload];
+                [imageView sd_setImageWithURL:[NSURL URLWithString:[Singleton sharedSingleton].userIconPath] placeholderImage:[UIImage imageNamed:@"user_default"] options:SDWebImageProgressiveDownload];
                 imageView.layer.masksToBounds = YES;
                 imageView.layer.cornerRadius = 30.f;
                 [cell.contentView addSubview:imageView];

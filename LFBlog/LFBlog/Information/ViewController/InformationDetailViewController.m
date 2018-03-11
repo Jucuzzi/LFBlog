@@ -62,7 +62,7 @@
 - (void)initView {
     self.view.backgroundColor = [UIColor whiteColor];
     /************************************  标题label  ************************************/
-    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 20 , SCREEN_WIDTH - 40, 50)];
+    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 10 , SCREEN_WIDTH - 40, 50)];
     titleLabel.font = [UIFont boldSystemFontOfSize:20.f];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.numberOfLines = 0;
@@ -70,21 +70,21 @@
     titleLabel.text = self.viewModel.infoDetailData[@"title"];
     [self.view addSubview:titleLabel];
     /************************************  来源label  ************************************/
-    UILabel *authorLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 80, 120, 20)];
+    UILabel *authorLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 70, 120, 20)];
     authorLabel.font = [UIFont systemFontOfSize:13.f];
     authorLabel.textAlignment = NSTextAlignmentLeft;
     authorLabel.text = [NSString stringWithFormat:@"作者:%@",self.viewModel.infoDetailData[@"author"]];
     authorLabel.textColor = [UIColor lightGrayColor];
     [self.view addSubview:authorLabel];
     
-    UILabel *sourceLabel = [[UILabel alloc]initWithFrame:CGRectMake(145,80, 120, 20)];
+    UILabel *sourceLabel = [[UILabel alloc]initWithFrame:CGRectMake(145,70, 120, 20)];
     sourceLabel.font = [UIFont systemFontOfSize:13.f];
     sourceLabel.textAlignment = NSTextAlignmentLeft;
     sourceLabel.text = [NSString stringWithFormat:@"来源:%@",self.viewModel.infoDetailData[@"source"]];
     sourceLabel.textColor = [UIColor lightGrayColor];
     [self.view addSubview:sourceLabel];
     /************************************  时间label  ************************************/
-    UILabel *timeLabel = [[UILabel alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-100, 80, 80, 20)];
+    UILabel *timeLabel = [[UILabel alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-100, 70, 80, 20)];
     timeLabel.font = [UIFont systemFontOfSize:13.f];
     timeLabel.textAlignment = NSTextAlignmentRight;
     timeLabel.text = [NSString stringWithFormat:@"%@-%@ %@:%@",[self.viewModel.infoDetailData[@"releaseTime"] substringWithRange:NSMakeRange(4, 2)],[self.viewModel.infoDetailData[@"releaseTime"]substringWithRange:NSMakeRange(6, 2)],[self.viewModel.infoDetailData[@"releaseTime"]substringWithRange:NSMakeRange(8, 2)],[self.viewModel.infoDetailData[@"releaseTime"]substringWithRange:NSMakeRange(10, 2)]] ;

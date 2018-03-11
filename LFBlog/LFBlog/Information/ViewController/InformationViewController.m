@@ -109,8 +109,8 @@
         UIView *cardView = [[UIView alloc]initWithFrame:CGRectMake(10, 10, SCREEN_WIDTH-20, 90)];
         cardView.layer.cornerRadius = 5;
         cardView.layer.shadowColor = [UIColor lightGrayColor].CGColor;
-        cardView.layer.shadowOffset = CGSizeMake(2,2);
-        cardView.layer.shadowOpacity = 0.6f;
+        cardView.layer.shadowOpacity = 0.2f;
+        cardView.layer.shadowRadius = 3;
         cardView.backgroundColor = [UIColor whiteColor];
         cardView.layer.shadowOffset = CGSizeMake(1,1);
         //放入资讯的缩略图

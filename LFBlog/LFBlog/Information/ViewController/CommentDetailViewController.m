@@ -10,6 +10,7 @@
 #import "CommentDetailTableViewCell.h"
 #import "InformationViewModel.h"
 #import "UIImageView+WebCache.h"
+#import "KafkaRefresh.h"
 
 @interface CommentDetailViewController () <UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,CommentDetailTableViewCellDelegate>{
     UIView *buttomView;
@@ -82,6 +83,11 @@
     _tableView.dataSource = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.backgroundColor = [UIColor whiteColor];
+    [self.tableView bindRefreshStyle:KafkaRefreshStyleReplicatorWoody
+                           fillColor:DEFAULT_BLUE_COLOR
+                          atPosition:KafkaRefreshPositionHeader refreshHanler:^{
+                              [self getCommentByPage:_currentPage];
+                          }];
     [self.view addSubview:_tableView];
     //放入底部进行评论的文本输入框
     buttomView = [[UIView alloc]initWithFrame:CGRectMake(0, DEFAULT_HEIGHT - 50, SCREEN_WIDTH, 50)];
@@ -120,7 +126,7 @@
     CGFloat height = keyboardFrame.origin.y;
     CGFloat transformY = height;
     CGRect frame = buttomView.frame;
-    frame.origin.y = transformY - 50;
+    frame.origin.y = transformY - 50 - STATUSBAR_HEIGHT - NAV_TITLE_HEIGHT;
     buttomView.frame = frame;
     _isKeyboardUped = YES;
 }
@@ -219,11 +225,11 @@
         }
         NSString *commentText = cellData[@"commentDetail"];
         [cell setCommmentDetailWithText:commentText];
-        CGRect labelRect = [commentText boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 90, 1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15.f]} context:nil];
+//        CGRect labelRect = [commentText boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 90, 1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15.f]} context:nil];
         
-        UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(10, labelRect.size.height + 80 - 0.5, SCREEN_WIDTH - 10, 0.5)];
-        lineView.backgroundColor = [UIColor lightGrayColor];
-        [cell.contentView addSubview:lineView];
+//        UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(10, labelRect.size.height + 80 - 0.5, SCREEN_WIDTH - 10, 0.5)];
+//        lineView.backgroundColor = [UIColor lightGrayColor];
+//        [cell.contentView addSubview:lineView];
         return cell;
     } else {
         UITableViewCell *cell;
@@ -311,6 +317,7 @@
     @weakify(self);
     [[self.viewModel.queryCommentCommand execute:nil] subscribeNext:^(NSDictionary *returnData) {
         @strongify(self);
+        [self.tableView.refreshControl endRefreshing];
         NSLog(@"删除的结果是%@",returnData);
         self.reportTypeArr = returnData[@"reportTypeList"];
         self.commentArr = [[NSMutableArray alloc]initWithCapacity:1];

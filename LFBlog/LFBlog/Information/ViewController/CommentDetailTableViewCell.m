@@ -46,6 +46,9 @@
     _thumbButton = [[UIButton alloc]init];
     [self addSubview:_thumbButton];
     
+    _lineView = [[UIView alloc]init];
+    _lineView.backgroundColor = DEFAULT_BACKGROUND_COLOR;
+    [self addSubview:_lineView];
 }
 
 //赋值 and 自动换行,计算出cell的高度
@@ -65,6 +68,7 @@
     self.thumbIcon.frame = CGRectMake(SCREEN_WIDTH - 40, labelRect.size.height+ 50, 20, 20);
     self.thumbButton.frame = CGRectMake(SCREEN_WIDTH - 160, labelRect.size.height +50, 160, 30);
     [self.thumbButton addTarget:self action:@selector(thumb) forControlEvents:UIControlEventTouchUpInside];
+    self.lineView.frame = CGRectMake(20, labelRect.size.height + 80 - 0.5, SCREEN_WIDTH - 30, 0.5);
     //计算出自适应的高度
     frame.size.height = labelRect.size.height + 80;
     

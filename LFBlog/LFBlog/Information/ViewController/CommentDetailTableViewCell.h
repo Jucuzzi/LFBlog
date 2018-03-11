@@ -30,10 +30,14 @@
 //右下角的点赞按钮
 @property (nonatomic, strong) UIButton *thumbButton;
 
+@property (nonatomic, strong) UIView *lineView;
+
 @property (nonatomic, assign) BOOL thumbState;
 
 @property (nonatomic, assign) id delegate;
 
 -(void)setCommmentDetailWithText:(NSString*)text;
+
+
 
 @end

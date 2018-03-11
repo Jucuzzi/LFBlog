@@ -54,6 +54,10 @@
 		28AAD2972049109E00BBA9EC /* MeMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AAD2962049109E00BBA9EC /* MeMainViewController.m */; };
 		28AAD29D20492D2500BBA9EC /* InformationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AAD29C20492D2400BBA9EC /* InformationDetailViewController.m */; };
 		28C4DD2F205152DB00E4EF2F /* UINavigationController+CommonTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD2E205152DB00E4EF2F /* UINavigationController+CommonTitle.m */; };
+		28C4DD3320522F5000E4EF2F /* DiscoverMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD3220522F5000E4EF2F /* DiscoverMainViewController.m */; };
+		28C4DD39205247F500E4EF2F /* DiscoverService.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD38205247F500E4EF2F /* DiscoverService.m */; };
+		28C4DD3C2052491E00E4EF2F /* DiscoverViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD3B2052491E00E4EF2F /* DiscoverViewModel.m */; };
+		28C4DD412052B5CF00E4EF2F /* DynamicService.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD402052B5CF00E4EF2F /* DynamicService.m */; };
 		47BA93FB027B213FD20980D7 /* Pods_LFBlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F06CB98B198C02B4B08DED /* Pods_LFBlog.framework */; };
 /* End PBXBuildFile section */
 
@@ -169,6 +173,14 @@
 		28AAD29C20492D2400BBA9EC /* InformationDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InformationDetailViewController.m; sourceTree = "<group>"; };
 		28C4DD2D205152DB00E4EF2F /* UINavigationController+CommonTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+CommonTitle.h"; sourceTree = "<group>"; };
 		28C4DD2E205152DB00E4EF2F /* UINavigationController+CommonTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+CommonTitle.m"; sourceTree = "<group>"; };
+		28C4DD3120522F5000E4EF2F /* DiscoverMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoverMainViewController.h; sourceTree = "<group>"; };
+		28C4DD3220522F5000E4EF2F /* DiscoverMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoverMainViewController.m; sourceTree = "<group>"; };
+		28C4DD37205247F500E4EF2F /* DiscoverService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoverService.h; sourceTree = "<group>"; };
+		28C4DD38205247F500E4EF2F /* DiscoverService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoverService.m; sourceTree = "<group>"; };
+		28C4DD3A2052491E00E4EF2F /* DiscoverViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoverViewModel.h; sourceTree = "<group>"; };
+		28C4DD3B2052491E00E4EF2F /* DiscoverViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoverViewModel.m; sourceTree = "<group>"; };
+		28C4DD3F2052B5CF00E4EF2F /* DynamicService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicService.h; sourceTree = "<group>"; };
+		28C4DD402052B5CF00E4EF2F /* DynamicService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicService.m; sourceTree = "<group>"; };
 		4E5C8F92F2434978ACF89CD4 /* Pods-LFBlog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFBlog.release.xcconfig"; path = "Pods/Target Support Files/Pods-LFBlog/Pods-LFBlog.release.xcconfig"; sourceTree = "<group>"; };
 		614AE38BA1A8945B85AE9C37 /* Pods-LFBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFBlog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LFBlog/Pods-LFBlog.debug.xcconfig"; sourceTree = "<group>"; };
 		A5F06CB98B198C02B4B08DED /* Pods_LFBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LFBlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -337,6 +349,8 @@
 		281AA47C204F8A5500A4B657 /* dynamic */ = {
 			isa = PBXGroup;
 			children = (
+				28C4DD3E2052B5B300E4EF2F /* Service */,
+				28C4DD3D2052B5A800E4EF2F /* ViewModel */,
 				281AA4AA2050F02900A4B657 /* ViewController */,
 			);
 			path = dynamic;
@@ -399,6 +413,7 @@
 				283546F22047FACE00338B40 /* Information */,
 				28AAD2942049106300BBA9EC /* mine */,
 				281AA47C204F8A5500A4B657 /* dynamic */,
+				28C4DD302052222900E4EF2F /* Discover */,
 				283546AE20479ABD00338B40 /* Main.storyboard */,
 				283546B120479ABD00338B40 /* Assets.xcassets */,
 				283546B320479ABD00338B40 /* LaunchScreen.storyboard */,
@@ -548,6 +563,59 @@
 				281AA467204E7B8200A4B657 /* ViewController */,
 			);
 			path = mine;
+			sourceTree = "<group>";
+		};
+		28C4DD302052222900E4EF2F /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				28C4DD352052479500E4EF2F /* Service */,
+				28C4DD362052479B00E4EF2F /* ViewModel */,
+				28C4DD342052478600E4EF2F /* ViewController */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		28C4DD342052478600E4EF2F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				28C4DD3120522F5000E4EF2F /* DiscoverMainViewController.h */,
+				28C4DD3220522F5000E4EF2F /* DiscoverMainViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		28C4DD352052479500E4EF2F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				28C4DD37205247F500E4EF2F /* DiscoverService.h */,
+				28C4DD38205247F500E4EF2F /* DiscoverService.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		28C4DD362052479B00E4EF2F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				28C4DD3A2052491E00E4EF2F /* DiscoverViewModel.h */,
+				28C4DD3B2052491E00E4EF2F /* DiscoverViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		28C4DD3D2052B5A800E4EF2F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		28C4DD3E2052B5B300E4EF2F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				28C4DD3F2052B5CF00E4EF2F /* DynamicService.h */,
+				28C4DD402052B5CF00E4EF2F /* DynamicService.m */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		B1AC524E84E5CCFDBD31222A /* Pods */ = {
@@ -776,13 +844,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				281AA4A82050D25100A4B657 /* HW3DBannerView.m in Sources */,
+				28C4DD412052B5CF00E4EF2F /* DynamicService.m in Sources */,
 				281AA4A92050D25100A4B657 /* UIView+Banner.m in Sources */,
+				28C4DD3320522F5000E4EF2F /* DiscoverMainViewController.m in Sources */,
 				281AA478204EA73600A4B657 /* MeInfoViewController.m in Sources */,
 				28AAD29D20492D2500BBA9EC /* InformationDetailViewController.m in Sources */,
 				281AA4AD2050F36A00A4B657 /* AddDynamicViewController.m in Sources */,
 				28AAD2902048E86A00BBA9EC /* SGPageContentScrollView.m in Sources */,
 				283546F82047FBBD00338B40 /* InformationViewModel.m in Sources */,
 				28AAD2772048E80200BBA9EC /* PersonalCenterTopView.m in Sources */,
+				28C4DD3C2052491E00E4EF2F /* DiscoverViewModel.m in Sources */,
 				28AAD2972049109E00BBA9EC /* MeMainViewController.m in Sources */,
 				281AA491204FB24900A4B657 /* CommentDetailViewController.m in Sources */,
 				28AAD28F2048E86A00BBA9EC /* UIView+SGFrame.m in Sources */,
@@ -791,6 +862,7 @@
 				2806CFFC204D31BB00A7390B /* LFUser.m in Sources */,
 				281AA475204E7FF300A4B657 /* LFHeadImageUtil.m in Sources */,
 				28AAD2792048E80200BBA9EC /* PersonalCenterChildBaseVC.m in Sources */,
+				28C4DD39205247F500E4EF2F /* DiscoverService.m in Sources */,
 				281AA46E204E7C0E00A4B657 /* MeMainService.m in Sources */,
 				28AAD2912048E86A00BBA9EC /* SGPageContentView.m in Sources */,
 				283546E82047BFEA00338B40 /* HttpUtil.m in Sources */,

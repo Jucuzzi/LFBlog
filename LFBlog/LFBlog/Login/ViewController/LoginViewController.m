@@ -56,12 +56,12 @@
     [self.view addSubview:closeButton];
     
     // 顶上的textlogo
-    UIImageView *textLogo = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"textLogo"]];
+    UIImageView *textLogo = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"logo"]];
     [self.view addSubview:textLogo];
     [textLogo mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
-        make.top.equalTo(self.view).offset(150);
-        make.size.mas_equalTo(CGSizeMake(210, 40));
+        make.top.equalTo(self.view).offset(100);
+        make.size.mas_equalTo(CGSizeMake(100, 100));
     }];
     
     // 放入帐号和密码输入的表格

@@ -71,7 +71,7 @@ static CGFloat const SGPageTitleViewBtnMargin = 20;
 static CGFloat const SGIndicatorTypeSpecialMultipleLength = 20;
 
 - (instancetype)initWithFrame:(CGRect)frame delegate:(id<SGPageTitleViewDelegate>)delegate titleNames:(NSArray *)titleNames {
-    self.titleFont = [UIFont systemFontOfSize:15];
+    self.titleFont = [UIFont boldSystemFontOfSize:15];
     return [self initWithFrame:frame delegate:delegate titleNames:titleNames titleFont:self.titleFont];
 }
 
@@ -127,7 +127,7 @@ static CGFloat const SGIndicatorTypeSpecialMultipleLength = 20;
     [self setupTitleButtons];
     
     // 3、添加底部分割线
-    [self addSubview:self.bottomSeparator];
+//    [self addSubview:self.bottomSeparator];
     
     // 4、添加指示器长度样式
     self.indicatorLengthStyle = SGIndicatorLengthStyleDefault;

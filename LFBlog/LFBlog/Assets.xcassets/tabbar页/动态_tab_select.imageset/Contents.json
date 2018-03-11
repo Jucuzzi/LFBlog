@@ -6,12 +6,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "动态tab_select@2x.png",
+      "filename" : "动态_tab_select@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "动态tab_select.png",
+      "filename" : "动态_tab_select.png",
       "scale" : "3x"
     }
   ],
