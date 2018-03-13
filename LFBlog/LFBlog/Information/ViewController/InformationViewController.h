@@ -21,4 +21,6 @@ typedef NS_ENUM(NSInteger, HZCommunityInformationType)  {
 
 @property (assign,nonatomic) HZCommunityInformationType type;
 @property (nonatomic, assign) BOOL vcCanScroll;
+@property (nonatomic, assign) BOOL isBottom;
+@property (nonatomic, assign) BOOL isTop;
 @end

@@ -13,6 +13,8 @@
 #import "PersonalCenterTableView.h"
 #import "UIView+SGFrame.h"
 #import "PYSearch.h"
+#import "EditorViewController.h"
+#import "BlocksKit+UIKit.h"
 //#import "ImageBtn.h"
 //#import "HttpUtil.h"
 //#import "Singleton.h"
@@ -79,25 +81,17 @@ static CGFloat const PersonalCenterVCNavHeight = NAV_TITLE_HEIGHT;
 //    self.title = @"资讯";
     
     CGRect mainViewBounds = self.navigationController.view.bounds;
-    customSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(20, CGRectGetMinY(mainViewBounds)+STATUSBAR_HEIGHT +2, SCREEN_WIDTH - 40, 40)];
+    customSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(20, CGRectGetMinY(mainViewBounds)+STATUSBAR_HEIGHT +5, SCREEN_WIDTH - 85, 35)];
     customSearchBar.delegate = self;
     customSearchBar.showsCancelButton = NO;
     customSearchBar.searchBarStyle = UISearchBarStyleMinimal;
     [self.navigationController.view addSubview: customSearchBar];
     
-    
-    // 1. Create hotSearches array
-//    NSArray *hotSeaches = @[@"Java", @"Python", @"Objective-C", @"Swift", @"C", @"C++", @"PHP", @"C#", @"Perl", @"Go", @"JavaScript", @"R", @"Ruby", @"MATLAB"];
-//    // 2. Create searchViewController
-//    PYSearchViewController *searchViewController = [PYSearchViewController searchViewControllerWithHotSearches:hotSeaches searchBarPlaceholder:@"Search programming language" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
-//        // Call this Block when completion search automatically
-//        // Such as: Push to a view controller
-//        [searchViewController.navigationController pushViewController:[[UIViewController alloc] init] animated:YES];
-//        
-//    }];
-//    // 3. present the searchViewController
-//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:searchViewController];
-//    [self presentViewController:nav  animated:NO completion:nil];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"takePhotoIcon"] style:UIBarButtonItemStyleDone target:self action:@selector(publishArticle)];
+}
+
+- (void)publishArticle {
+    [self.navigationController pushViewController:[[EditorViewController alloc]init] animated:YES];
 }
 
 - (void)initView {
@@ -137,11 +131,6 @@ static CGFloat const PersonalCenterVCNavHeight = NAV_TITLE_HEIGHT;
 
 - (void)changeVCScrollState:(NSNotification *)note {
     self.canScroll = YES;
-    self.oneVC.vcCanScroll = NO;
-    self.twoVC.vcCanScroll = NO;
-    self.threeVC.vcCanScroll = NO;
-    self.fourVC.vcCanScroll = NO;
-    self.fiveVC.vcCanScroll = NO;
 }
 
 
@@ -178,41 +167,93 @@ static CGFloat const PersonalCenterVCNavHeight = NAV_TITLE_HEIGHT;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView == _tableView) {
         CGFloat offSetY = scrollView.contentOffset.y;
-        CGFloat data = ABS(offSetY);
-//        NSLog(@"offset_y = %f",offSetY);
-        if (offSetY<=0) {
-            self.canScroll = NO;
-            self.oneVC.vcCanScroll = YES;
-            self.twoVC.vcCanScroll =YES;
-            self.threeVC.vcCanScroll = YES;
-            self.fourVC.vcCanScroll = YES;
-            self.fiveVC.vcCanScroll = YES;
-            scrollView.contentOffset = CGPointMake(0, 0);
-            return;
-//            _backGroundImage.frame = CGRectMake(-data , -data, self.view.frame.size.width +2*data, PersonalCenterVCTopViewHeight+data);
-        }
-        if (offSetY>=PersonalCenterVCTopViewHeight) {
-            scrollView.contentOffset = CGPointMake(0, PersonalCenterVCTopViewHeight);
+        //滑倒底部
+        if (offSetY<0) {
             if (self.canScroll) {
                 self.canScroll = NO;
                 self.oneVC.vcCanScroll = YES;
+                self.oneVC.isTop = NO;
+                self.oneVC.isBottom = YES;
                 self.twoVC.vcCanScroll =YES;
+                self.twoVC.isTop = NO;
+                self.twoVC.isBottom = YES;
                 self.threeVC.vcCanScroll = YES;
+                self.threeVC.isTop = NO;
+                self.threeVC.isBottom = YES;
                 self.fourVC.vcCanScroll = YES;
+                self.fourVC.isTop = NO;
+                self.fourVC.isBottom = YES;
                 self.fiveVC.vcCanScroll = YES;
+                self.fiveVC.isTop = NO;
+                self.fiveVC.isBottom = YES;
+                scrollView.contentOffset = CGPointMake(0, 0);
+            } else {
+                scrollView.contentOffset = CGPointMake(0, 0);
             }
-        } else  {
-            self.canScroll = YES;
-            self.oneVC.vcCanScroll = NO;
-            self.twoVC.vcCanScroll =NO;
-            self.threeVC.vcCanScroll = NO;
-            self.fourVC.vcCanScroll = NO;
-            self.fiveVC.vcCanScroll = NO;
-        }
-        if (!self.canScroll) {
-            scrollView.contentOffset = CGPointMake(0, PersonalCenterVCTopViewHeight);
             return;
         }
+        if (offSetY>=PersonalCenterVCTopViewHeight) {
+            //顶部
+            if (self.canScroll) {
+                self.canScroll = NO;
+                self.oneVC.vcCanScroll = YES;
+                self.oneVC.isTop = YES;
+                self.oneVC.isBottom = NO;
+                self.twoVC.vcCanScroll =YES;
+                self.twoVC.isTop = YES;
+                self.twoVC.isBottom = NO;
+                self.threeVC.vcCanScroll = YES;
+                self.threeVC.isTop = YES;
+                self.threeVC.isBottom = NO;
+                self.fourVC.vcCanScroll = YES;
+                self.fourVC.isTop = YES;
+                self.fourVC.isBottom = NO;
+                self.fiveVC.vcCanScroll = YES;
+                self.fiveVC.isTop = YES;
+                self.fiveVC.isBottom = NO;
+                scrollView.contentOffset = CGPointMake(0, PersonalCenterVCTopViewHeight);
+            } else {
+                scrollView.contentOffset = CGPointMake(0, PersonalCenterVCTopViewHeight);
+            }
+            return;
+        }
+        if (self.canScroll) {
+            self.oneVC.vcCanScroll = NO;
+            self.oneVC.isTop = NO;
+            self.oneVC.isBottom = NO;
+            self.twoVC.vcCanScroll =NO;
+            self.twoVC.isTop = NO;
+            self.twoVC.isBottom = NO;
+            self.threeVC.vcCanScroll = NO;
+            self.threeVC.isTop = NO;
+            self.threeVC.isBottom = NO;
+            self.fourVC.vcCanScroll = NO;
+            self.fourVC.isTop = NO;
+            self.fourVC.isBottom = NO;
+            self.fiveVC.vcCanScroll = NO;
+            self.fiveVC.isTop = NO;
+            self.fiveVC.isBottom = NO;
+        } else {
+            if (self.oneVC.isTop) {
+                scrollView.contentOffset = CGPointMake(0, PersonalCenterVCTopViewHeight);
+            }else {
+                scrollView.contentOffset = CGPointMake(0, 0);
+            }
+        }
+//                scrollView.contentOffset = CGPointMake(0, PersonalCenterVCTopViewHeight);
+//            } else {
+//                self.oneVC.vcCanScroll = NO;
+//                self.twoVC.vcCanScroll =NO;
+//                self.threeVC.vcCanScroll = NO;
+//                self.fourVC.vcCanScroll = NO;
+//                self.fiveVC.vcCanScroll = NO;
+//            }
+//            self.canScroll = YES;
+        
+//        if (!self.canScroll) {
+//            scrollView.contentOffset = CGPointMake(0, PersonalCenterVCTopViewHeight);
+//            return;
+//        }
         
 //        if (self.childVCScrollView && _childVCScrollView.contentOffset.y > 0) {
 //            self.tableView.contentOffset = CGPointMake(0, PersonalCenterVCTopViewHeight);

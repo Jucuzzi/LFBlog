@@ -7,6 +7,9 @@ pod 'SDWebImage'
 pod 'JSONKit'
 pod 'KafkaRefresh'
 pod 'AFNetworking'
-pod "PYSearch"
+pod 'PYSearch'
+pod 'YYKit'
+pod 'TZImagePickerController'
+pod 'BlocksKit'
 end
 use_frameworks!

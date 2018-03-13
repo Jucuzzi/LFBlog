@@ -176,4 +176,16 @@
     }];
 }
 
+- (void)uploadImageWithImage:(UIImage *)image
+                    success:(successBlock)successBlock
+                     failed:(faildBlock)failedBlock {
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithCapacity:1];
+    [parameter setObject:[UIImageJPEGRepresentation(image, 1) base64Encoding] forKey:@"photoData"];
+    [self.httpUtil AFNRequestPostWithParameter:parameter url:@"addPhoto" success:^(id responseObject) {
+        successBlock(responseObject);
+    } failed:^(NSError * _Nonnull error) {
+        failedBlock(error);
+    }];
+}
+
 @end

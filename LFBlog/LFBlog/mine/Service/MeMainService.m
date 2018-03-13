@@ -24,4 +24,16 @@
     }];
 }
 
+- (void)queryUserInfoWithUserId:(NSString *)userId
+                        success:(successBlock)successBlock
+                         failed:(faildBlock)failedBlock {
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithCapacity:1];
+    [parameter setObject:userId forKey:@"userId"];
+    [self.httpUtil AFNRequestPostWithParameter:parameter url:@"queryUserInfo" success:^(id responseObject) {
+        successBlock(responseObject);
+    } failed:^(NSError * _Nonnull error) {
+        failedBlock(error);
+    }];
+}
+
 @end

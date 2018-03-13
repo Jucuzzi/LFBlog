@@ -62,4 +62,8 @@
 /** 点赞/取消赞 */
 @property (nonatomic, strong) RACCommand *thumbOrNotCommand;
 
+/************************************  上传资讯的接口  ************************************/
+/** 上传图片接口 */
+@property (nonatomic, strong) RACCommand *uploadImageCommand;
+
 @end

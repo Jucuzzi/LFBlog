@@ -58,6 +58,20 @@
 		28C4DD39205247F500E4EF2F /* DiscoverService.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD38205247F500E4EF2F /* DiscoverService.m */; };
 		28C4DD3C2052491E00E4EF2F /* DiscoverViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD3B2052491E00E4EF2F /* DiscoverViewModel.m */; };
 		28C4DD412052B5CF00E4EF2F /* DynamicService.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD402052B5CF00E4EF2F /* DynamicService.m */; };
+		28C4DD4620567C9C00E4EF2F /* Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD4320567C9B00E4EF2F /* Tool.m */; };
+		28C4DD4720567C9C00E4EF2F /* EditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD4520567C9C00E4EF2F /* EditorViewController.m */; };
+		28C4DD4A205766C700E4EF2F /* DynamicViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD49205766C700E4EF2F /* DynamicViewModel.m */; };
+		28C4DD4E2057867400E4EF2F /* HeadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD4C2057867300E4EF2F /* HeadModel.m */; };
+		28C4DD532057880400E4EF2F /* HomeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD502057880300E4EF2F /* HomeTableCell.m */; };
+		28C4DD542057880400E4EF2F /* HomeTableHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD512057880300E4EF2F /* HomeTableHeadView.m */; };
+		28C4DD5D2057882700E4EF2F /* UIFont+Wisdom.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD562057882500E4EF2F /* UIFont+Wisdom.m */; };
+		28C4DD5E2057882700E4EF2F /* UIView+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD572057882500E4EF2F /* UIView+NJ.m */; };
+		28C4DD5F2057882700E4EF2F /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD5B2057882600E4EF2F /* UIColor+Hex.m */; };
+		28C4DD652057885000E4EF2F /* BasicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD612057884D00E4EF2F /* BasicTableViewCell.m */; };
+		28C4DD662057885000E4EF2F /* BasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD632057884E00E4EF2F /* BasicModel.m */; };
+		28C4DD6F2057886D00E4EF2F /* ImageCollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD6B2057886B00E4EF2F /* ImageCollCell.m */; };
+		28C4DD702057886D00E4EF2F /* ManyImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD6C2057886C00E4EF2F /* ManyImageView.m */; };
+		28C4DD712057886D00E4EF2F /* NSString+Font.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD6E2057886C00E4EF2F /* NSString+Font.m */; };
 		47BA93FB027B213FD20980D7 /* Pods_LFBlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F06CB98B198C02B4B08DED /* Pods_LFBlog.framework */; };
 /* End PBXBuildFile section */
 
@@ -181,6 +195,36 @@
 		28C4DD3B2052491E00E4EF2F /* DiscoverViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoverViewModel.m; sourceTree = "<group>"; };
 		28C4DD3F2052B5CF00E4EF2F /* DynamicService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicService.h; sourceTree = "<group>"; };
 		28C4DD402052B5CF00E4EF2F /* DynamicService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicService.m; sourceTree = "<group>"; };
+		28C4DD4220567C9B00E4EF2F /* EditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditorViewController.h; sourceTree = "<group>"; };
+		28C4DD4320567C9B00E4EF2F /* Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tool.m; sourceTree = "<group>"; };
+		28C4DD4420567C9B00E4EF2F /* Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tool.h; sourceTree = "<group>"; };
+		28C4DD4520567C9C00E4EF2F /* EditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorViewController.m; sourceTree = "<group>"; };
+		28C4DD48205766C700E4EF2F /* DynamicViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicViewModel.h; sourceTree = "<group>"; };
+		28C4DD49205766C700E4EF2F /* DynamicViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicViewModel.m; sourceTree = "<group>"; };
+		28C4DD4C2057867300E4EF2F /* HeadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadModel.m; sourceTree = "<group>"; };
+		28C4DD4D2057867300E4EF2F /* HeadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadModel.h; sourceTree = "<group>"; };
+		28C4DD4F2057880200E4EF2F /* HomeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableCell.h; sourceTree = "<group>"; };
+		28C4DD502057880300E4EF2F /* HomeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableCell.m; sourceTree = "<group>"; };
+		28C4DD512057880300E4EF2F /* HomeTableHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableHeadView.m; sourceTree = "<group>"; };
+		28C4DD522057880300E4EF2F /* HomeTableHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableHeadView.h; sourceTree = "<group>"; };
+		28C4DD562057882500E4EF2F /* UIFont+Wisdom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Wisdom.m"; sourceTree = "<group>"; };
+		28C4DD572057882500E4EF2F /* UIView+NJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NJ.m"; sourceTree = "<group>"; };
+		28C4DD582057882500E4EF2F /* UIFont+Wisdom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Wisdom.h"; sourceTree = "<group>"; };
+		28C4DD592057882600E4EF2F /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		28C4DD5A2057882600E4EF2F /* UIView+NJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NJ.h"; sourceTree = "<group>"; };
+		28C4DD5B2057882600E4EF2F /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		28C4DD5C2057882700E4EF2F /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
+		28C4DD612057884D00E4EF2F /* BasicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicTableViewCell.m; sourceTree = "<group>"; };
+		28C4DD622057884D00E4EF2F /* BasicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicTableViewCell.h; sourceTree = "<group>"; };
+		28C4DD632057884E00E4EF2F /* BasicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicModel.m; sourceTree = "<group>"; };
+		28C4DD642057885000E4EF2F /* BasicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicModel.h; sourceTree = "<group>"; };
+		28C4DD682057886A00E4EF2F /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		28C4DD692057886B00E4EF2F /* ManyImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManyImageView.h; sourceTree = "<group>"; };
+		28C4DD6A2057886B00E4EF2F /* ImageCollCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollCell.h; sourceTree = "<group>"; };
+		28C4DD6B2057886B00E4EF2F /* ImageCollCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCollCell.m; sourceTree = "<group>"; };
+		28C4DD6C2057886C00E4EF2F /* ManyImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManyImageView.m; sourceTree = "<group>"; };
+		28C4DD6D2057886C00E4EF2F /* NSString+Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Font.h"; sourceTree = "<group>"; };
+		28C4DD6E2057886C00E4EF2F /* NSString+Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Font.m"; sourceTree = "<group>"; };
 		4E5C8F92F2434978ACF89CD4 /* Pods-LFBlog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFBlog.release.xcconfig"; path = "Pods/Target Support Files/Pods-LFBlog/Pods-LFBlog.release.xcconfig"; sourceTree = "<group>"; };
 		614AE38BA1A8945B85AE9C37 /* Pods-LFBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFBlog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LFBlog/Pods-LFBlog.debug.xcconfig"; sourceTree = "<group>"; };
 		A5F06CB98B198C02B4B08DED /* Pods_LFBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LFBlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +277,10 @@
 				281AA48C204FB24900A4B657 /* CommentDetailTableViewCell.m */,
 				281AA48E204FB24900A4B657 /* CommentDetailViewController.h */,
 				281AA48F204FB24900A4B657 /* CommentDetailViewController.m */,
+				28C4DD4220567C9B00E4EF2F /* EditorViewController.h */,
+				28C4DD4520567C9C00E4EF2F /* EditorViewController.m */,
+				28C4DD4420567C9B00E4EF2F /* Tool.h */,
+				28C4DD4320567C9B00E4EF2F /* Tool.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -349,6 +397,9 @@
 		281AA47C204F8A5500A4B657 /* dynamic */ = {
 			isa = PBXGroup;
 			children = (
+				28C4DD672057886000E4EF2F /* Other */,
+				28C4DD602057884400E4EF2F /* Basic */,
+				28C4DD4B2057866700E4EF2F /* Model */,
 				28C4DD3E2052B5B300E4EF2F /* Service */,
 				28C4DD3D2052B5A800E4EF2F /* ViewModel */,
 				281AA4AA2050F02900A4B657 /* ViewController */,
@@ -374,6 +425,10 @@
 				281AA47E204F8ABB00A4B657 /* DynamicMainViewController.m */,
 				281AA4AB2050F36A00A4B657 /* AddDynamicViewController.h */,
 				281AA4AC2050F36A00A4B657 /* AddDynamicViewController.m */,
+				28C4DD4F2057880200E4EF2F /* HomeTableCell.h */,
+				28C4DD502057880300E4EF2F /* HomeTableCell.m */,
+				28C4DD522057880300E4EF2F /* HomeTableHeadView.h */,
+				28C4DD512057880300E4EF2F /* HomeTableHeadView.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -469,6 +524,7 @@
 		283546E92047CB8900338B40 /* commom */ = {
 			isa = PBXGroup;
 			children = (
+				28C4DD552057881C00E4EF2F /* Category */,
 				28C4DD2D205152DB00E4EF2F /* UINavigationController+CommonTitle.h */,
 				28C4DD2E205152DB00E4EF2F /* UINavigationController+CommonTitle.m */,
 				283546EE2047CF7E00338B40 /* ViewModel */,
@@ -605,6 +661,8 @@
 		28C4DD3D2052B5A800E4EF2F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				28C4DD48205766C700E4EF2F /* DynamicViewModel.h */,
+				28C4DD49205766C700E4EF2F /* DynamicViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -616,6 +674,54 @@
 				28C4DD402052B5CF00E4EF2F /* DynamicService.m */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		28C4DD4B2057866700E4EF2F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				28C4DD4D2057867300E4EF2F /* HeadModel.h */,
+				28C4DD4C2057867300E4EF2F /* HeadModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		28C4DD552057881C00E4EF2F /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				28C4DD592057882600E4EF2F /* UIColor+Hex.h */,
+				28C4DD5B2057882600E4EF2F /* UIColor+Hex.m */,
+				28C4DD582057882500E4EF2F /* UIFont+Wisdom.h */,
+				28C4DD562057882500E4EF2F /* UIFont+Wisdom.m */,
+				28C4DD5A2057882600E4EF2F /* UIView+NJ.h */,
+				28C4DD572057882500E4EF2F /* UIView+NJ.m */,
+				28C4DD5C2057882700E4EF2F /* UIViewExt.h */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		28C4DD602057884400E4EF2F /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				28C4DD642057885000E4EF2F /* BasicModel.h */,
+				28C4DD632057884E00E4EF2F /* BasicModel.m */,
+				28C4DD622057884D00E4EF2F /* BasicTableViewCell.h */,
+				28C4DD612057884D00E4EF2F /* BasicTableViewCell.m */,
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
+		28C4DD672057886000E4EF2F /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				28C4DD682057886A00E4EF2F /* Header.h */,
+				28C4DD6A2057886B00E4EF2F /* ImageCollCell.h */,
+				28C4DD6B2057886B00E4EF2F /* ImageCollCell.m */,
+				28C4DD692057886B00E4EF2F /* ManyImageView.h */,
+				28C4DD6C2057886C00E4EF2F /* ManyImageView.m */,
+				28C4DD6D2057886C00E4EF2F /* NSString+Font.h */,
+				28C4DD6E2057886C00E4EF2F /* NSString+Font.m */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		B1AC524E84E5CCFDBD31222A /* Pods */ = {
@@ -795,23 +901,29 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-LFBlog/Pods-LFBlog-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/Aspects/Aspects.framework",
+				"${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONKit/JSONKit.framework",
 				"${BUILT_PRODUCTS_DIR}/KafkaRefresh/KafkaRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/PYSearch/PYSearch.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework",
+				"${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Aspects.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BlocksKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KafkaRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PYSearch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TZImagePickerController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -846,17 +958,22 @@
 				281AA4A82050D25100A4B657 /* HW3DBannerView.m in Sources */,
 				28C4DD412052B5CF00E4EF2F /* DynamicService.m in Sources */,
 				281AA4A92050D25100A4B657 /* UIView+Banner.m in Sources */,
+				28C4DD4620567C9C00E4EF2F /* Tool.m in Sources */,
 				28C4DD3320522F5000E4EF2F /* DiscoverMainViewController.m in Sources */,
 				281AA478204EA73600A4B657 /* MeInfoViewController.m in Sources */,
 				28AAD29D20492D2500BBA9EC /* InformationDetailViewController.m in Sources */,
 				281AA4AD2050F36A00A4B657 /* AddDynamicViewController.m in Sources */,
 				28AAD2902048E86A00BBA9EC /* SGPageContentScrollView.m in Sources */,
 				283546F82047FBBD00338B40 /* InformationViewModel.m in Sources */,
+				28C4DD652057885000E4EF2F /* BasicTableViewCell.m in Sources */,
 				28AAD2772048E80200BBA9EC /* PersonalCenterTopView.m in Sources */,
+				28C4DD532057880400E4EF2F /* HomeTableCell.m in Sources */,
+				28C4DD702057886D00E4EF2F /* ManyImageView.m in Sources */,
 				28C4DD3C2052491E00E4EF2F /* DiscoverViewModel.m in Sources */,
 				28AAD2972049109E00BBA9EC /* MeMainViewController.m in Sources */,
 				281AA491204FB24900A4B657 /* CommentDetailViewController.m in Sources */,
 				28AAD28F2048E86A00BBA9EC /* UIView+SGFrame.m in Sources */,
+				28C4DD4E2057867400E4EF2F /* HeadModel.m in Sources */,
 				28AAD27D2048E82D00BBA9EC /* InformationMainViewController.m in Sources */,
 				283546ED2047CBA700338B40 /* LFBaseService.m in Sources */,
 				2806CFFC204D31BB00A7390B /* LFUser.m in Sources */,
@@ -864,27 +981,36 @@
 				28AAD2792048E80200BBA9EC /* PersonalCenterChildBaseVC.m in Sources */,
 				28C4DD39205247F500E4EF2F /* DiscoverService.m in Sources */,
 				281AA46E204E7C0E00A4B657 /* MeMainService.m in Sources */,
+				28C4DD4A205766C700E4EF2F /* DynamicViewModel.m in Sources */,
+				28C4DD5F2057882700E4EF2F /* UIColor+Hex.m in Sources */,
 				28AAD2912048E86A00BBA9EC /* SGPageContentView.m in Sources */,
 				283546E82047BFEA00338B40 /* HttpUtil.m in Sources */,
 				281AA471204E7CF400A4B657 /* MeMainViewModel.m in Sources */,
 				283546DD2047A1EE00338B40 /* LoginViewController.m in Sources */,
 				283546E42047BFB100338B40 /* LoginService.m in Sources */,
 				281AA490204FB24900A4B657 /* CommentDetailTableViewCell.m in Sources */,
+				28C4DD5D2057882700E4EF2F /* UIFont+Wisdom.m in Sources */,
 				281AA462204E546300A4B657 /* UIImage+GaussianBlur.m in Sources */,
 				281AA47F204F8ABB00A4B657 /* DynamicMainViewController.m in Sources */,
 				281AA466204E61E400A4B657 /* Singleton.m in Sources */,
+				28C4DD542057880400E4EF2F /* HomeTableHeadView.m in Sources */,
 				28C4DD2F205152DB00E4EF2F /* UINavigationController+CommonTitle.m in Sources */,
 				283546AD20479ABD00338B40 /* ViewController.m in Sources */,
 				281AA461204E546300A4B657 /* UIImage+Extension.m in Sources */,
 				283546FB2047FC9800338B40 /* InformationService.m in Sources */,
+				28C4DD712057886D00E4EF2F /* NSString+Font.m in Sources */,
 				283546B820479ABD00338B40 /* main.m in Sources */,
 				28AAD27A2048E80200BBA9EC /* PersonalCenterTableView.m in Sources */,
+				28C4DD6F2057886D00E4EF2F /* ImageCollCell.m in Sources */,
+				28C4DD662057885000E4EF2F /* BasicModel.m in Sources */,
 				28AAD2922048E86A00BBA9EC /* SGPageTitleView.m in Sources */,
 				281AA47B204EAB8800A4B657 /* UserIconViewController.m in Sources */,
 				281AA463204E546300A4B657 /* UIView+HZAnimation.m in Sources */,
 				283546F12047CF9000338B40 /* LFBaseViewModel.m in Sources */,
 				283546E02047A20100338B40 /* LoginViewModel.m in Sources */,
 				283546F52047FB9B00338B40 /* InformationViewController.m in Sources */,
+				28C4DD4720567C9C00E4EF2F /* EditorViewController.m in Sources */,
+				28C4DD5E2057882700E4EF2F /* UIView+NJ.m in Sources */,
 				283546AA20479ABD00338B40 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

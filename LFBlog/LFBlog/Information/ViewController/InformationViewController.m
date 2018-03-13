@@ -69,13 +69,25 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if (scrollView == self.mainTable) {
+        if (_isTop) {
+            if (scrollView.contentOffset.y < 0){
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"changeVCScrollState" object:nil];
+            }
+            return;
+        }
+        if (_isBottom) {
+            if (scrollView.contentOffset.y > 0){
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"changeVCScrollState" object:nil];
+            }
+            return;
+        }
         if (!self.vcCanScroll) {
             scrollView.contentOffset = CGPointZero;
         }
     }
 }
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)deceleratez
 {
 }
 

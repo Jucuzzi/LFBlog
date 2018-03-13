@@ -12,7 +12,9 @@
 #import "Singleton.h"
 #import "LFHeadImageUtil.h"
 
-@interface UserIconViewController (){}
+@interface UserIconViewController (){
+    UIImageView *imageView;
+}
 
 @property (nonatomic, strong) MeMainViewModel *viewModel;
 
@@ -34,6 +36,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
 #pragma mark - 初始化方法
 
 - (void)initData {
@@ -48,10 +54,18 @@
 
 - (void)initView {
     self.view.backgroundColor = [UIColor blackColor];
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH)];
-    imageView.center = self.view.center;
+    imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH)];
+    imageView.center = CGPointMake(SCREEN_WIDTH/2, DEFAULT_HEIGHT/2 - NAV_TITLE_HEIGHT);
     [imageView sd_setImageWithURL:[NSURL URLWithString:[Singleton sharedSingleton].userIconPath] placeholderImage:nil options:SDWebImageProgressiveDownload];
     [self.view addSubview:imageView];
+}
+
+- (void)initNotification {
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(userIconChanged) name:@"userIconChanged" object:nil];
+}
+
+- (void)userIconChanged {
+    
 }
 
 ///点击头像
@@ -67,7 +81,17 @@
 - (void)updateUserPhotoRequestStart {
     @weakify(self);
     [[self.viewModel.uploadUserIconCommand execute:nil] subscribeNext:^(NSDictionary *returnData) {
-        NSLog(@"成功了吗");
+        if ([returnData[@"result"]isEqualToString:@"successed"]) {
+            [self queryUserInfoRequestStart];
+        }
+    }];
+}
+
+- (void)queryUserInfoRequestStart {
+    @weakify(self);
+    [[self.viewModel.queryUserInfoCommand execute:nil] subscribeNext:^(NSDictionary *returnData) {
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"userIconChanged" object:nil];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:[Singleton sharedSingleton].userIconPath] placeholderImage:nil options:SDWebImageProgressiveDownload];
     }];
 }
 

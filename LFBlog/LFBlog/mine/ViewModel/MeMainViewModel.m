@@ -62,6 +62,31 @@
         }];
     }];
     _uploadUserIconCommand.allowsConcurrentExecution = YES;
+    
+    _queryUserInfoCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            @strongify(self);
+            /******************************** 网络请求 *********************************/
+            @weakify(self);
+            [self.service queryUserInfoWithUserId:[Singleton sharedSingleton].userId success:^(id responseObject) {
+                @strongify(self);
+                NSDictionary *returnDic = responseObject;
+                //                // 模拟数据
+                //                [Singleton sharedSingleton].userId = @"8a8a8bbf5e9e781f015e9e7861260008";
+                [Singleton sharedSingleton].username = returnDic[@"userName"];
+                [Singleton sharedSingleton].nickName = returnDic[@"nickName"];
+                [Singleton sharedSingleton].pictureId = returnDic[@"pictureId"];
+                [Singleton sharedSingleton].userIconPath = [NSString stringWithFormat:@"%@%@",LFBlogUserIconPath,returnDic[@"userIconPath"]];
+                [Singleton sharedSingleton].name = returnDic[@"name"];
+                [subscriber sendNext:returnDic];
+                [subscriber sendCompleted];
+            } failed:^(NSError *error) {
+                [self.requestFailedSubject sendNext:nil];
+            }];
+            return nil;
+        }];
+    }];
+    _queryUserInfoCommand.allowsConcurrentExecution = YES;
 }
 
 

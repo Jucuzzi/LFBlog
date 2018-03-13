@@ -16,4 +16,9 @@
                         success:(successBlock)successBlock
                          failed:(faildBlock)failedBlock;
 
+// 获取用户的信息
+- (void)queryUserInfoWithUserId:(NSString *)userId
+                        success:(successBlock)successBlock
+                         failed:(faildBlock)failedBlock;
+
 @end

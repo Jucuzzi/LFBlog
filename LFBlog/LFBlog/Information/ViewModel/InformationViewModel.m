@@ -270,12 +270,6 @@
     _thumbOrNotCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
             @strongify(self);
-//            BOOL thumb = NO;
-//            if ([thumbState isEqualToString:@"1"]) {
-//                thumb = YES;
-//            } else {
-//                thumb = NO;
-//            }
             /******************************** 网络请求 *********************************/
             @weakify(self);
             [self.service thumbWithThumbState:self.thumbState commentId:self.commentId success:^(id responseObject) {
@@ -291,6 +285,25 @@
         }];
     }];
     _thumbOrNotCommand.allowsConcurrentExecution = YES;
+    
+    _uploadImageCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(UIImage *img) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            @strongify(self);
+            /******************************** 网络请求 *********************************/
+            @weakify(self);
+            [self.service uploadImageWithImage:img success:^(id responseObject) {
+                @strongify(self);
+                NSDictionary *returnDic = responseObject;
+                [subscriber sendNext:returnDic];
+                [subscriber sendCompleted];
+            } failed:^(NSError *error) {
+                @strongify(self);
+                [self.requestFailedSubject sendNext:nil];
+            }];
+            return nil;
+        }];
+    }];
+    _uploadImageCommand.allowsConcurrentExecution = YES;
 }
 
 

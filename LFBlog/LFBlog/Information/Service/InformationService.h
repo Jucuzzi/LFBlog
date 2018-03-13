@@ -80,4 +80,9 @@
                   commentId:(NSString *)commentId
                     success:(successBlock)successBlock
                      failed:(faildBlock)failedBlock;
+
+//上传图片
+- (void)uploadImageWithImage:(UIImage *)image
+                     success:(successBlock)successBlock
+                      failed:(faildBlock)failedBlock;
 @end

@@ -14,7 +14,7 @@
 #import "MeInfoViewController.h"
 
 @interface MeMainViewController ()<UITableViewDelegate,UITableViewDataSource> {
-    
+    UITableView *accountTable;
 }
 ///更换头像工具类
 @property (nonatomic, strong) LFHeadImageUtil *headImageUtil;
@@ -31,11 +31,16 @@
     [self initData];
     [self initTitle];
     [self initView];
+    [self initNotification];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - 初始化方法
@@ -52,7 +57,7 @@
 
 - (void)initView {
     self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR;
-    UITableView *accountTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, DEFAULT_HEIGHT) style:UITableViewStyleGrouped];
+    accountTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, DEFAULT_HEIGHT) style:UITableViewStyleGrouped];
     [self.view addSubview:accountTable];
     
     accountTable.backgroundColor = DEFAULT_BACKGROUND_COLOR;
@@ -61,7 +66,13 @@
     accountTable.dataSource = self;
 }
 
+- (void)initNotification {
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(userIconChanged) name:@"userIconChanged" object:nil];
+}
 
+- (void)userIconChanged {
+    [accountTable reloadData];
+}
 
 #pragma mark - UITableViewDelegate && UITableViewDatasource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

@@ -36,11 +36,16 @@
     [self initData];
     [self initTitle];
     [self initView];
+    [self initNotification];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - 初始化方法
@@ -62,6 +67,14 @@
     mainTable.delegate = self;
     mainTable.backgroundColor = DEFAULT_BACKGROUND_COLOR;
     [self.view addSubview:mainTable];
+}
+
+- (void)initNotification {
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(userIconChanged) name:@"userIconChanged" object:nil];
+}
+
+- (void)userIconChanged {
+     [mainTable reloadData];
 }
 
 #pragma mark - UITableViewDelegate && UITableViewDatasource

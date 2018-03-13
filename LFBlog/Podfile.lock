@@ -15,6 +15,21 @@ PODS:
   - AFNetworking/UIKit (3.2.0):
     - AFNetworking/NSURLSession
   - Aspects (1.4.1)
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
   - JSONKit (1.4)
   - KafkaRefresh (1.0.0):
     - KafkaRefresh/Category (= 1.0.0)
@@ -57,27 +72,37 @@ PODS:
   - SDWebImage (4.1.2):
     - SDWebImage/Core (= 4.1.2)
   - SDWebImage/Core (4.1.2)
+  - TZImagePickerController (2.0.0.6)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
   - AFNetworking
   - Aspects
+  - BlocksKit
   - JSONKit
   - KafkaRefresh
   - Masonry
   - PYSearch
   - ReactiveObjC
   - SDWebImage
+  - TZImagePickerController
+  - YYKit
 
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   JSONKit: 5b69e804ea54d99293eed0fd2ce596c5703fefb0
   KafkaRefresh: 18f3f90d7fd26a58257cc7ba03f6cf7cd0270108
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   PYSearch: aa3704f283c67667808de6df514c24df03f5f116
   ReactiveObjC: ce79989e8684b9086b5f8d0c74bc7b81a8729c9e
   SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
+  TZImagePickerController: 028d1670cd46b2d35769503dd36a6b2d21eee563
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 04281f7531ed082799f417d52097131c015ccef6
+PODFILE CHECKSUM: bef6182ff93e8602a90e744d220f91065a72a72b
 
 COCOAPODS: 1.4.0

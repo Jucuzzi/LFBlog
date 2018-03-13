@@ -15,5 +15,7 @@
 /***************************** 云端命令 ******************************/
 /** 获得所有的资讯内容 */
 @property (nonatomic, strong) RACCommand *uploadUserIconCommand;
+/** 查询用户所有信息 */
+@property (nonatomic, strong) RACCommand *queryUserInfoCommand;
 
 @end
