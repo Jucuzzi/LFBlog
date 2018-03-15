@@ -76,6 +76,11 @@
                 [Singleton sharedSingleton].username = returnDic[@"userName"];
                 [Singleton sharedSingleton].nickName = returnDic[@"nickName"];
                 [Singleton sharedSingleton].pictureId = returnDic[@"pictureId"];
+                [Singleton sharedSingleton].sex = returnDic[@"sex"];
+                [Singleton sharedSingleton].address = returnDic[@"address"];
+                [Singleton sharedSingleton].birthday = returnDic[@"birthday"];
+                [Singleton sharedSingleton].sign = returnDic[@"sign"];
+                
                 [Singleton sharedSingleton].userIconPath = [NSString stringWithFormat:@"%@%@",LFBlogUserIconPath,returnDic[@"userIconPath"]];
                 [Singleton sharedSingleton].name = returnDic[@"name"];
                 [subscriber sendNext:returnDic];
@@ -87,6 +92,101 @@
         }];
     }];
     _queryUserInfoCommand.allowsConcurrentExecution = YES;
+    
+    _updateNickNameCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSString *nickName) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            @strongify(self);
+            /******************************** 网络请求 *********************************/
+            @weakify(self);
+            [self.service updateUserInfoWithNickName:nickName success:^(id responseObject) {
+                @strongify(self);
+                NSDictionary *returnDic = responseObject;
+                
+                [subscriber sendNext:returnDic];
+                [subscriber sendCompleted];
+            } failed:^(NSError *error) {
+                [self.requestFailedSubject sendNext:nil];
+            }];
+            return nil;
+        }];
+    }];
+    _updateNickNameCommand.allowsConcurrentExecution = YES;
+    
+    _updateSexCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSString *sex) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            @strongify(self);
+            /******************************** 网络请求 *********************************/
+            @weakify(self);
+            [self.service updateUserInfoWithSex:sex success:^(id responseObject) {
+                @strongify(self);
+                NSDictionary *returnDic = responseObject;
+                
+                [subscriber sendNext:returnDic];
+                [subscriber sendCompleted];
+            } failed:^(NSError *error) {
+                [self.requestFailedSubject sendNext:nil];
+            }];
+            return nil;
+        }];
+    }];
+    _updateSexCommand.allowsConcurrentExecution = YES;
+    
+    _updateBirthdayCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSString *birthday) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            @strongify(self);
+            /******************************** 网络请求 *********************************/
+            @weakify(self);
+            [self.service updateUserInfoWithBirthday:birthday success:^(id responseObject) {
+                @strongify(self);
+                NSDictionary *returnDic = responseObject;
+                
+                [subscriber sendNext:returnDic];
+                [subscriber sendCompleted];
+            } failed:^(NSError *error) {
+                [self.requestFailedSubject sendNext:nil];
+            }];
+            return nil;
+        }];
+    }];
+    _updateBirthdayCommand.allowsConcurrentExecution = YES;
+    
+    _updateAddressCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSString *address) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            @strongify(self);
+            /******************************** 网络请求 *********************************/
+            @weakify(self);
+            [self.service updateUserInfoWithAddress:address success:^(id responseObject) {
+                @strongify(self);
+                NSDictionary *returnDic = responseObject;
+                
+                [subscriber sendNext:returnDic];
+                [subscriber sendCompleted];
+            } failed:^(NSError *error) {
+                [self.requestFailedSubject sendNext:nil];
+            }];
+            return nil;
+        }];
+    }];
+    _updateAddressCommand.allowsConcurrentExecution = YES;
+    
+    _updateSignCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSString *sign) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            @strongify(self);
+            /******************************** 网络请求 *********************************/
+            @weakify(self);
+            [self.service updateUserInfoWithSign:sign success:^(id responseObject) {
+                @strongify(self);
+                NSDictionary *returnDic = responseObject;
+                
+                [subscriber sendNext:returnDic];
+                [subscriber sendCompleted];
+            } failed:^(NSError *error) {
+                [self.requestFailedSubject sendNext:nil];
+            }];
+            return nil;
+        }];
+    }];
+    _updateSignCommand.allowsConcurrentExecution = YES;
 }
 
 

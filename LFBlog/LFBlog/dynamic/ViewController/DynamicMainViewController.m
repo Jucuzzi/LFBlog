@@ -49,6 +49,7 @@
     [self initData];
     [self initTitle];
     [self initView];
+    [self initNotification];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,6 +59,14 @@
 - (void)initTitle {
     self.title = @"动态";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"publishIcon"] style:UIBarButtonItemStyleDone target:self action:@selector(publishArticle)];
+}
+
+- (void)initNotification {
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(userIconChanged) name:@"userIconChanged" object:nil];
+}
+
+- (void)userIconChanged {
+    [DynamicMainTable reloadData];
 }
 
 - (void)publishArticle {
@@ -180,15 +189,13 @@
         
         UILabel *lineLabel = [[UILabel alloc] init];
         lineLabel.backgroundColor = DEFAULT_BACKGROUND_COLOR;
-        if (section == 0) {
-            lineLabel.hidden = YES;
-        }
-        lineLabel.frame = CGRectMake(15, 0, screenWidth - 30, 0.5);
+        lineLabel.frame = CGRectMake(15, 0, screenWidth - 30, 1);
+        lineLabel.alpha = .5f;
         [mainView addSubview:lineLabel];
         
         
         UIImageView *headImage = [[UIImageView alloc] initWithFrame:CGRectMake(10 * DISTENCEH, 15 * DISTENCEH, 35 * DISTENCEH, 35 * DISTENCEH)];
-        [headImage sd_setImageWithURL:[NSURL URLWithString:dataModel.userIconPath] placeholderImage:[[UIImage alloc]init]];
+        [headImage sd_setImageWithURL:[NSURL URLWithString:dataModel.userIconPath] placeholderImage:[UIImage imageNamed:@"user_default"]];
         headImage.layer.cornerRadius = (35 * DISTENCEH/2);
         headImage.layer.masksToBounds = YES;
         [mainView addSubview:headImage];
@@ -242,7 +249,7 @@
         [newsBtn setImage:[UIImage imageNamed:@"head"] forState:UIControlStateSelected];
         newsBtn.tag = 1000 + section;
         [newsBtn addTarget:self action:@selector(newsBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        [mainView addSubview:newsBtn];
+//        [mainView addSubview:newsBtn];
         
         
         UIView *popView = [[UIView alloc] initWithFrame:CGRectMake(screenWidth - 170 * DISTENCEW, newsBtn.top, 130 * DISTENCEW, 30 * DISTENCEW)];

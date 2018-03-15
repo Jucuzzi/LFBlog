@@ -11,6 +11,8 @@
 #import "UserIconViewController.h"
 #import "Singleton.h"
 #import "UIImageView+WebCache.h"
+#import "NickNameModifyViewController.h"
+#import "SexModityViewController.h"
 
 @interface MeInfoViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
@@ -56,13 +58,13 @@
 }
 
 - (void)initTitle {
-    self.title = @"编辑个人信息";
+    self.title = @"个人信息";
 }
 
 - (void)initView {
     self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR;
     mainTable = [[UITableView alloc]initWithFrame:CGRectMake(0,0, SCREEN_WIDTH, DEFAULT_HEIGHT) style:UITableViewStyleGrouped];
-    mainTable.separatorStyle = NO;
+//    mainTable.separatorStyle = NO;
     mainTable.dataSource = self;
     mainTable.delegate = self;
     mainTable.backgroundColor = DEFAULT_BACKGROUND_COLOR;
@@ -71,10 +73,15 @@
 
 - (void)initNotification {
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(userIconChanged) name:@"userIconChanged" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(userInfoChanged) name:@"userInfoChanged" object:nil];
 }
 
 - (void)userIconChanged {
-     [mainTable reloadData];
+    [mainTable reloadData];
+}
+
+- (void)userInfoChanged {
+    [self queryUserInfoRequestStart];
 }
 
 #pragma mark - UITableViewDelegate && UITableViewDatasource
@@ -119,36 +126,42 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"Cell-%ld-%ld",indexPath.section,indexPath.row]];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:[NSString stringWithFormat:@"Cell-%ld-%ld",indexPath.section,indexPath.row]];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.textLabel.font = [UIFont systemFontOfSize:15.f];
-        cell.detailTextLabel.font = [UIFont systemFontOfSize:15.f];
-        if (indexPath.section == 0) {
-            if (indexPath.row == 0) {
-                cell.textLabel.text = @"修改头像";
-                UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - 100, 10, 60, 60)];
-                [imageView sd_setImageWithURL:[NSURL URLWithString:[Singleton sharedSingleton].userIconPath] placeholderImage:[UIImage imageNamed:@"user_default"] options:SDWebImageProgressiveDownload];
-                imageView.layer.masksToBounds = YES;
-                imageView.layer.cornerRadius = 30.f;
-                [cell.contentView addSubview:imageView];
-            } else if (indexPath.row == 1) {
-                cell.textLabel.text = @"修改昵称";
-                cell.detailTextLabel.text = @"王力丰";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"cell",indexPath.section,indexPath.row]];
+    cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:[NSString stringWithFormat:@"Cell-%ld-%ld",indexPath.section,indexPath.row]];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.textLabel.font = [UIFont systemFontOfSize:15.f];
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:15.f];
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            cell.textLabel.text = @"修改头像";
+            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - 100, 10, 60, 60)];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:[Singleton sharedSingleton].userIconPath] placeholderImage:[UIImage imageNamed:@"user_default"] options:SDWebImageProgressiveDownload];
+            imageView.layer.masksToBounds = YES;
+            imageView.layer.cornerRadius = 30.f;
+            [cell.contentView addSubview:imageView];
+        } else if (indexPath.row == 1) {
+            cell.textLabel.text = @"修改昵称";
+            cell.detailTextLabel.text = [Singleton sharedSingleton].nickName;
+        }
+    } else if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            cell.textLabel.text = @"性别";
+            if ([[Singleton sharedSingleton].sex isEqualToString:@""]||[Singleton sharedSingleton].sex==nil) {
+                cell.detailTextLabel.text = @"点击设置性别";
+            } else  {
+                cell.detailTextLabel.text = [[Singleton sharedSingleton].sex isEqualToString:@"0"]?@"女":@"男";
             }
-        } else if (indexPath.section == 1) {
-            if (indexPath.row == 0) {
-                cell.textLabel.text = @"性别";
-            } else if (indexPath.row == 1) {
-                cell.textLabel.text = @"生日";
-            } else if (indexPath.row == 2) {
-                cell.textLabel.text = @"所在地";
-            }
-        } else if (indexPath.section == 2) {
-            if (indexPath.row == 0) {
-                cell.textLabel.text = @"签名";
-            }
+        } else if (indexPath.row == 1) {
+            cell.textLabel.text = @"生日";
+            cell.detailTextLabel.text = ([[Singleton sharedSingleton].birthday isEqualToString:@""]||[Singleton sharedSingleton].birthday==nil)?@"点击设置生日":[Singleton sharedSingleton].birthday;
+        } else if (indexPath.row == 2) {
+            cell.textLabel.text = @"所在地";
+            cell.detailTextLabel.text = ([[Singleton sharedSingleton].address isEqualToString:@""]||[Singleton sharedSingleton].address==nil)?@"点击填写地址":[Singleton sharedSingleton].address;
+        }
+    } else if (indexPath.section == 2) {
+        if (indexPath.row == 0) {
+            cell.textLabel.text = @"签名";
+            cell.detailTextLabel.text = ([[Singleton sharedSingleton].sign isEqualToString:@""]||[Singleton sharedSingleton].sign==nil)?@"来点个性签名吧":[Singleton sharedSingleton].sign;
         }
     }
     return cell;
@@ -159,8 +172,21 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             [self.navigationController pushViewController:[[UserIconViewController alloc]init] animated:YES];
+        } else if (indexPath.row == 1) {
+            [self.navigationController pushViewController:[[NickNameModifyViewController alloc]init] animated:YES];
+        }
+    } else if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            [self.navigationController pushViewController:[[SexModityViewController alloc]init] animated:YES];
         }
     }
+}
+
+- (void)queryUserInfoRequestStart {
+    @weakify(self);
+    [[self.viewModel.queryUserInfoCommand execute:nil] subscribeNext:^(NSDictionary *returnData) {
+        [mainTable reloadData];
+    }];
 }
 
 

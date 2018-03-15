@@ -25,5 +25,13 @@
 @property (nonatomic, retain) NSString *userIconPath;
 // 昵称
 @property (nonatomic, retain) NSString *nickName;
+// 男
+@property (nonatomic, retain) NSString *sex;
+// 1994-04-14
+@property (nonatomic, retain) NSString *birthday;
+// 浙江省建德市
+@property (nonatomic, retain) NSString *address;
+// EL-PSY-CONGROO
+@property (nonatomic, retain) NSString *sign;
 
 @end

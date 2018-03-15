@@ -17,5 +17,14 @@
 @property (nonatomic, strong) RACCommand *uploadUserIconCommand;
 /** 查询用户所有信息 */
 @property (nonatomic, strong) RACCommand *queryUserInfoCommand;
-
+/** 更新用户的部分信息 */
+@property (nonatomic, strong) RACCommand *updateNickNameCommand;
+/** 更新用户的部分信息 */
+@property (nonatomic, strong) RACCommand *updateSexCommand;
+/** 更新用户的部分信息 */
+@property (nonatomic, strong) RACCommand *updateBirthdayCommand;
+/** 更新用户的部分信息 */
+@property (nonatomic, strong) RACCommand *updateAddressCommand;
+/** 更新用户的部分信息 */
+@property (nonatomic, strong) RACCommand *updateSignCommand;
 @end

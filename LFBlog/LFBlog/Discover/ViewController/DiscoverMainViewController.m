@@ -28,6 +28,7 @@
     [self initData];
     [self initTitle];
     [self initView];
+    [self initNotification];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,6 +63,15 @@
                           }];
     [self.view addSubview:mainTableView];
 }
+
+- (void)initNotification {
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(userIconChanged) name:@"userIconChanged" object:nil];
+}
+
+- (void)userIconChanged {
+    [mainTableView reloadData];
+}
+
 
 #pragma mark - UITableViewDelegate && UITableViewDatasource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -137,7 +147,6 @@
 }
 
 #pragma mark - 云端请求方法
-
 - (void)queryUserListRequestStart {
     @weakify(self);
     [[self.viewModel.queryUserListCommand execute:self.condition] subscribeNext:^(NSDictionary *returnData) {
@@ -145,8 +154,8 @@
         [mainTableView reloadData];
     }];
 }
-#pragma mark - getter&&setter方法
 
+#pragma mark - getter&&setter方法
 - (DiscoverViewModel *)viewModel {
     if (!_viewModel) {
         _viewModel = [[DiscoverViewModel alloc] init];

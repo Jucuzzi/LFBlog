@@ -61,7 +61,7 @@
     [self.view addSubview:accountTable];
     
     accountTable.backgroundColor = DEFAULT_BACKGROUND_COLOR;
-    accountTable.separatorStyle = NO;
+//    accountTable.separatorStyle = NO;
     accountTable.delegate = self;
     accountTable.dataSource = self;
 }
@@ -120,59 +120,56 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"Cell-%ld-%ld",indexPath.section,indexPath.row]];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[NSString stringWithFormat:@"Cell-%ld-%ld",indexPath.section,indexPath.row]];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        if (indexPath.section == 0) {
-            if (indexPath.row == 0) {
-                UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 10, 80, 80)];
-                [imageView sd_setImageWithURL:[NSURL URLWithString:[Singleton sharedSingleton].userIconPath] placeholderImage:nil options:SDWebImageProgressiveDownload];
-                imageView.layer.masksToBounds = YES;
-                imageView.layer.cornerRadius = 40.f;
-                [cell.contentView addSubview:imageView];
-                UILabel *accountNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(120, 25, SCREEN_WIDTH - 200, 20)];
-                accountNameLabel.text = @"王力丰";
-                accountNameLabel.font = [UIFont systemFontOfSize:17.f];
-                [cell.contentView addSubview:accountNameLabel];
-                UILabel *detailLabel = [[UILabel alloc]initWithFrame:CGRectMake(120, 55, SCREEN_WIDTH - 200, 20)];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"cell",indexPath.section,indexPath.row]];
+    cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[NSString stringWithFormat:@"Cell-%ld-%ld",indexPath.section,indexPath.row]];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 10, 80, 80)];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:[Singleton sharedSingleton].userIconPath] placeholderImage:[UIImage imageNamed:@"user_default"] options:SDWebImageProgressiveDownload];
+            imageView.layer.masksToBounds = YES;
+            imageView.layer.cornerRadius = 40.f;
+            [cell.contentView addSubview:imageView];
+            UILabel *accountNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(120, 25, SCREEN_WIDTH - 200, 20)];
+            accountNameLabel.text = [Singleton sharedSingleton].nickName;
+            accountNameLabel.font = [UIFont systemFontOfSize:17.f];
+            [cell.contentView addSubview:accountNameLabel];
+            UILabel *detailLabel = [[UILabel alloc]initWithFrame:CGRectMake(120, 55, SCREEN_WIDTH - 200, 20)];
 //                detailLabel.text = [Singleton sharedSingleton].nickName;
-                detailLabel.text = @"查看个人资料";
-                detailLabel.textColor = [UIColor lightGrayColor];
-                detailLabel.font = [UIFont systemFontOfSize:15.f];
-                [cell.contentView addSubview:detailLabel];
-            }
-        } else if (indexPath.section == 1) {
-            UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(55, 0, SCREEN_WIDTH - 100, 50)];
-            titleLabel.font = [UIFont systemFontOfSize:15.f];
-            [cell.contentView addSubview:titleLabel];
-            UIImageView *iconView = [[UIImageView alloc]initWithFrame:CGRectMake(15, 10, 30, 30)];
-            [cell.contentView addSubview:iconView];
-            if (indexPath.row == 0) {
-                iconView.image = [UIImage imageNamed:@"care"];
-                titleLabel.text = @"我关注的主题";
-            } else if (indexPath.row == 1) {
-                iconView.image = [UIImage imageNamed:@"collection"];
-                titleLabel.text = @"我的收藏";
-            } else if (indexPath.row == 2) {
-                iconView.image = [UIImage imageNamed:@"notice"];
-                titleLabel.text = @"我的通知";
-            } else if (indexPath.row == 3) {
-                iconView.image = [UIImage imageNamed:@"help"];
-                titleLabel.text = @"帮助与反馈";
-            }
-        } else if (indexPath.section == 2) {
-            UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(55, 0, SCREEN_WIDTH - 100, 50)];
-            titleLabel.font = [UIFont systemFontOfSize:15.f];
-            [cell.contentView addSubview:titleLabel];
-            UIImageView *iconView = [[UIImageView alloc]initWithFrame:CGRectMake(15, 10, 30, 30)];
-            [cell.contentView addSubview:iconView];
-            if (indexPath.row == 0) {
-                iconView.image = [UIImage imageNamed:@"make"];
-                titleLabel.text = @"我创建的主题";
-            }
+            detailLabel.text = @"查看个人资料";
+            detailLabel.textColor = [UIColor lightGrayColor];
+            detailLabel.font = [UIFont systemFontOfSize:15.f];
+            [cell.contentView addSubview:detailLabel];
         }
-        
+    } else if (indexPath.section == 1) {
+        UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(55, 0, SCREEN_WIDTH - 100, 50)];
+        titleLabel.font = [UIFont systemFontOfSize:15.f];
+        [cell.contentView addSubview:titleLabel];
+        UIImageView *iconView = [[UIImageView alloc]initWithFrame:CGRectMake(15, 10, 30, 30)];
+        [cell.contentView addSubview:iconView];
+        if (indexPath.row == 0) {
+            iconView.image = [UIImage imageNamed:@"care"];
+            titleLabel.text = @"我关注的主题";
+        } else if (indexPath.row == 1) {
+            iconView.image = [UIImage imageNamed:@"collection"];
+            titleLabel.text = @"我的收藏";
+        } else if (indexPath.row == 2) {
+            iconView.image = [UIImage imageNamed:@"notice"];
+            titleLabel.text = @"我的通知";
+        } else if (indexPath.row == 3) {
+            iconView.image = [UIImage imageNamed:@"help"];
+            titleLabel.text = @"帮助与反馈";
+        }
+    } else if (indexPath.section == 2) {
+        UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(55, 0, SCREEN_WIDTH - 100, 50)];
+        titleLabel.font = [UIFont systemFontOfSize:15.f];
+        [cell.contentView addSubview:titleLabel];
+        UIImageView *iconView = [[UIImageView alloc]initWithFrame:CGRectMake(15, 10, 30, 30)];
+        [cell.contentView addSubview:iconView];
+        if (indexPath.row == 0) {
+            iconView.image = [UIImage imageNamed:@"make"];
+            titleLabel.text = @"我创建的主题";
+        }
     }
     return cell;
 }
@@ -192,24 +189,6 @@
         }
     }
 }
-
-///点击头像
-- (void)headImgClick {
-    _headImageUtil = [[LFHeadImageUtil alloc] init];
-    __weak __typeof__(self) weakSelf = self;
-    [_headImageUtil showWithCallBack:^(UIImage *headImage) {
-        weakSelf.viewModel.userIcon = headImage;
-        [weakSelf updateUserPhotoRequestStart];
-    }];
-}
-
-- (void)updateUserPhotoRequestStart {
-    @weakify(self);
-    [[self.viewModel.uploadUserIconCommand execute:nil] subscribeNext:^(NSDictionary *returnData) {
-        NSLog(@"成功了吗");
-    }];
-}
-
 
 #pragma mark - getter&&setter方法
 

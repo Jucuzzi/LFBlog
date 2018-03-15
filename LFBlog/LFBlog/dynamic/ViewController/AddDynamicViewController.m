@@ -365,7 +365,7 @@
     _imagePickerVc.barItemTextColor = [UIColor blackColor];
     _imagePickerVc.barItemTextFont = [UIFont systemFontOfSize:17.f];
     _imagePickerVc.isStatusBarDefault = YES;
-    _imagePickerVc.autoDismiss = NO;
+//    _imagePickerVc.autoDismiss = NO;
     _imagePickerVc.delegate = self;
     _imagePickerVc.cropRect = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH);
     _imagePickerVc.preferredLanguage = @"zh-Hans";

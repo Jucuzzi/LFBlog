@@ -21,4 +21,28 @@
                         success:(successBlock)successBlock
                          failed:(faildBlock)failedBlock;
 
+//更新用户的昵称
+- (void)updateUserInfoWithNickName:(NSString *)nickName
+                           success:(successBlock)successBlock
+                            failed:(faildBlock)failedBlock;
+
+// 更新用户的性别
+- (void)updateUserInfoWithSex:(NSString *)sex
+                      success:(successBlock)successBlock
+                       failed:(faildBlock)failedBlock;
+
+// 更新用户的生日
+- (void)updateUserInfoWithBirthday:(NSString *)birthday
+                           success:(successBlock)successBlock
+                            failed:(faildBlock)failedBlock;
+
+// 更新用户的地址
+- (void)updateUserInfoWithAddress:(NSString *)address
+                          success:(successBlock)successBlock
+                           failed:(faildBlock)failedBlock;
+
+// 更新用户的签名
+- (void)updateUserInfoWithSign:(NSString *)sign
+                       success:(successBlock)successBlock
+                        failed:(faildBlock)failedBlock;
 @end

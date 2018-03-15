@@ -83,6 +83,10 @@
                 [Singleton sharedSingleton].pictureId = returnDic[@"pictureId"];
                 [Singleton sharedSingleton].userIconPath = [NSString stringWithFormat:@"%@%@",LFBlogUserIconPath,returnDic[@"userIconPath"]];
                 [Singleton sharedSingleton].name = returnDic[@"name"];
+                [Singleton sharedSingleton].sex = returnDic[@"sex"];
+                [Singleton sharedSingleton].address = returnDic[@"address"];
+                [Singleton sharedSingleton].birthday = returnDic[@"birthday"];
+                [Singleton sharedSingleton].sign = returnDic[@"sign"];
                 [subscriber sendNext:returnDic];
                 [subscriber sendCompleted];
             } failed:^(NSError *error) {

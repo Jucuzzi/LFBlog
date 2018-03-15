@@ -206,7 +206,7 @@
 }
 
 #pragma mark - 云端请求方法
-//举报别人发布的评论
+//
 - (void)uploadImageWithImageArr:(NSArray *)arr{
     @weakify(self);
     [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

@@ -21,6 +21,7 @@
     if (self) {
         UIImageView *headImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds))];
         self.headImage = headImage;
+        headImage.clipsToBounds = YES;
         [self.contentView addSubview:headImage];
     }
     return self;

@@ -37,6 +37,8 @@
     imageShow.number = numberRow;
     imageShow.imageArr = imageArr;
     imageShow.widthMargin = widthMargin;
+    imageShow.contentMode = UIViewContentModeScaleAspectFill;
+    imageShow.clipsToBounds = YES;
     imageShow.imageCount = (int)imageArr.count;
     [imageShow frame:frame imageWithArr:imageArr];
     imageShow.imageShow = imageShow;
@@ -59,9 +61,10 @@
     
     
     for (int i = 0; i < imageArr.count; i++) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(3 + screenWidth * i, (screenHight - AllImageWidth) / 2, AllImageWidth, AllImageWidth)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(3 + screenWidth * i, 0, AllImageWidth, SCREEN_HEIGHT)];
          [imageView sd_setImageWithURL:[NSURL URLWithString: [NSString stringWithFormat:@"%@%@",LFBlogUserIconPath,imageArr[i]]] placeholderImage:[[UIImage alloc]init]];
 //        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageArr[i]]];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
         imageView.userInteractionEnabled = YES;
         [imageScroll addSubview:imageView];
     }
