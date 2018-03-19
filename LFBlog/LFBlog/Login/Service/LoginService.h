@@ -17,6 +17,12 @@
                              success:(successBlock)successBlock
                               failed:(faildBlock)failedBlock;
 
+// 用户注册(凭借用户名和密码即可)
+- (void)registerWithUsername:(NSString *)username
+                    password:(NSString *)password
+                     success:(successBlock)successBlock
+                      failed:(faildBlock)failedBlock;
+
 // 查询用户的所有信息
 - (void)queryUserInfoWithUserId:(NSString *)userId
                         success:(successBlock)successBlock

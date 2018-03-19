@@ -15,13 +15,6 @@
 #import "PYSearch.h"
 #import "EditorViewController.h"
 #import "BlocksKit+UIKit.h"
-//#import "ImageBtn.h"
-//#import "HttpUtil.h"
-//#import "Singleton.h"
-//#import "SignMainViewController.hb"
-//#import "ValleyEnergyMainViewController.h"
-//#import "SURefreshHeader.h"
-
 #define PersonalCenterVCTopViewHeight [[UIScreen mainScreen]bounds].size.width/2 - 30
 
 @interface InformationMainViewController ()  <UITableViewDelegate, UITableViewDataSource, SGPageTitleViewDelegate, SGPageContentViewDelegate, PersonalCenterChildBaseVCDelegate,UISearchBarDelegate> {
@@ -96,6 +89,7 @@ static CGFloat const PersonalCenterVCNavHeight = NAV_TITLE_HEIGHT;
 
 - (void)initView {
     self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR;
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
 }
 
 - (void)initNotification {
@@ -240,28 +234,6 @@ static CGFloat const PersonalCenterVCNavHeight = NAV_TITLE_HEIGHT;
                 scrollView.contentOffset = CGPointMake(0, 0);
             }
         }
-//                scrollView.contentOffset = CGPointMake(0, PersonalCenterVCTopViewHeight);
-//            } else {
-//                self.oneVC.vcCanScroll = NO;
-//                self.twoVC.vcCanScroll =NO;
-//                self.threeVC.vcCanScroll = NO;
-//                self.fourVC.vcCanScroll = NO;
-//                self.fiveVC.vcCanScroll = NO;
-//            }
-//            self.canScroll = YES;
-        
-//        if (!self.canScroll) {
-//            scrollView.contentOffset = CGPointMake(0, PersonalCenterVCTopViewHeight);
-//            return;
-//        }
-        
-//        if (self.childVCScrollView && _childVCScrollView.contentOffset.y > 0) {
-//            self.tableView.contentOffset = CGPointMake(0, PersonalCenterVCTopViewHeight);
-//        }
-//
-//        if (offSetY < PersonalCenterVCTopViewHeight) {
-//            [[NSNotificationCenter defaultCenter] postNotificationName:@"pageTitleViewToTop" object:nil];
-//        }
     }
 }
 
@@ -307,37 +279,11 @@ static CGFloat const PersonalCenterVCNavHeight = NAV_TITLE_HEIGHT;
 - (PersonalCenterTopView *)topView {
     if (!_topView) {
         _topView = [[PersonalCenterTopView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, PersonalCenterVCTopViewHeight)];
-//        _backGroundImage = [[UIImageView alloc]initWithFrame:_topView.frame];
-//        _backGroundImage.image = [UIImage imageNamed:@"Information_main_background"];
         _topView.backgroundColor = [UIColor whiteColor];
         [_topView addSubview:_backGroundImage];
-//        ImageBtn *gotoEnergy = [[ImageBtn alloc] initWithFrame:CGRectMake((SCREEN_WIDTH/2-ButtonWidth)/2, PersonalCenterVCTopViewHeight-20-Buttonheight, ButtonWidth, Buttonheight)];
-//        [gotoEnergy resetdata:@"绿色谷电" :[UIImage imageNamed:@"Information_main_energy"] :VI_GREEN_COLOR];
-//        [gotoEnergy setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-//        [gotoEnergy setBackgroundColor:[UIColor colorWithWhite:0.f alpha:.1f]];
-//        [gotoEnergy.layer setCornerRadius:10.f];
-//        [gotoEnergy addTarget:self action:@selector(gotoEnergy) forControlEvents:UIControlEventTouchUpInside];
-//        [_topView addSubview:gotoEnergy];
-//        ImageBtn *gotoSign = [[ImageBtn alloc] initWithFrame:CGRectMake((SCREEN_WIDTH/2-ButtonWidth)/2 +SCREEN_WIDTH/2, PersonalCenterVCTopViewHeight-20-Buttonheight, ButtonWidth, Buttonheight)];
-//        [gotoSign resetdata:@"积分兑换" :[UIImage imageNamed:@"Information_main_sign"] :VI_RED_COLOR];
-//        [gotoSign setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
-//        [gotoSign.layer setCornerRadius:10.f];
-//        [gotoSign addTarget:self action:@selector(gotoSign) forControlEvents:UIControlEventTouchUpInside];
-//        [gotoSign setBackgroundColor:[UIColor colorWithWhite:0.f alpha:.1f]];
-//        [_topView addSubview:gotoSign];
     }
     return _topView;
 }
-
-//-(void) gotoEnergy {
-//    ValleyEnergyMainViewController *valleyEnergyView = [[ValleyEnergyMainViewController alloc]init];
-//    [self.navigationController pushViewController:valleyEnergyView animated:YES];
-//}
-//
-//- (void)gotoSign {
-//    SignMainViewController *signVC = [[SignMainViewController alloc]init];
-//    [self.navigationController pushViewController:signVC animated:YES];
-//}
 
 - (SGPageTitleView *)pageTitleView {
     if (!_pageTitleView) {

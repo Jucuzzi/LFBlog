@@ -13,6 +13,8 @@
 #import "DynamicViewModel.h"
 #import "KafkaRefresh.h"
 #import "UIImageView+WebCache.h"
+#import "UIImage+Extension.h"
+#import "AddCareViewController.h"
 
 #import "HomeTableHeadView.h"
 #import "HomeTableCell.h"
@@ -59,6 +61,7 @@
 - (void)initTitle {
     self.title = @"动态";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"publishIcon"] style:UIBarButtonItemStyleDone target:self action:@selector(publishArticle)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"contactAddIcon"] style:UIBarButtonItemStyleDone target:self action:@selector(AddCareUser)];
 }
 
 - (void)initNotification {
@@ -70,6 +73,13 @@
 }
 
 - (void)publishArticle {
+    AddDynamicViewController *addDynamic = [[AddDynamicViewController alloc]init];
+    [self.navigationController pushViewController:addDynamic animated:YES];
+}
+
+- (void)AddCareUser {
+    AddCareViewController *addCareVC = [[AddCareViewController alloc]init];
+    [self.navigationController pushViewController:addCareVC animated:YES];
 }
 
 - (void)initData {
@@ -136,7 +146,7 @@
     } else {
         HeadModel *dataModel = _dataArr[section - 1];
         NSString *text = [NSString stringWithFormat:@"%@",dataModel.detailContent];
-        CGFloat height = [text heightWithText:text font:[UIFont systemFontOfSize:11 * DISTENCEW] width:screenWidth - 60 * DISTENCEW - 20];
+        CGFloat height = [text heightWithText:text font:[UIFont systemFontOfSize:13 * DISTENCEW] width:screenWidth - 60 * DISTENCEW - 20];
         NSArray *arr = [dataModel.pictureId componentsSeparatedByString:@","];
         int integer = (int)arr.count / NumberRow;  //整数
         int remainder = arr.count % NumberRow;//   余数
@@ -148,9 +158,18 @@
             imageHeight = screenHight - NAVGATION_ADD_STATUS_HEIGHT - 2 * CollClearance;
         }
         if (height > 0) {
-            return 75 * DISTENCEW + height + imageHeight +10;
+            if ([dataModel.pictureId isEqualToString:@""]) {
+                return 75 * DISTENCEW + height +10 + 8 * DISTENCEW ;
+            } else {
+                return 75 * DISTENCEW + height + imageHeight +10+ 18 * DISTENCEW ;
+            }
         }else{
-            return 92 * DISTENCEH + imageHeight +10;
+            if ([dataModel.pictureId isEqualToString:@""]) {
+                return 92 * DISTENCEH  +10+ 8 * DISTENCEW ;
+            } else {
+                return 92 * DISTENCEH + imageHeight +10+ 18 * DISTENCEW ;
+            }
+           
         }
     }
     
@@ -174,7 +193,12 @@
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 0.01;
+    if (section  == 0) {
+        return 15;
+    } else {
+        return 50;
+    }
+    
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -187,119 +211,245 @@
         UIView *mainView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 80 * DISTENCEW)];
         mainView.backgroundColor = [UIColor whiteColor];
         
-        UILabel *lineLabel = [[UILabel alloc] init];
-        lineLabel.backgroundColor = DEFAULT_BACKGROUND_COLOR;
-        lineLabel.frame = CGRectMake(15, 0, screenWidth - 30, 1);
-        lineLabel.alpha = .5f;
-        [mainView addSubview:lineLabel];
         
         
-        UIImageView *headImage = [[UIImageView alloc] initWithFrame:CGRectMake(10 * DISTENCEH, 15 * DISTENCEH, 35 * DISTENCEH, 35 * DISTENCEH)];
+        UIImageView *headImage = [[UIImageView alloc] initWithFrame:CGRectMake(10 * DISTENCEH, 12 * DISTENCEH, 35 * DISTENCEH, 35 * DISTENCEH)];
         [headImage sd_setImageWithURL:[NSURL URLWithString:dataModel.userIconPath] placeholderImage:[UIImage imageNamed:@"user_default"]];
         headImage.layer.cornerRadius = (35 * DISTENCEH/2);
         headImage.layer.masksToBounds = YES;
         [mainView addSubview:headImage];
         
         
-        UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(headImage.right + 10 * DISTENCEW, headImage.top, 100 * DISTENCEW, 13 * DISTENCEH)];
+        UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(headImage.right + 10 * DISTENCEW, headImage.top +3*DISTENCEH, 100 * DISTENCEW, 13 * DISTENCEH)];
         nameLabel.text = [NSString stringWithFormat:@"%@",dataModel.nickName];
-        nameLabel.textColor = RGB_COLOR(58, 87, 136);
-        nameLabel.font = [UIFont boldSystemFontOfSize:13 * DISTENCEW];
+        nameLabel.textColor = [UIColor blackColor];
+        nameLabel.font = [UIFont systemFontOfSize:13 * DISTENCEW];
         [mainView addSubview:nameLabel];
         
+        UILabel *signLabel = [[UILabel alloc] initWithFrame:CGRectMake(headImage.right + 10 * DISTENCEW, nameLabel.bottom + 2 * DISTENCEH, 100 * DISTENCEW, 13 * DISTENCEH)];
+        signLabel.text = [NSString stringWithFormat:@"%@",dataModel.sign];
+        signLabel.textColor = [UIColor lightGrayColor];
+        signLabel.font = [UIFont systemFontOfSize:11 * DISTENCEW];
+        [mainView addSubview:signLabel];
         
-        UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(nameLabel.left, nameLabel.bottom + 5 * DISTENCEH, screenWidth - 60 * DISTENCEW - 20, 0)];
+        
+        UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(nameLabel.left, signLabel.bottom + 5 * DISTENCEH, screenWidth - 60 * DISTENCEW - 20, 0)];
         textLabel.text = [NSString stringWithFormat:@"%@",dataModel.detailContent];
-        textLabel.font = [UIFont systemFontOfSize:11 * DISTENCEW];
+        textLabel.font = [UIFont systemFontOfSize:13 * DISTENCEW];
         textLabel.textColor = RGB_COLOR(50, 50, 50);
         textLabel.numberOfLines = 0;
         NSString *text = [NSString stringWithFormat:@"%@",dataModel.detailContent];
-        CGFloat height = [text heightWithText:text font:[UIFont systemFontOfSize:11 * DISTENCEW] width:screenWidth - 60 * DISTENCEW - 20];
+        CGFloat height = [text heightWithText:text font:[UIFont systemFontOfSize:13 * DISTENCEW] width:screenWidth - 60 * DISTENCEW - 20];
         textLabel.height = height;
         [mainView addSubview:textLabel];
         
-        NSArray *arr = [dataModel.pictureId componentsSeparatedByString:@","];
-        int integer = (int)arr.count / NumberRow;  //整数
-        int remainder = arr.count % NumberRow;//   余数
-        if (remainder > 0) {
-            remainder = 1;
-        }
-        int imageHeight = (((screenWidth - 70 * DISTENCEW  - 12 - (3 * (NumberRow - 1))) / NumberRow) * (integer + remainder) + (integer + remainder) * 4);
-        if (imageHeight > screenHight - NAVGATION_ADD_STATUS_HEIGHT) {
-            imageHeight = screenHight - NAVGATION_ADD_STATUS_HEIGHT - 2 * CollClearance;
-        }
-        ManyImageView *imageView = [ManyImageView initWithFrame:CGRectMake(nameLabel.left, textLabel.bottom + 10, screenWidth - 70 * DISTENCEW , imageHeight) imageArr:arr numberRow:NumberRow widthClearance:ImageWidthMargin];
-//        [imageView sd_setImageWithURL:[NSURL URLWithString:arr[]] placeholderImage:[[UIImage alloc]init]];
-        imageView.backgroundColor = [UIColor whiteColor];
-        [mainView addSubview:imageView];
-        
-        
-        UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(textLabel.left, imageView.bottom + 8 * DISTENCEH, 120 * DISTENCEW, 11 * DISTENCEH)];
-        timeLabel.text = [NSString stringWithFormat:@"%@",dataModel.releaseTiem];
-        timeLabel.font = [UIFont systemFontOfSize:11 * DISTENCEW];
-        timeLabel.textColor = [UIColor grayColor];
-        if (timeLabel.text.length == 0) {
-            timeLabel.frame = CGRectMake(textLabel.left, headImage.bottom , 100 * DISTENCEW, 16 * DISTENCEH);
-        }
-        [mainView addSubview:timeLabel];
-        
-        
-        UIButton *newsBtn = [[UIButton alloc] initWithFrame:CGRectMake(screenWidth - 40 * DISTENCEW , timeLabel.top - 9 * DISTENCEH, 30 * DISTENCEW, 30 * DISTENCEW)];
-        [newsBtn setImage:[UIImage imageNamed:@"弹出"] forState:UIControlStateNormal];
-        [newsBtn setImage:[UIImage imageNamed:@"head"] forState:UIControlStateSelected];
-        newsBtn.tag = 1000 + section;
-        [newsBtn addTarget:self action:@selector(newsBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-//        [mainView addSubview:newsBtn];
-        
-        
-        UIView *popView = [[UIView alloc] initWithFrame:CGRectMake(screenWidth - 170 * DISTENCEW, newsBtn.top, 130 * DISTENCEW, 30 * DISTENCEW)];
-        popView.backgroundColor = RGB_COLOR(57, 58, 62);
-        popView.layer.cornerRadius = 3;
-        self.popView = popView;
-        if (self.judgeBOOL == YES) {
-            int i = _judgeSection - 1000;
-            if (i == section) {
-                popView.hidden = NO;
+        if (![dataModel.pictureId isEqualToString:@""]) {
+            NSArray *arr = [dataModel.pictureId componentsSeparatedByString:@","];
+            int integer = (int)arr.count / NumberRow;  //整数
+            int remainder = arr.count % NumberRow;//   余数
+            if (remainder > 0) {
+                remainder = 1;
+            }
+            int imageHeight = (((screenWidth - 70 * DISTENCEW  - 12 - (3 * (NumberRow - 1))) / NumberRow) * (integer + remainder) + (integer + remainder) * 4);
+            if (imageHeight > screenHight - NAVGATION_ADD_STATUS_HEIGHT) {
+                imageHeight = screenHight - NAVGATION_ADD_STATUS_HEIGHT - 2 * CollClearance;
+            }
+            ManyImageView *imageView = [ManyImageView initWithFrame:CGRectMake(nameLabel.left, textLabel.bottom + 10, screenWidth - 70 * DISTENCEW , imageHeight) imageArr:arr numberRow:NumberRow widthClearance:ImageWidthMargin];
+            //        [imageView sd_setImageWithURL:[NSURL URLWithString:arr[]] placeholderImage:[[UIImage alloc]init]];
+            imageView.backgroundColor = [UIColor whiteColor];
+            [mainView addSubview:imageView];
+            
+            UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(textLabel.left, imageView.bottom + 10 * DISTENCEH, 120 * DISTENCEW, 11 * DISTENCEH)];
+            timeLabel.text = [NSString stringWithFormat:@"%@",dataModel.releaseTiem];
+            timeLabel.font = [UIFont systemFontOfSize:11 * DISTENCEW];
+            timeLabel.textColor = [UIColor lightGrayColor];
+            if (timeLabel.text.length == 0) {
+                timeLabel.frame = CGRectMake(textLabel.left, headImage.bottom , 100 * DISTENCEW, 16 * DISTENCEH);
+            }
+            [mainView addSubview:timeLabel];
+            
+            
+            UIButton *newsBtn = [[UIButton alloc] initWithFrame:CGRectMake(screenWidth - 40 * DISTENCEW , timeLabel.top - 9 * DISTENCEH, 30 * DISTENCEW, 30 * DISTENCEW)];
+            [newsBtn setImage:[UIImage imageNamed:@"弹出"] forState:UIControlStateNormal];
+            [newsBtn setImage:[UIImage imageNamed:@"head"] forState:UIControlStateSelected];
+            newsBtn.tag = 1000 + section;
+            [newsBtn addTarget:self action:@selector(newsBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+            //        [mainView addSubview:newsBtn];
+            
+            
+            UIView *popView = [[UIView alloc] initWithFrame:CGRectMake(screenWidth - 170 * DISTENCEW, newsBtn.top, 130 * DISTENCEW, 30 * DISTENCEW)];
+            popView.backgroundColor = RGB_COLOR(57, 58, 62);
+            popView.layer.cornerRadius = 3;
+            self.popView = popView;
+            if (self.judgeBOOL == YES) {
+                int i = _judgeSection - 1000;
+                if (i == section) {
+                    popView.hidden = NO;
+                }else{
+                    popView.hidden = YES;
+                }
             }else{
                 popView.hidden = YES;
             }
-        }else{
-            popView.hidden = YES;
+            [mainView addSubview:popView];
+            
+            UIButton *praiseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+            praiseBtn.backgroundColor = [UIColor clearColor];
+            praiseBtn.frame = CGRectMake(0, 0, _popView.width / 2, _popView.height);
+            [praiseBtn addTarget:self action:@selector(praiseClick:) forControlEvents:UIControlEventTouchUpInside];
+            [praiseBtn setTitle:@"赞" forState:0];
+            praiseBtn.tag = 1000 + section;
+            praiseBtn.titleLabel.font = [UIFont systemFontOfSize:11 * DISTENCEW];
+            praiseBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+            [popView addSubview:praiseBtn];
+            
+            
+            UIButton *commentBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+            commentBtn.backgroundColor = [UIColor clearColor];
+            commentBtn.frame = CGRectMake(praiseBtn.right, 0, _popView.width / 2, _popView.height);
+            [commentBtn addTarget:self action:@selector(commentClick:) forControlEvents:UIControlEventTouchUpInside];
+            [commentBtn setTitle:@"评论" forState:0];
+            commentBtn.titleLabel.font = [UIFont systemFontOfSize:11 * DISTENCEW];
+            commentBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+            commentBtn.tag = 1000 + section;
+            [popView addSubview:commentBtn];
+            
+            
+            UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(praiseBtn.right, 5 * DISTENCEH, 0.6, popView.height - 10 * DISTENCEH)];
+            lineView.backgroundColor = RGB_COLOR(120, 120, 120);
+            [popView addSubview:lineView];
+        } else {
+            UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(textLabel.left, textLabel.bottom + 10 * DISTENCEH, 120 * DISTENCEW, 11 * DISTENCEH)];
+            timeLabel.text = [NSString stringWithFormat:@"%@",dataModel.releaseTiem];
+            timeLabel.font = [UIFont systemFontOfSize:11 * DISTENCEW];
+            timeLabel.textColor = [UIColor lightGrayColor];
+            if (timeLabel.text.length == 0) {
+                timeLabel.frame = CGRectMake(textLabel.left, headImage.bottom , 100 * DISTENCEW, 16 * DISTENCEH);
+            }
+            [mainView addSubview:timeLabel];
+            
+            
+            UIButton *newsBtn = [[UIButton alloc] initWithFrame:CGRectMake(screenWidth - 40 * DISTENCEW , timeLabel.top - 9 * DISTENCEH, 30 * DISTENCEW, 30 * DISTENCEW)];
+            [newsBtn setImage:[UIImage imageNamed:@"弹出"] forState:UIControlStateNormal];
+            [newsBtn setImage:[UIImage imageNamed:@"head"] forState:UIControlStateSelected];
+            newsBtn.tag = 1000 + section;
+            [newsBtn addTarget:self action:@selector(newsBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+            //        [mainView addSubview:newsBtn];
+            
+            
+            UIView *popView = [[UIView alloc] initWithFrame:CGRectMake(screenWidth - 170 * DISTENCEW, newsBtn.top, 130 * DISTENCEW, 30 * DISTENCEW)];
+            popView.backgroundColor = RGB_COLOR(57, 58, 62);
+            popView.layer.cornerRadius = 3;
+            self.popView = popView;
+            if (self.judgeBOOL == YES) {
+                int i = _judgeSection - 1000;
+                if (i == section) {
+                    popView.hidden = NO;
+                }else{
+                    popView.hidden = YES;
+                }
+            }else{
+                popView.hidden = YES;
+            }
+            [mainView addSubview:popView];
+            
+            UIButton *praiseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+            praiseBtn.backgroundColor = [UIColor clearColor];
+            praiseBtn.frame = CGRectMake(0, 0, _popView.width / 2, _popView.height);
+            [praiseBtn addTarget:self action:@selector(praiseClick:) forControlEvents:UIControlEventTouchUpInside];
+            [praiseBtn setTitle:@"赞" forState:0];
+            praiseBtn.tag = 1000 + section;
+            praiseBtn.titleLabel.font = [UIFont systemFontOfSize:11 * DISTENCEW];
+            praiseBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+            [popView addSubview:praiseBtn];
+            
+            
+            UIButton *commentBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+            commentBtn.backgroundColor = [UIColor clearColor];
+            commentBtn.frame = CGRectMake(praiseBtn.right, 0, _popView.width / 2, _popView.height);
+            [commentBtn addTarget:self action:@selector(commentClick:) forControlEvents:UIControlEventTouchUpInside];
+            [commentBtn setTitle:@"评论" forState:0];
+            commentBtn.titleLabel.font = [UIFont systemFontOfSize:11 * DISTENCEW];
+            commentBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+            commentBtn.tag = 1000 + section;
+            [popView addSubview:commentBtn];
+            
+            
+            UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(praiseBtn.right, 5 * DISTENCEH, 0.6, popView.height - 10 * DISTENCEH)];
+            lineView.backgroundColor = RGB_COLOR(120, 120, 120);
+            [popView addSubview:lineView];
         }
-        [mainView addSubview:popView];
         
-        UIButton *praiseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        praiseBtn.backgroundColor = [UIColor clearColor];
-        praiseBtn.frame = CGRectMake(0, 0, _popView.width / 2, _popView.height);
-        [praiseBtn addTarget:self action:@selector(praiseClick:) forControlEvents:UIControlEventTouchUpInside];
-        [praiseBtn setTitle:@"赞" forState:0];
-        praiseBtn.tag = 1000 + section;
-        praiseBtn.titleLabel.font = [UIFont systemFontOfSize:11 * DISTENCEW];
-        praiseBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-        [popView addSubview:praiseBtn];
-        
-        
-        UIButton *commentBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        commentBtn.backgroundColor = [UIColor clearColor];
-        commentBtn.frame = CGRectMake(praiseBtn.right, 0, _popView.width / 2, _popView.height);
-        [commentBtn addTarget:self action:@selector(commentClick:) forControlEvents:UIControlEventTouchUpInside];
-        [commentBtn setTitle:@"评论" forState:0];
-        commentBtn.titleLabel.font = [UIFont systemFontOfSize:11 * DISTENCEW];
-        commentBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-        commentBtn.tag = 1000 + section;
-        [popView addSubview:commentBtn];
-        
-        
-        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(praiseBtn.right, 5 * DISTENCEH, 0.6, popView.height - 10 * DISTENCEH)];
-        lineView.backgroundColor = RGB_COLOR(120, 120, 120);
-        [popView addSubview:lineView];
+//        if (section != 1) {
+//            UILabel *lineLabel = [[UILabel alloc] init];
+//            lineLabel.backgroundColor = DEFAULT_BACKGROUND_COLOR;
+//            lineLabel.frame = CGRectMake(15, 0, screenWidth - 30, 1);
+//            lineLabel.alpha = .9f;
+//            [mainView addSubview:lineLabel];
+//        }
         
         return mainView;
     }
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    return nil;
+    if (section > 0) {
+        
+        UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
+        footerView.backgroundColor = [UIColor whiteColor];
+        
+        UILabel *lineLabel = [[UILabel alloc] init];
+        lineLabel.backgroundColor = DEFAULT_BACKGROUND_COLOR;
+        lineLabel.frame = CGRectMake(15, 0, screenWidth - 30, 1);
+        lineLabel.alpha = .9f;
+        [footerView addSubview:lineLabel];
+        
+        
+        UIButton *thumb = [[UIButton alloc]initWithFrame:CGRectMake(20, 0, 70, 40)];
+        UIImageView *thumbImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 9, 22, 22)];
+        thumbImage.image = [[UIImage imageNamed:@"thumb"]imageWithColor:[UIColor lightGrayColor]];
+        [thumb addSubview:thumbImage];
+        UILabel *thumbNum = [[UILabel alloc]initWithFrame:CGRectMake(28, 0, 45, 40)];
+        thumbNum.font = [UIFont systemFontOfSize:11.f];
+        thumbNum.text = @"179";
+        thumbNum.textColor =[ UIColor lightGrayColor];
+        [thumb addSubview:thumbNum];
+        [footerView addSubview:thumb];
+        
+        UIButton *comment = [[UIButton alloc]initWithFrame:CGRectMake(90, 0, 70, 40)];
+        UIImageView *commentImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 9, 22, 22)];
+        commentImage.image = [[UIImage imageNamed:@"comment"]imageWithColor:[UIColor lightGrayColor]];
+        [comment addSubview:commentImage];
+        UILabel *commentNum = [[UILabel alloc]initWithFrame:CGRectMake(28, 0, 45, 40)];
+        commentNum.font = [UIFont systemFontOfSize:11.f];
+        commentNum.text = @"30";
+        commentNum.textColor =[ UIColor lightGrayColor];
+        [comment addSubview:commentNum];
+        [footerView addSubview:comment];
+        
+        UIButton *resend = [[UIButton alloc]initWithFrame:CGRectMake(160, 0, 70, 40)];
+        UIImageView *resendImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 9, 22, 22)];
+        resendImage.image = [[UIImage imageNamed:@"resend"]imageWithColor:[UIColor lightGrayColor]];
+        [resend addSubview:resendImage];
+        UILabel *resendNum = [[UILabel alloc]initWithFrame:CGRectMake(28, 0, 45, 40)];
+        resendNum.font = [UIFont systemFontOfSize:11.f];
+        resendNum.textColor =[ UIColor lightGrayColor];
+        resendNum.text = @"125";
+        [resend addSubview:resendNum];
+        [footerView addSubview:resend];
+        
+        UIImageView *shareImage = [[UIImageView alloc]initWithFrame:CGRectMake(screenWidth - 50, 8, 24, 24)];
+        shareImage.image = [[UIImage imageNamed:@"share"]imageWithColor:[UIColor lightGrayColor]];
+        [footerView addSubview:shareImage];
+        
+        UIView *backgroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 40, screenWidth, 10)];
+        backgroundView.backgroundColor = DEFAULT_BACKGROUND_COLOR;
+        [footerView addSubview:backgroundView];
+        return footerView;
+    } else {
+        return nil;
+    }
+    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -334,7 +484,6 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             AddDynamicViewController *addDynamic = [[AddDynamicViewController alloc]init];
-            addDynamic.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:addDynamic animated:YES];
         }
     }

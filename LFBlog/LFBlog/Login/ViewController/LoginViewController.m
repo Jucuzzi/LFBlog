@@ -343,6 +343,16 @@
     }];
 }
 
+- (void)registerRequestStart {
+    self.viewModel.userName = @"123456";
+    self.viewModel.password = @"123456";
+    @weakify(self);
+    [[self.viewModel.registerCommand execute:nil] subscribeNext:^(NSDictionary *returnData) {
+        @strongify(self)
+        [self queryUserInfoRequestStart];
+    }];
+}
+
 - (void)queryUserInfoRequestStart {
     @weakify(self);
     [[self.viewModel.queryUserInfoCommand execute:nil] subscribeNext:^(NSDictionary *returnData) {

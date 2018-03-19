@@ -74,6 +74,10 @@
 		28C4DD6F2057886D00E4EF2F /* ImageCollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD6B2057886B00E4EF2F /* ImageCollCell.m */; };
 		28C4DD702057886D00E4EF2F /* ManyImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD6C2057886C00E4EF2F /* ManyImageView.m */; };
 		28C4DD712057886D00E4EF2F /* NSString+Font.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4DD6E2057886C00E4EF2F /* NSString+Font.m */; };
+		28F0C63D205A0CB5004D92C7 /* SignModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F0C63C205A0CB5004D92C7 /* SignModifyViewController.m */; };
+		28F0C640205A99EF004D92C7 /* BirthdayModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F0C63F205A99EF004D92C7 /* BirthdayModifyViewController.m */; };
+		28F0C643205BAC57004D92C7 /* AddCareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F0C642205BAC57004D92C7 /* AddCareViewController.m */; };
+		28F0C647205FDEB1004D92C7 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F0C646205FDEB1004D92C7 /* MeViewController.m */; };
 		47BA93FB027B213FD20980D7 /* Pods_LFBlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F06CB98B198C02B4B08DED /* Pods_LFBlog.framework */; };
 /* End PBXBuildFile section */
 
@@ -231,6 +235,14 @@
 		28C4DD6C2057886C00E4EF2F /* ManyImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManyImageView.m; sourceTree = "<group>"; };
 		28C4DD6D2057886C00E4EF2F /* NSString+Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Font.h"; sourceTree = "<group>"; };
 		28C4DD6E2057886C00E4EF2F /* NSString+Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Font.m"; sourceTree = "<group>"; };
+		28F0C63B205A0CB5004D92C7 /* SignModifyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignModifyViewController.h; sourceTree = "<group>"; };
+		28F0C63C205A0CB5004D92C7 /* SignModifyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignModifyViewController.m; sourceTree = "<group>"; };
+		28F0C63E205A99EF004D92C7 /* BirthdayModifyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BirthdayModifyViewController.h; sourceTree = "<group>"; };
+		28F0C63F205A99EF004D92C7 /* BirthdayModifyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BirthdayModifyViewController.m; sourceTree = "<group>"; };
+		28F0C641205BAC57004D92C7 /* AddCareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddCareViewController.h; sourceTree = "<group>"; };
+		28F0C642205BAC57004D92C7 /* AddCareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddCareViewController.m; sourceTree = "<group>"; };
+		28F0C645205FDEB1004D92C7 /* MeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
+		28F0C646205FDEB1004D92C7 /* MeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		4E5C8F92F2434978ACF89CD4 /* Pods-LFBlog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFBlog.release.xcconfig"; path = "Pods/Target Support Files/Pods-LFBlog/Pods-LFBlog.release.xcconfig"; sourceTree = "<group>"; };
 		614AE38BA1A8945B85AE9C37 /* Pods-LFBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFBlog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LFBlog/Pods-LFBlog.debug.xcconfig"; sourceTree = "<group>"; };
 		A5F06CB98B198C02B4B08DED /* Pods_LFBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LFBlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -365,6 +377,8 @@
 			children = (
 				28AAD2952049109E00BBA9EC /* MeMainViewController.h */,
 				28AAD2962049109E00BBA9EC /* MeMainViewController.m */,
+				28F0C645205FDEB1004D92C7 /* MeViewController.h */,
+				28F0C646205FDEB1004D92C7 /* MeViewController.m */,
 				281AA476204EA73600A4B657 /* MeInfoViewController.h */,
 				281AA477204EA73600A4B657 /* MeInfoViewController.m */,
 				281AA479204EAB8800A4B657 /* UserIconViewController.h */,
@@ -373,6 +387,10 @@
 				2886CFD02057CB2C00C699F4 /* NickNameModifyViewController.m */,
 				2886CFD22057F5E600C699F4 /* SexModityViewController.h */,
 				2886CFD32057F5E600C699F4 /* SexModityViewController.m */,
+				28F0C63B205A0CB5004D92C7 /* SignModifyViewController.h */,
+				28F0C63C205A0CB5004D92C7 /* SignModifyViewController.m */,
+				28F0C63E205A99EF004D92C7 /* BirthdayModifyViewController.h */,
+				28F0C63F205A99EF004D92C7 /* BirthdayModifyViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -439,6 +457,8 @@
 				28C4DD502057880300E4EF2F /* HomeTableCell.m */,
 				28C4DD522057880300E4EF2F /* HomeTableHeadView.h */,
 				28C4DD512057880300E4EF2F /* HomeTableHeadView.m */,
+				28F0C641205BAC57004D92C7 /* AddCareViewController.h */,
+				28F0C642205BAC57004D92C7 /* AddCareViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -966,6 +986,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				281AA4A82050D25100A4B657 /* HW3DBannerView.m in Sources */,
+				28F0C63D205A0CB5004D92C7 /* SignModifyViewController.m in Sources */,
 				28C4DD412052B5CF00E4EF2F /* DynamicService.m in Sources */,
 				281AA4A92050D25100A4B657 /* UIView+Banner.m in Sources */,
 				28C4DD4620567C9C00E4EF2F /* Tool.m in Sources */,
@@ -973,6 +994,7 @@
 				281AA478204EA73600A4B657 /* MeInfoViewController.m in Sources */,
 				28AAD29D20492D2500BBA9EC /* InformationDetailViewController.m in Sources */,
 				281AA4AD2050F36A00A4B657 /* AddDynamicViewController.m in Sources */,
+				28F0C647205FDEB1004D92C7 /* MeViewController.m in Sources */,
 				28AAD2902048E86A00BBA9EC /* SGPageContentScrollView.m in Sources */,
 				283546F82047FBBD00338B40 /* InformationViewModel.m in Sources */,
 				28C4DD652057885000E4EF2F /* BasicTableViewCell.m in Sources */,
@@ -1019,10 +1041,12 @@
 				281AA47B204EAB8800A4B657 /* UserIconViewController.m in Sources */,
 				281AA463204E546300A4B657 /* UIView+HZAnimation.m in Sources */,
 				283546F12047CF9000338B40 /* LFBaseViewModel.m in Sources */,
+				28F0C643205BAC57004D92C7 /* AddCareViewController.m in Sources */,
 				283546E02047A20100338B40 /* LoginViewModel.m in Sources */,
 				283546F52047FB9B00338B40 /* InformationViewController.m in Sources */,
 				28C4DD4720567C9C00E4EF2F /* EditorViewController.m in Sources */,
 				28C4DD5E2057882700E4EF2F /* UIView+NJ.m in Sources */,
+				28F0C640205A99EF004D92C7 /* BirthdayModifyViewController.m in Sources */,
 				283546AA20479ABD00338B40 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1199,7 +1223,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.telek.HemsCommunity;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jucuzzi.BlueNine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LFBlog/dynamic/ViewController/LFBlog-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1226,7 +1250,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.telek.HemsCommunity;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jucuzzi.BlueNine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LFBlog/dynamic/ViewController/LFBlog-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

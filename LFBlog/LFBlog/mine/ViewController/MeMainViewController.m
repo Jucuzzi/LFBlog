@@ -53,6 +53,11 @@
 
 - (void)initTitle {
     self.title = @"我的";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"configIcon"] style:UIBarButtonItemStyleDone target:self action:@selector(goSetting)];
+}
+
+- (void)goSetting {
+    
 }
 
 - (void)initView {

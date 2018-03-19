@@ -30,6 +30,14 @@
 
 @implementation AddDynamicViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initData];
@@ -129,19 +137,28 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return _imgArr.count;
+    return _imgArr.count +1;
 }
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor blackColor];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, (SCREEN_WIDTH - 50)/4, (SCREEN_WIDTH - 50)/4)];
-    [imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",LFBlogUserIconPath,_imgArr[indexPath.row]]] placeholderImage:[[UIImage alloc]init]];
-    cell.backgroundColor = [UIColor purpleColor];
-    [imageView setContentMode:UIViewContentModeScaleAspectFill];
-    [cell.contentView addSubview:imageView];
+//    cell.backgroundColor = [UIColor blackColor];
+    if (indexPath.row == _imgArr.count) {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, (SCREEN_WIDTH - 50)/4, (SCREEN_WIDTH - 50)/4)];
+        imageView.image = [[UIImage imageNamed:@"addPhotoIcon"]imageWithColor:[UIColor lightGrayColor]];
+        cell.backgroundColor = [UIColor whiteColor];
+        [cell.contentView addSubview:imageView];
+    } else {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, (SCREEN_WIDTH - 50)/4, (SCREEN_WIDTH - 50)/4)];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",LFBlogUserIconPath,_imgArr[indexPath.row]]] placeholderImage:[[UIImage alloc]init]];
+        [imageView clipsToBounds];
+        imageView.layer.masksToBounds = YES;
+        [imageView setContentMode:UIViewContentModeScaleAspectFill];
+        [cell.contentView addSubview:imageView];
+    }
+    
     return cell;
 }
 
@@ -238,15 +255,17 @@
 // 点击高亮
 - (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    cell.backgroundColor = [UIColor greenColor];
+//    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+//    cell.backgroundColor = [UIColor greenColor];
 }
 
 
 // 选中某item
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (indexPath.row == _imgArr.count) {
+        [self addPhoto];
+    }
 }
 
 
@@ -301,9 +320,7 @@
                                                 resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
                                                     [_imagePickerVc showProgressHUD];
                                                     [self uploadImageWithImage:result];
-
                                                 }];
-        
     }
 }
 

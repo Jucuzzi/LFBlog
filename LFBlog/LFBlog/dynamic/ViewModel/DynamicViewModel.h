@@ -16,6 +16,12 @@
 @property (nonatomic, strong) NSString *condition;
 @property (nonatomic, assign) NSString *queryTime;
 @property (nonatomic, strong) NSString *photoIds;
+@property (nonatomic, strong) NSMutableArray *userList;
+
+/***************************** 云端命令 ******************************/
+/** 获得所有的用户资料 */
+@property (nonatomic, strong) RACCommand *queryUserListCommand;
+
 
 /** 发布动态接口 */
 @property (nonatomic, strong) RACCommand *addDynamicCommand;

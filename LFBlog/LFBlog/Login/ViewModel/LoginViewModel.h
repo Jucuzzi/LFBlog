@@ -20,5 +20,7 @@
 @property (nonatomic, strong) RACCommand *normalLoginCommand;
 /** 查询用户所有信息 */
 @property (nonatomic, strong) RACCommand *queryUserInfoCommand;
+/** 用户注册 */
+@property (nonatomic, strong) RACCommand *registerCommand;
 
 @end

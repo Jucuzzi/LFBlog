@@ -24,6 +24,20 @@
     }];
 }
 
+- (void)registerWithUsername:(NSString *)username
+                       password:(NSString *)password
+                        success:(successBlock)successBlock
+                         failed:(faildBlock)failedBlock {
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithCapacity:1];
+    [parameter setObject:username forKey:@"username"];
+    [parameter setObject:password forKey:@"password"];
+    [self.httpUtil AFNRequestPostWithParameter:parameter url:@"prvlg/saveOrUpdateUser.do" success:^(id responseObject) {
+        successBlock(responseObject);
+    } failed:^(NSError * _Nonnull error) {
+        failedBlock(error);
+    }];
+}
+
 - (void)queryUserInfoWithUserId:(NSString *)userId
                         success:(successBlock)successBlock
                          failed:(faildBlock)failedBlock {

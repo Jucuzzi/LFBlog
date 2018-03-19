@@ -123,5 +123,24 @@
         }];
     }];
     _uploadImageCommand.allowsConcurrentExecution = YES;
+    
+    _queryUserListCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            @strongify(self);
+            /******************************** 网络请求 *********************************/
+            @weakify(self);
+            [self.service queryUserListByName:input success:^(id responseObject) {
+                @strongify(self);
+                NSDictionary *returnDic = responseObject;
+                self.userList = returnDic[@"root"];
+                [subscriber sendNext:returnDic];
+                [subscriber sendCompleted];
+            } failed:^(NSError *error) {
+                [self.requestFailedSubject sendNext:nil];
+            }];
+            return nil;
+        }];
+    }];
+    _queryUserListCommand.allowsConcurrentExecution = YES;
 }
 @end

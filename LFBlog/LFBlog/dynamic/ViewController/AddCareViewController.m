@@ -1,27 +1,35 @@
 //
-//  DiscoverMainViewController.m
+//  AddCareViewController.m
 //  LFBlog
 //
-//  Created by 王力丰 on 2018/3/9.
+//  Created by 王力丰 on 2018/3/16.
 //  Copyright © 2018年 LiFeng Wang. All rights reserved.
 //
 
-#import "DiscoverMainViewController.h"
-#import "DiscoverViewModel.h"
+#import "AddCareViewController.h"
+#import "DynamicViewModel.h"
 #import "UIImageView+WebCache.h"
 #import "KafkaRefresh.h"
 #import "UIImage+Extension.h"
 
-@interface DiscoverMainViewController ()<UITableViewDelegate,UITableViewDataSource>{
+@interface AddCareViewController ()<UITableViewDelegate,UITableViewDataSource>{
     UITableView *mainTableView;
 }
 
-@property (nonatomic, strong) DiscoverViewModel *viewModel;
+@property (nonatomic, strong) DynamicViewModel *viewModel;
 @property (nonatomic, strong) NSString *condition;
 
 @end
 
-@implementation DiscoverMainViewController
+@implementation AddCareViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,27 +49,27 @@
     // 调用viewModel的bindComplete方法确保viewModel初始化完成
     [self.viewModel bindComplete];
     self.condition = @"";
-//    [self queryUserListRequestStart];
+    [self queryUserListRequestStart];
 }
 
 - (void)initTitle {
-    self.title = @"发现";
+    self.title = @"发现玖友";
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"searchIcon"] style:UIBarButtonItemStyleDone target:self action:@selector(searchUser)];
 }
 
 - (void)initView {
     self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR;
-    mainTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, DEFAULT_HEIGHT - 50) style:UITableViewStyleGrouped];
+    mainTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, DEFAULT_HEIGHT) style:UITableViewStyleGrouped];
     mainTableView.backgroundColor = DEFAULT_BACKGROUND_COLOR;
     mainTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     mainTableView.delegate = self;
     mainTableView.dataSource = self;
     [mainTableView bindRefreshStyle:KafkaRefreshStyleReplicatorWoody
-                           fillColor:DEFAULT_BLUE_COLOR
-                          atPosition:KafkaRefreshPositionHeader refreshHanler:^{
-                              [self queryUserListRequestStart];
-                          }];
-//    [self.view addSubview:mainTableView];
+                          fillColor:DEFAULT_BLUE_COLOR
+                         atPosition:KafkaRefreshPositionHeader refreshHanler:^{
+                             [self queryUserListRequestStart];
+                         }];
+    [self.view addSubview:mainTableView];
 }
 
 - (void)initNotification {
@@ -118,7 +126,7 @@
         [cell.contentView addSubview:accountNameLabel];
         UILabel *detailLabel = [[UILabel alloc]initWithFrame:CGRectMake(80, 45, SCREEN_WIDTH - 200, 15)];
         //                detailLabel.text = [Singleton sharedSingleton].nickName;
-        detailLabel.text = cellData[@"z"];
+        detailLabel.text = cellData[@"sign"];
         detailLabel.textColor = [UIColor lightGrayColor];
         detailLabel.font = [UIFont systemFontOfSize:13.f];
         [cell.contentView addSubview:detailLabel];
@@ -132,7 +140,7 @@
         careButton.layer.masksToBounds = YES;
         [cell.contentView addSubview:careButton];
         
-//        UIButton *deleteButton = [UIButton alloc]initWithFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
+        //        UIButton *deleteButton = [UIButton alloc]initWithFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
         
     }
     return cell;
@@ -149,18 +157,17 @@
 #pragma mark - 云端请求方法
 - (void)queryUserListRequestStart {
     @weakify(self);
-//    [[self.viewModel.queryUserListCommand execute:self.condition] subscribeNext:^(NSDictionary *returnData) {
-//        [mainTableView.headRefreshControl endRefreshing];
-//        [mainTableView reloadData];
-//    }];
+    [[self.viewModel.queryUserListCommand execute:self.condition] subscribeNext:^(NSDictionary *returnData) {
+        [mainTableView.headRefreshControl endRefreshing];
+        [mainTableView reloadData];
+    }];
 }
 
 #pragma mark - getter&&setter方法
-- (DiscoverViewModel *)viewModel {
+- (DynamicViewModel *)viewModel {
     if (!_viewModel) {
-        _viewModel = [[DiscoverViewModel alloc] init];
+        _viewModel = [[DynamicViewModel alloc] init];
     }
     return _viewModel;
 }
-
 @end

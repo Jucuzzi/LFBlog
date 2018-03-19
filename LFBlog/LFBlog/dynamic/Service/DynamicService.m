@@ -20,7 +20,11 @@
     NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithCapacity:1];
     [parameter setObject:[Singleton sharedSingleton].userId forKey:@"userId"];
     [parameter setObject:topicId forKey:@"topicId"];
-    [parameter setObject:pictureId forKey:@"pictureId"];
+    if (pictureId == nil) {
+        [parameter setObject:@"" forKey:@"pictureId"];
+    } else {
+        [parameter setObject:pictureId forKey:@"pictureId"];
+    }
     [parameter setObject:detailContent forKey:@"detailContent"];
     [self.httpUtil AFNRequestPostWithParameter:parameter url:@"addDynamic" success:^(id responseObject) {
         successBlock(responseObject);
@@ -54,6 +58,19 @@
     NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithCapacity:1];
     [parameter setObject:[UIImageJPEGRepresentation(image, 1) base64Encoding] forKey:@"photoData"];
     [self.httpUtil AFNRequestPostWithParameter:parameter url:@"addPhoto" success:^(id responseObject) {
+        successBlock(responseObject);
+    } failed:^(NSError * _Nonnull error) {
+        failedBlock(error);
+    }];
+}
+
+// 通过用户名查找用户
+- (void)queryUserListByName:(NSString *)userName
+                    success:(successBlock)successBlock
+                     failed:(faildBlock)failedBlock {
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithCapacity:1];
+    [parameter setObject:userName forKey:@"condition"];
+    [self.httpUtil AFNRequestPostWithParameter:parameter url:@"prvlg/userlist.do" success:^(id responseObject) {
         successBlock(responseObject);
     } failed:^(NSError * _Nonnull error) {
         failedBlock(error);

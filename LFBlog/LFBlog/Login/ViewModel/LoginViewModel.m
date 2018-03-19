@@ -68,6 +68,29 @@
     }];
     _normalLoginCommand.allowsConcurrentExecution = YES;
     
+    _registerCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            @strongify(self);
+            /******************************** 网络请求 *********************************/
+            @weakify(self);
+            [self.service registerWithUsername:self.userName password:self.password success:^(id responseObject) {
+                @strongify(self);
+                NSDictionary *returnDic = responseObject;
+                if ([returnDic[@"login"] isEqualToString:@"successed"]) {
+                    [Singleton sharedSingleton].userId = returnDic[@"userId"];
+                } else {
+                    
+                }
+                [subscriber sendNext:returnDic];
+                [subscriber sendCompleted];
+            } failed:^(NSError *error) {
+                [self.requestFailedSubject sendNext:nil];
+            }];
+            return nil;
+        }];
+    }];
+    _registerCommand.allowsConcurrentExecution = YES;
+    
     _queryUserInfoCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
             @strongify(self);

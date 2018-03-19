@@ -28,4 +28,9 @@
 - (void)uploadImageWithImage:(UIImage *)image
                      success:(successBlock)successBlock
                       failed:(faildBlock)failedBlock;
+
+// 通过用户名查找用户
+- (void)queryUserListByName:(NSString *)userName
+                    success:(successBlock)successBlock
+                     failed:(faildBlock)failedBlock;
 @end

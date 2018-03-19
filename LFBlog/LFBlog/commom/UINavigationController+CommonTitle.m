@@ -15,7 +15,7 @@
 {
     ///导航栏图片设置
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageFromColor:[UIColor whiteColor] size:CGSizeMake(SCREEN_WIDTH, 64)] forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+//    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
     if (IOS8_OR_LATER) {
         [UINavigationBar appearance].translucent = NO;
     }

@@ -14,5 +14,6 @@
 @property (nonatomic, copy) NSString *releaseTiem;
 @property (nonatomic, copy) NSString *userIconPath;
 @property (nonatomic, copy) NSString *pictureId;
+@property (nonatomic, copy) NSString *sign;
 
 @end

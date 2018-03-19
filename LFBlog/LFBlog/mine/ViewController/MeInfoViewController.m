@@ -13,6 +13,8 @@
 #import "UIImageView+WebCache.h"
 #import "NickNameModifyViewController.h"
 #import "SexModityViewController.h"
+#import "SignModifyViewController.h"
+#import "BirthdayModifyViewController.h"
 
 @interface MeInfoViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
@@ -126,7 +128,7 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"cell",indexPath.section,indexPath.row]];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"cell"]];
     cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:[NSString stringWithFormat:@"Cell-%ld-%ld",indexPath.section,indexPath.row]];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.font = [UIFont systemFontOfSize:15.f];
@@ -178,6 +180,12 @@
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             [self.navigationController pushViewController:[[SexModityViewController alloc]init] animated:YES];
+        } else if (indexPath.row == 1) {
+            [self.navigationController pushViewController:[[BirthdayModifyViewController alloc] init] animated:YES];
+        }
+    } else if (indexPath.section == 2) {
+        if (indexPath.row == 0) {
+            [self.navigationController pushViewController:[[SignModifyViewController alloc]init] animated:YES];
         }
     }
 }
