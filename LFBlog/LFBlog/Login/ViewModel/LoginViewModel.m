@@ -10,6 +10,7 @@
 #import "LoginService.h"
 #import "JSONKit.h"
 #import "Singleton.h"
+#import "AnalysisJSONToPlist.h"
 
 @interface LoginViewModel ()
 
@@ -77,6 +78,9 @@
                 @strongify(self);
                 NSDictionary *returnDic = responseObject;
                 if ([returnDic[@"login"] isEqualToString:@"successed"]) {
+                    AnalysisJSONToPlist *toplist = [[AnalysisJSONToPlist alloc] init];
+                    NSString *userId = [NSString stringWithFormat:@" {\"userId\":\"%@\"}",[returnDic objectForKey:@"userId"]];
+                    [toplist analysisJSON:userId toPlist:@"userId"];
                     [Singleton sharedSingleton].userId = returnDic[@"userId"];
                 } else {
                     

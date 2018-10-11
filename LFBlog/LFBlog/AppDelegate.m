@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "readDataFromPlist.h"
+#import "Singleton.h"
 
 @interface AppDelegate ()
 
@@ -26,6 +28,13 @@
     // 为了防止有导航栏的情况下，push隐藏底部tab栏的时候右上角有黑块
     self.window.backgroundColor = [UIColor whiteColor];
     // Override point for customization after application launch.
+    
+    readDataFromPlist *readData = [[readDataFromPlist alloc] init];
+    [Singleton sharedSingleton].userId = [readData getValueForKeyFromPList:@"userId" forKey:@"userId"];
+    [Singleton sharedSingleton].username = [readData getValueForKeyFromPList:@"username" forKey:@"username"];
+//    [Singleton sharedSingleton].photoUrl = [readData getValueForKeyFromPList:@"userPhotoUrl" forKey:@"userPhotoUrl"];
+//    [Singleton sharedSingleton].isAdmin = [readData getValueForKeyFromPList:@"isAdmin" forKey:@"isAdmin"];
+    
     return YES;
 }
 

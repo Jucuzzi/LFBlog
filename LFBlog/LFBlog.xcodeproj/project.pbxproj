@@ -41,6 +41,11 @@
 		283546F52047FB9B00338B40 /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 283546F42047FB9B00338B40 /* InformationViewController.m */; };
 		283546F82047FBBD00338B40 /* InformationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 283546F72047FBBD00338B40 /* InformationViewModel.m */; };
 		283546FB2047FC9800338B40 /* InformationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 283546FA2047FC9800338B40 /* InformationService.m */; };
+		28743E51208D8733001E4932 /* AnalysisJSONToPlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 28743E4F208D8733001E4932 /* AnalysisJSONToPlist.m */; };
+		28743E54208DA42D001E4932 /* readDataFromPlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 28743E52208DA42D001E4932 /* readDataFromPlist.m */; };
+		28743E5B208F294B001E4932 /* MYCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28743E57208F28BD001E4932 /* MYCollectionViewCell.m */; };
+		28743E5C208F294B001E4932 /* WGCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 28743E56208F28BD001E4932 /* WGCollectionViewLayout.m */; };
+		28743E5D208F2C19001E4932 /* MYCollectionViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 28743E58208F28BD001E4932 /* MYCollectionViewCell.xib */; };
 		2886CFD12057CB2C00C699F4 /* NickNameModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2886CFD02057CB2C00C699F4 /* NickNameModifyViewController.m */; };
 		2886CFD42057F5E600C699F4 /* SexModityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2886CFD32057F5E600C699F4 /* SexModityViewController.m */; };
 		28AAD2772048E80200BBA9EC /* PersonalCenterTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AAD26E2048E80100BBA9EC /* PersonalCenterTopView.m */; };
@@ -167,6 +172,15 @@
 		283546F72047FBBD00338B40 /* InformationViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InformationViewModel.m; sourceTree = "<group>"; };
 		283546F92047FC9800338B40 /* InformationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InformationService.h; sourceTree = "<group>"; };
 		283546FA2047FC9800338B40 /* InformationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InformationService.m; sourceTree = "<group>"; };
+		28743E4F208D8733001E4932 /* AnalysisJSONToPlist.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnalysisJSONToPlist.m; sourceTree = "<group>"; };
+		28743E50208D8733001E4932 /* AnalysisJSONToPlist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnalysisJSONToPlist.h; sourceTree = "<group>"; };
+		28743E52208DA42D001E4932 /* readDataFromPlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = readDataFromPlist.m; sourceTree = "<group>"; };
+		28743E53208DA42D001E4932 /* readDataFromPlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = readDataFromPlist.h; sourceTree = "<group>"; };
+		28743E56208F28BD001E4932 /* WGCollectionViewLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WGCollectionViewLayout.m; sourceTree = "<group>"; };
+		28743E57208F28BD001E4932 /* MYCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYCollectionViewCell.m; sourceTree = "<group>"; };
+		28743E58208F28BD001E4932 /* MYCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MYCollectionViewCell.xib; sourceTree = "<group>"; };
+		28743E59208F28BD001E4932 /* WGCollectionViewLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WGCollectionViewLayout.h; sourceTree = "<group>"; };
+		28743E5A208F28BE001E4932 /* MYCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYCollectionViewCell.h; sourceTree = "<group>"; };
 		2886CFCF2057CB2C00C699F4 /* NickNameModifyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NickNameModifyViewController.h; sourceTree = "<group>"; };
 		2886CFD02057CB2C00C699F4 /* NickNameModifyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NickNameModifyViewController.m; sourceTree = "<group>"; };
 		2886CFD22057F5E600C699F4 /* SexModityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SexModityViewController.h; sourceTree = "<group>"; };
@@ -547,6 +561,10 @@
 				28AAD27E2048E86A00BBA9EC /* SGPagingView */,
 				283546E62047BFEA00338B40 /* HttpUtil.h */,
 				283546E72047BFEA00338B40 /* HttpUtil.m */,
+				28743E53208DA42D001E4932 /* readDataFromPlist.h */,
+				28743E52208DA42D001E4932 /* readDataFromPlist.m */,
+				28743E50208D8733001E4932 /* AnalysisJSONToPlist.h */,
+				28743E4F208D8733001E4932 /* AnalysisJSONToPlist.m */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -589,6 +607,18 @@
 				2806CFF3204D30B900A7390B /* ViewController */,
 			);
 			path = Information;
+			sourceTree = "<group>";
+		};
+		28743E55208F28B1001E4932 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				28743E5A208F28BE001E4932 /* MYCollectionViewCell.h */,
+				28743E57208F28BD001E4932 /* MYCollectionViewCell.m */,
+				28743E58208F28BD001E4932 /* MYCollectionViewCell.xib */,
+				28743E59208F28BD001E4932 /* WGCollectionViewLayout.h */,
+				28743E56208F28BD001E4932 /* WGCollectionViewLayout.m */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		28AAD27E2048E86A00BBA9EC /* SGPagingView */ = {
@@ -654,6 +684,7 @@
 		28C4DD302052222900E4EF2F /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				28743E55208F28B1001E4932 /* Other */,
 				28C4DD352052479500E4EF2F /* Service */,
 				28C4DD362052479B00E4EF2F /* ViewModel */,
 				28C4DD342052478600E4EF2F /* ViewController */,
@@ -934,6 +965,7 @@
 				"${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONKit/JSONKit.framework",
 				"${BUILT_PRODUCTS_DIR}/KafkaRefresh/KafkaRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/PYSearch/PYSearch.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
@@ -948,6 +980,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BlocksKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KafkaRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PYSearch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
@@ -985,6 +1018,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28743E5D208F2C19001E4932 /* MYCollectionViewCell.xib in Sources */,
+				28743E5B208F294B001E4932 /* MYCollectionViewCell.m in Sources */,
+				28743E5C208F294B001E4932 /* WGCollectionViewLayout.m in Sources */,
 				281AA4A82050D25100A4B657 /* HW3DBannerView.m in Sources */,
 				28F0C63D205A0CB5004D92C7 /* SignModifyViewController.m in Sources */,
 				28C4DD412052B5CF00E4EF2F /* DynamicService.m in Sources */,
@@ -1038,6 +1074,7 @@
 				28C4DD6F2057886D00E4EF2F /* ImageCollCell.m in Sources */,
 				28C4DD662057885000E4EF2F /* BasicModel.m in Sources */,
 				28AAD2922048E86A00BBA9EC /* SGPageTitleView.m in Sources */,
+				28743E54208DA42D001E4932 /* readDataFromPlist.m in Sources */,
 				281AA47B204EAB8800A4B657 /* UserIconViewController.m in Sources */,
 				281AA463204E546300A4B657 /* UIView+HZAnimation.m in Sources */,
 				283546F12047CF9000338B40 /* LFBaseViewModel.m in Sources */,
@@ -1046,6 +1083,7 @@
 				283546F52047FB9B00338B40 /* InformationViewController.m in Sources */,
 				28C4DD4720567C9C00E4EF2F /* EditorViewController.m in Sources */,
 				28C4DD5E2057882700E4EF2F /* UIView+NJ.m in Sources */,
+				28743E51208D8733001E4932 /* AnalysisJSONToPlist.m in Sources */,
 				28F0C640205A99EF004D92C7 /* BirthdayModifyViewController.m in Sources */,
 				283546AA20479ABD00338B40 /* AppDelegate.m in Sources */,
 			);

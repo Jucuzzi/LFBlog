@@ -11,8 +11,9 @@
 #import "ReactiveObjC.h"
 #import "Masonry.h"
 #import "UIImage+Extension.h"
+#import "MBProgressHUD.h"
 
-@interface LoginViewController ()<UITableViewDelegate, UITableViewDataSource>{
+@interface LoginViewController ()<UITableViewDelegate, UITableViewDataSource,MBProgressHUDDelegate>{
     UITableView *loginView;
     UITextField *accountText;
     UITextField *passwordText;
@@ -34,12 +35,26 @@
     [super viewDidLoad];
     [self initData];
     [self initView];
+    [self initSubscribe];
+}
+
+- (void)initSubscribe {
+    @weakify(self)
+    // 订阅请求失败信号
+    [self.viewModel.requestFailedSubject subscribeNext:^(NSNumber *netWrong) {
+        @strongify(self);
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = @"网络开小差了";
+        hud.margin = 20.f;
+        hud.removeFromSuperViewOnHide = YES;
+        [hud hideAnimated:YES afterDelay:1];
+    }];
 }
 
 - (void)initData {
     // 调用viewModel的bindComplete方法确保viewModel初始化完成
     [self.viewModel bindComplete];
-    
 }
 
 - (void)initView {
@@ -299,10 +314,9 @@
 }
 
 - (void)login {
-    [self normalLoginRequestStart];
-    [self skipToRootView];
+    
     if (self.type == LFBlogTypeLogin) {
-//        [self normalLoginRequestStartWithUsername:accountText.text Password:passwordText.text];
+        [self normalLoginRequestStart];
     } else if (self.type == LFBlogTypeRegister) {
 //        [self normalRegisterRequestStartWithPhoneNumber:accountText.text Validate:validateText.text Password:passwordText.text];
     } else if (self.type == LFBlogTypeForget) {
@@ -334,12 +348,27 @@
 
 
 - (void)normalLoginRequestStart {
-    self.viewModel.userName = @"123456";
-    self.viewModel.password = @"123456";
+    self.viewModel.userName = accountText.text;
+    self.viewModel.password = passwordText.text;
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.delegate = self;
+    hud.label.text = @"登录中";
+    hud.dimBackground = YES;
     @weakify(self);
     [[self.viewModel.normalLoginCommand execute:nil] subscribeNext:^(NSDictionary *returnData) {
         @strongify(self)
-        [self queryUserInfoRequestStart];
+        [hud hideAnimated:YES afterDelay:0];
+        if ([returnData[@"login"] isEqualToString:@"successed"]) {
+            [self skipToRootView];
+            [self queryUserInfoRequestStart];
+        } else {
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            hud.mode = MBProgressHUDModeText;
+            hud.label.text = @"用户名或密码不正确";
+            hud.margin = 20.f;
+            hud.removeFromSuperViewOnHide = YES;
+            [hud hideAnimated:YES afterDelay:1];
+        }
     }];
 }
 

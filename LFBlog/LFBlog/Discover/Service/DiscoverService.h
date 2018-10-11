@@ -15,5 +15,17 @@
                          success:(successBlock)successBlock
                           failed:(faildBlock)failedBlock;
 
+// 查找所有tags
+- (void)queryTagsWithSuccess:(successBlock)successBlock
+                     failed:(faildBlock)failedBlock;
 
+// 增加一个tag
+- (void)addTagWithTagName:(NSString *)tagName
+                  success:(successBlock)successBlock
+                      failed:(faildBlock)failedBlock;
+
+// 删除一个tag
+- (void)deleteTagWithTagId:(NSString *)tagId
+                   Success:(successBlock)successBlock
+                      failed:(faildBlock)failedBlock;
 @end

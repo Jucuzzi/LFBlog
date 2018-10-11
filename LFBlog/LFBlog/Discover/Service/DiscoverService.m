@@ -24,4 +24,41 @@
     }];
 }
 
+// 查找所有tags
+- (void)queryTagsWithSuccess:(successBlock)successBlock
+                      failed:(faildBlock)failedBlock {
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithCapacity:1];
+    [self.httpUtil AFNRequestPostWithParameter:parameter url:@"queryTags.do" success:^(id responseObject) {
+        successBlock(responseObject);
+    } failed:^(NSError * _Nonnull error) {
+        failedBlock(error);
+    }];
+}
+
+// 增加一个tag
+- (void)addTagWithTagName:(NSString *)tagName
+                  success:(successBlock)successBlock
+                   failed:(faildBlock)failedBlock {
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithCapacity:1];
+    [parameter setObject:tagName forKey:@"tagName"];
+    [self.httpUtil AFNRequestPostWithParameter:parameter url:@"prvlg/userlist.do" success:^(id responseObject) {
+        successBlock(responseObject);
+    } failed:^(NSError * _Nonnull error) {
+        failedBlock(error);
+    }];
+}
+
+// 删除一个tag
+- (void)deleteTagWithTagId:(NSString *)tagId
+                   Success:(successBlock)successBlock
+                           failed:(faildBlock)failedBlock {
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithCapacity:1];
+    [parameter setObject:tagId forKey:@"tagId"];
+    [self.httpUtil AFNRequestPostWithParameter:parameter url:@"prvlg/userlist.do" success:^(id responseObject) {
+        successBlock(responseObject);
+    } failed:^(NSError * _Nonnull error) {
+        failedBlock(error);
+    }];
+}
+
 @end

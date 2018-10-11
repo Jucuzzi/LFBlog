@@ -60,6 +60,25 @@
         }];
     }];
     _queryUserListCommand.allowsConcurrentExecution = YES;
+    
+    _queryTagsCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            @strongify(self);
+            /******************************** 网络请求 *********************************/
+            @weakify(self);
+            [self.service queryTagsWithSuccess:^(id responseObject) {
+                @strongify(self);
+                NSDictionary *returnDic = responseObject;
+                self.tagList = returnDic[@"tagList"];
+                [subscriber sendNext:returnDic];
+                [subscriber sendCompleted];
+            } failed:^(NSError *error) {
+                [self.requestFailedSubject sendNext:nil];
+            }];
+            return nil;
+        }];
+    }];
+    _queryTagsCommand.allowsConcurrentExecution = YES;
 }
 
 @end

@@ -11,5 +11,6 @@ pod 'PYSearch'
 pod 'YYKit'
 pod 'TZImagePickerController'
 pod 'BlocksKit'
+pod 'MBProgressHUD'
 end
 use_frameworks!
